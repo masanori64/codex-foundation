@@ -76,6 +76,13 @@ Heartbeat check 2026-06-27 continued:
 - `complete_artifact_only_no_cost` appears only as `intermediate_smoke_status`, not as the final state.
 - Historical `gated_plan`/`dry_run_only` hits remain only in superseded phase records and audit evidence.
 
+Reopened improvement loop 2026-06-27:
+- User clarified the loop should continue by comparing the implementation against the upper ideal, finding the next missing piece, implementing it, and then updating the goal boundary.
+- New active goal: make the Codex foundation pipeline a genuinely standalone, no-cost, public-CI-verifiable control plane; after each evidence pass, repair any directly provable gap in source-of-truth docs, tests, CI, or boundary claims.
+- Evidence pass found a new active-doc gap: `pipeline/README.md` still used `research_x` as the command target and still described the E2E completion manifest as artifact-only completion. That wording was inconsistent with the later foundation-independent CI fixture work and with static Pages CD as the final completion target.
+- Repair in progress: update `pipeline/README.md` to describe a generic `$PROJECT` target, update `CHANGELOG.control.md` to record artifact-only as an intermediate signal, and add a regression test that fails if the README returns to a host-local `research_x` target path or artifact-only-final wording.
+- Validation target for this reopened loop: `uv run ruff check pipeline\engine pipeline\tests`, `uv run pytest pipeline\tests`, full `uv run pytest`, foundation manifest update, commit/push, and GitHub Actions success on `masanori64/codex-foundation`.
+
 Self-review questions at every boundary:
 - Are all free/no-cost actions that the user permitted actually executed, not merely planned?
 - Does any active artifact still say pending, planned, gated, dry-run-only, disabled, or blocked in a way that implies the free CD pipeline is incomplete?

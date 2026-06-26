@@ -2,14 +2,14 @@
   "control_artifact": true,
   "files": [
     {
-      "bytes": 1865,
+      "bytes": 2242,
       "path": "CHANGELOG.control.md",
-      "sha256": "5a5935954b8813e9f1a4202d2bf59e3ff8b90aec2ef367e8201b8a71bcf63624"
+      "sha256": "8a2b11af2f2524bda28164fa1677572b65172cd3258f7a9daac91611a2d35247"
     },
     {
-      "bytes": 4199,
+      "bytes": 4107,
       "path": "README.md",
-      "sha256": "6537543cd355e058c9e60c56f50ea84e056079b74caed66221d28f27bf877e4a"
+      "sha256": "5b04525ba06dbccd6e5ad8c6e89afd29e37094cfc0898c0fc3e5d87da27fe50b"
     },
     {
       "bytes": 6,
@@ -332,9 +332,9 @@
       "sha256": "059e65068e1aa4bc6e72fe81c0e9b177fbbe4df3396406f04563ce915de0843e"
     },
     {
-      "bytes": 5073,
+      "bytes": 5631,
       "path": "tests/test_cross_project_generalization.py",
-      "sha256": "dd8cedd2bf0d56b9679965bac96d826429446a79f7b8a8678efa2739b12ea811"
+      "sha256": "979df265263a59f073c1ea8c5b879046c190ff3c77f269afe21ba599f508a5e2"
     },
     {
       "bytes": 3366,
@@ -398,7 +398,7 @@
     }
   ],
   "foundation_id": "codex-hotl-implementation-pipeline",
-  "generated_at": "2026-06-26T20:39:17.543944+00:00",
+  "generated_at": "2026-06-26T20:47:53.527796+00:00",
   "known_projects": [
     "C:/Users/maasa/research_x"
   ],

@@ -30,5 +30,10 @@ pipeline. It is not project evidence, citation support, or answer support.
   model runners.
 - Added Phase 17 push-triggered artifact-only remote smoke workflow and
   workflow-smoke control artifacts.
-- Added Phase 18 E2E completion manifest for the no-cost artifact-only
-  pipeline loop.
+- Added Phase 18 E2E completion manifest for the no-cost static Pages CD
+  pipeline loop, with artifact-only remote smoke treated as an intermediate
+  signal rather than final completion.
+- Added public-CI fixture isolation so pipeline tests use temporary synthetic
+  projects and do not create or mutate host-local target repositories.
+- Fixed manifest line-ending stability for PowerShell wrapper scripts across
+  local Windows and GitHub-hosted Windows runners.

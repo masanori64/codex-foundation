@@ -52,6 +52,18 @@ def test_pipeline_tests_do_not_depend_on_host_research_x_path() -> None:
     assert offenders == []
 
 
+def test_pipeline_readme_describes_generic_target_project() -> None:
+    readme = Path(__file__).resolve().parents[1] / "README.md"
+    text = readme.read_text(encoding="utf-8")
+    forbidden = "C:/Users/" + "maasa/research_x"
+
+    assert forbidden not in text
+    assert forbidden.replace("/", "\\") not in text
+    assert "Set `$PROJECT` to a target repository" in text
+    assert "E2E completion manifest for the artifact-only no-cost pipeline loop" not in text
+    assert "E2E completion manifest for the no-cost static Pages CD pipeline loop" in text
+
+
 def _write_profile(project: Path) -> None:
     boundary = (
         "raw source != searchable document != search result != source bundle "

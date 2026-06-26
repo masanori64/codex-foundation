@@ -1,6 +1,11 @@
 # Codex Foundation Independent CI/CD - 2026-06-27
 
-Status: active
+Status: complete-source-state
+
+This plan is closed as implementation state. The final GitHub Actions pass and
+artifact readback for the plan-close commit are recorded in the Codex thread
+result rather than written back into this file, so the plan does not create an
+endless plan-update/manifest-update loop.
 
 Objective: make `C:/Users/maasa/.codex/foundation` stand as an independent
 Git/GitHub-managed Codex foundation control-plane repository, not merely a
@@ -68,6 +73,8 @@ Non-negotiable boundaries:
   `FOUNDATION_REPO_MANIFEST.json`, so the final plan-close commit must be
   verified by CI and recorded in the Codex thread result rather than causing an
   infinite plan-update/manifest-update loop.
+- [x] Converted this active plan into closed implementation state; final remote
+  readback for that closing commit is intentionally reported outside this file.
 
 ## Current Known State
 
@@ -125,6 +132,6 @@ Non-negotiable boundaries:
   default settings.
 - `22b4092` remote run succeeded:
   `https://github.com/masanori64/codex-foundation/actions/runs/28265396448`.
-- Terminal readback required after this plan-close commit: GitHub Actions must
-  pass for the final commit, but the result is recorded in the Codex final
-  response instead of mutating this plan again.
+- Final readback rule: GitHub Actions must pass for the final plan-close commit,
+  but the result is recorded in the Codex final response instead of mutating this
+  plan again.

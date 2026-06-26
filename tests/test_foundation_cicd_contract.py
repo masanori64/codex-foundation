@@ -17,7 +17,12 @@ def test_foundation_ci_runs_full_verification_and_artifact_cd() -> None:
     assert "pull_request:" in workflow
     assert ".\\scripts\\verify-foundation.ps1" in workflow
     assert "-Portable" in workflow
-    assert ".\\scripts\\package-foundation.ps1" in workflow
+    assert ".\\scripts\\package-foundation.ps1 -OutputDir foundation-dist" in workflow
+    assert (
+        "foundation-rollback-plan.ps1 -TargetRef HEAD -OutputPath "
+        "foundation-dist/foundation-rollback-plan.json"
+    ) in workflow
+    assert "foundation-dist/*.zip" in workflow
     assert "actions/upload-artifact@v4" in workflow
     assert "permissions:\n  contents: read" in workflow
 

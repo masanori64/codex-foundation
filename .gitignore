@@ -21,6 +21,7 @@ project_reviews/
 *.tar.gz
 *.tgz
 .foundation-dist/
+foundation-dist/
 
 # Runtime logs and regenerated local audit streams.
 *.log

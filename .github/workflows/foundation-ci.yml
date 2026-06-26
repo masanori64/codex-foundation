@@ -36,15 +36,15 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build foundation package
         shell: pwsh
-        run: .\scripts\package-foundation.ps1
+        run: .\scripts\package-foundation.ps1 -OutputDir foundation-dist
       - name: Build rollback plan
         shell: pwsh
-        run: .\scripts\foundation-rollback-plan.ps1 -TargetRef HEAD
+        run: .\scripts\foundation-rollback-plan.ps1 -TargetRef HEAD -OutputPath foundation-dist/foundation-rollback-plan.json
       - name: Upload foundation package
         uses: actions/upload-artifact@v4
         with:
           name: codex-foundation-${{ github.sha }}
           path: |
-            .foundation-dist/*.zip
-            .foundation-dist/*.json
+            foundation-dist/*.zip
+            foundation-dist/*.json
           if-no-files-found: error

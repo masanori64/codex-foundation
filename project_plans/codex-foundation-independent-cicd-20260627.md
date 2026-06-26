@@ -59,6 +59,9 @@ Non-negotiable boundaries:
 - [x] Normalized `context_offloads/research_x/pointer-map.json` to LF, updated
   the offline canary hash, regenerated repo manifest, and reran portable/local
   verification successfully.
+- [x] Reproduced the `0be8724` CI failure: verification passed and package/rollback
+  files were generated, but upload-artifact ignored hidden `.foundation-dist`.
+- [x] Switched the CI artifact directory to non-hidden `foundation-dist`.
 - [ ] Push the repair commit and confirm GitHub Actions success.
 
 ## Current Known State
@@ -110,5 +113,10 @@ Non-negotiable boundaries:
   `offline_canary_registry.json` now points to the LF hash, repo manifest was
   regenerated, and both `.\scripts\verify-foundation.ps1 -Portable` and
   `.\scripts\verify-foundation.ps1` passed.
+- `0be8724` remote run failed:
+  `https://github.com/masanori64/codex-foundation/actions/runs/28265261884`.
+- Repair action completed locally: workflow package/CD output now uses
+  non-hidden `foundation-dist` so `actions/upload-artifact` can read it with
+  default settings.
 - Remaining remote check: push the repair commit and confirm the new GitHub
   Actions run.

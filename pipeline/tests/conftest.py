@@ -43,6 +43,18 @@ def _ensure_ci_research_x_fixture() -> None:
         "subagent-dry-run",
     ):
         assert main([command, "--project", project_arg]) == 0
+    assert (
+        main(
+            [
+                "record-pages-rollback",
+                "--project",
+                project_arg,
+                "--target-ref",
+                "ci-fixture-previous-good",
+            ]
+        )
+        == 0
+    )
 
 
 def _write_profile(project: Path) -> None:

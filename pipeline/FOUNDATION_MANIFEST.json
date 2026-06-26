@@ -317,34 +317,34 @@
       "sha256": "ea266f1c593adf26a8f94264f7298cb8de7c36e955e0b1a2d3faff1f767f4e83"
     },
     {
-      "bytes": 6508,
+      "bytes": 3413,
       "path": "tests/conftest.py",
-      "sha256": "f9a121875dc84a61db28f1a3728269fd8228d60cf7d423466b44f606fdde8c31"
+      "sha256": "e9286be4344e85ce228e67f801623dd3558cf0d5b21a33f3f8cc349f12130f05"
     },
     {
-      "bytes": 1157,
+      "bytes": 1153,
       "path": "tests/test_bridge_loader.py",
-      "sha256": "182e33d67fd54df446657f7d388ccdcc80a4102729226039e0fde6b5766ba0bf"
+      "sha256": "36da423906aeff34b89f5d3cbfe4e12a6ecf1a963a9d421eae17ebdfa7ae6ae3"
     },
     {
-      "bytes": 1862,
+      "bytes": 1945,
       "path": "tests/test_cli.py",
-      "sha256": "8a6831333107e9e5431ce7e578802400fcffc6065b9093361559a316582abf15"
+      "sha256": "059e65068e1aa4bc6e72fe81c0e9b177fbbe4df3396406f04563ce915de0843e"
     },
     {
-      "bytes": 4645,
+      "bytes": 5073,
       "path": "tests/test_cross_project_generalization.py",
-      "sha256": "5c4385d41d689ea67ce96283bbd524c6a79e0700ce160c88f2315b398a546263"
+      "sha256": "dd8cedd2bf0d56b9679965bac96d826429446a79f7b8a8678efa2739b12ea811"
     },
     {
-      "bytes": 3080,
+      "bytes": 3366,
       "path": "tests/test_dashboard_renderer.py",
-      "sha256": "4c0e6ec5d3caff44d06150a80194aafc525cba4f48b484bed3cc973336c6075f"
+      "sha256": "5fd31fa28a64a387633ca5cd44422c5edeba055fe152a4fcd90e5ee798563335"
     },
     {
-      "bytes": 4324,
+      "bytes": 4328,
       "path": "tests/test_e2e_completion.py",
-      "sha256": "3052086c34535301d276bc5dc3db91a3a07ebada38750c56755e4ffde9f91559"
+      "sha256": "c8eaff7ad52acdce8500726b9c6f6a66cc803f262979ef464786288165ab3688"
     },
     {
       "bytes": 1413,
@@ -362,9 +362,9 @@
       "sha256": "26b2f718854b18b1717c5af812e2cd843b972bd2ffdf2255266aa5bde5e19d41"
     },
     {
-      "bytes": 873,
+      "bytes": 879,
       "path": "tests/test_github_collection.py",
-      "sha256": "fbbf29b3213fa73a72bb3698f2eb6c002d11862bf463f8725c15c4fddd2b5c8b"
+      "sha256": "8743e9dbf3230a67aada10ecc9a9cc2f30519cfc1cd913b87f83c7c0d9d51d8f"
     },
     {
       "bytes": 413,
@@ -372,14 +372,14 @@
       "sha256": "b532cca14804bc30cec25ad32a91af9f180597e8f2b576413ab812bdae77991a"
     },
     {
-      "bytes": 4822,
+      "bytes": 4878,
       "path": "tests/test_no_cost_smoke.py",
-      "sha256": "96e2ab8bff78eddda8e1057ab6a0f124cca9d10f96ae306506197d9f34fa8582"
+      "sha256": "41d2943c25f8a1de66429a03b594180e3d3f819179028dd0b804841e67199407"
     },
     {
-      "bytes": 1589,
+      "bytes": 1585,
       "path": "tests/test_profile_loader.py",
-      "sha256": "7b6e5e0d13d9bd93340b084e4e544ef008f73d75334de2e0f44eac487b750774"
+      "sha256": "9491729ee9a545e073bd84270d444d4842baa3039c48eebffe8210d868ffbb15"
     },
     {
       "bytes": 568,
@@ -387,9 +387,9 @@
       "sha256": "09193ef6b5e5358606847dbeb146ed43a81409f0e430b4ffe97242cda45bdaf4"
     },
     {
-      "bytes": 1414,
+      "bytes": 1561,
       "path": "tests/test_workflow_smoke.py",
-      "sha256": "deb97981ce57f9a0d994c7781048ef78d04e82a669e313216fa08339e22495ef"
+      "sha256": "f58e3e4d9ca7dc9f701292926278a36c974f83d1d54e538294031fabd9de0e01"
     },
     {
       "bytes": 2772,
@@ -398,7 +398,7 @@
     }
   ],
   "foundation_id": "codex-hotl-implementation-pipeline",
-  "generated_at": "2026-06-26T20:27:46.900768+00:00",
+  "generated_at": "2026-06-26T20:39:17.543944+00:00",
   "known_projects": [
     "C:/Users/maasa/research_x"
   ],

@@ -5,8 +5,8 @@ from pathlib import Path
 from codex_pipeline.profile_loader import load_project_profile, validate_project_profile
 
 
-def test_loads_research_x_profile() -> None:
-    profile = load_project_profile(Path("C:/Users/maasa/research_x"))
+def test_loads_project_profile(codex_project: Path) -> None:
+    profile = load_project_profile(codex_project)
 
     assert profile.project_id == "research_x"
     assert profile.data["constraints"]["no_quota_provider_freeze"] is True

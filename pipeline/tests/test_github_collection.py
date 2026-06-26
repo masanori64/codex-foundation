@@ -9,8 +9,10 @@ from codex_pipeline.github_collection import (
 )
 
 
-def test_github_collection_uses_public_read_without_mutation_methods() -> None:
-    bridge = load_project_bridge(Path("C:/Users/maasa/research_x"))
+def test_github_collection_uses_public_read_without_mutation_methods(
+    codex_project: Path,
+) -> None:
+    bridge = load_project_bridge(codex_project)
 
     state = build_github_collection_state(bridge)
 

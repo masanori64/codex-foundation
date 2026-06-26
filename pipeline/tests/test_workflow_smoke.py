@@ -7,12 +7,15 @@ from codex_pipeline.workflow_smoke import (
     WORKFLOW_SMOKE_NAME,
     build_workflow_smoke_state,
 )
+from codex_pipeline.workflow_wrappers import generate_workflow_wrappers
 
 
-def test_workflow_smoke_is_pending_without_remote_artifact() -> None:
-    project = Path("C:/Users/maasa/research_x")
-
-    state = build_workflow_smoke_state(project, github_read_state={"status": "passed"})
+def test_workflow_smoke_is_pending_without_remote_artifact(codex_project: Path) -> None:
+    generate_workflow_wrappers(codex_project)
+    state = build_workflow_smoke_state(
+        codex_project,
+        github_read_state={"status": "passed"},
+    )
 
     assert state["workflow_dispatch_executed"] is False
     assert state["deploy_executed"] is False
@@ -20,8 +23,10 @@ def test_workflow_smoke_is_pending_without_remote_artifact() -> None:
     assert state["status"] in {"pending_remote_artifact_e2e", "passed"}
 
 
-def test_workflow_smoke_passes_when_remote_run_and_artifact_are_observed() -> None:
-    project = Path("C:/Users/maasa/research_x")
+def test_workflow_smoke_passes_when_remote_run_and_artifact_are_observed(
+    codex_project: Path,
+) -> None:
+    generate_workflow_wrappers(codex_project)
     github_state = {
         "status": "passed",
         "workflow_runs": {
@@ -36,7 +41,7 @@ def test_workflow_smoke_passes_when_remote_run_and_artifact_are_observed() -> No
         },
     }
 
-    state = build_workflow_smoke_state(project, github_read_state=github_state)
+    state = build_workflow_smoke_state(codex_project, github_read_state=github_state)
 
     assert state["status"] == "passed"
     assert state["remote"]["workflow_run_observed"] is True

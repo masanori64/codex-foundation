@@ -6,8 +6,8 @@ from codex_pipeline.e2e_completion import build_e2e_completion_manifest
 from codex_pipeline.profile_loader import load_project_profile
 
 
-def test_e2e_completion_is_pending_without_remote_artifact() -> None:
-    profile = load_project_profile(Path("C:/Users/maasa/research_x"))
+def test_e2e_completion_is_pending_without_remote_artifact(codex_project: Path) -> None:
+    profile = load_project_profile(codex_project)
 
     state = build_e2e_completion_manifest(
         profile,
@@ -25,8 +25,8 @@ def test_e2e_completion_is_pending_without_remote_artifact() -> None:
     assert state["paid_usage_detected"] is False
 
 
-def test_e2e_completion_passes_with_remote_artifact_loop() -> None:
-    profile = load_project_profile(Path("C:/Users/maasa/research_x"))
+def test_e2e_completion_passes_with_remote_artifact_loop(codex_project: Path) -> None:
+    profile = load_project_profile(codex_project)
 
     state = build_e2e_completion_manifest(
         profile,
@@ -52,8 +52,10 @@ def test_e2e_completion_passes_with_remote_artifact_loop() -> None:
     assert state["final_automatic_pipeline_status"] == "pending_static_pages_cd"
 
 
-def test_e2e_completion_passes_with_static_pages_cd_and_rollback() -> None:
-    profile = load_project_profile(Path("C:/Users/maasa/research_x"))
+def test_e2e_completion_passes_with_static_pages_cd_and_rollback(
+    codex_project: Path,
+) -> None:
+    profile = load_project_profile(codex_project)
 
     state = build_e2e_completion_manifest(
         profile,

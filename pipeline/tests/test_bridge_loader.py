@@ -5,8 +5,8 @@ from pathlib import Path
 from codex_pipeline.bridge_loader import load_project_bridge, validate_project_bridge
 
 
-def test_loads_research_x_bridge_with_public_read_pages_cd() -> None:
-    bridge = load_project_bridge(Path("C:/Users/maasa/research_x"))
+def test_loads_project_bridge_with_public_read_pages_cd(codex_project: Path) -> None:
+    bridge = load_project_bridge(codex_project)
 
     assert bridge.project_id == "research_x"
     assert bridge.data["github"]["api_enabled"] == "public_read"

@@ -40,6 +40,18 @@ def test_foundation_engine_has_no_research_x_hardcoding() -> None:
     assert offenders == []
 
 
+def test_pipeline_tests_do_not_depend_on_host_research_x_path() -> None:
+    test_root = Path(__file__).resolve().parent
+    forbidden = "C:/Users/" + "maasa/research_x"
+    offenders = []
+    for path in sorted(test_root.rglob("*.py")):
+        text = path.read_text(encoding="utf-8")
+        if forbidden in text or forbidden.replace("/", "\\\\") in text:
+            offenders.append(path.name)
+
+    assert offenders == []
+
+
 def _write_profile(project: Path) -> None:
     boundary = (
         "raw source != searchable document != search result != source bundle "

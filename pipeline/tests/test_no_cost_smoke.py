@@ -11,12 +11,12 @@ from codex_pipeline.profile_loader import load_project_profile
 from codex_pipeline.subagent_governance import build_subagent_policy
 from codex_pipeline.subagent_runtime import build_subagent_runtime_dry_run
 from codex_pipeline.workflow_artifact_audit import build_workflow_artifact_audit
+from codex_pipeline.workflow_wrappers import generate_workflow_wrappers
 
 
-def test_no_cost_guard_has_no_paid_execution() -> None:
-    project = Path("C:/Users/maasa/research_x")
-    profile = load_project_profile(project)
-    bridge = load_project_bridge(project)
+def test_no_cost_guard_has_no_paid_execution(codex_project: Path) -> None:
+    profile = load_project_profile(codex_project)
+    bridge = load_project_bridge(codex_project)
 
     state = build_cost_guard_state(profile, bridge)
 
@@ -38,11 +38,10 @@ def test_no_cost_guard_has_no_paid_execution() -> None:
     assert "github_pages_public_repo_static_cd" in action_ids
 
 
-def test_github_read_placeholder_is_read_only_and_no_secret() -> None:
-    project = Path("C:/Users/maasa/research_x")
-    bridge = load_project_bridge(project)
+def test_github_read_placeholder_is_read_only_and_no_secret(codex_project: Path) -> None:
+    bridge = load_project_bridge(codex_project)
 
-    state = build_github_read_state(project, bridge, execute=False)
+    state = build_github_read_state(codex_project, bridge, execute=False)
 
     assert state["api_calls_executed"] is False
     assert state["authentication"] == "none"
@@ -52,11 +51,11 @@ def test_github_read_placeholder_is_read_only_and_no_secret() -> None:
     assert state["paid_usage_detected"] is False
 
 
-def test_workflow_artifact_audit_does_not_dispatch_workflow() -> None:
-    project = Path("C:/Users/maasa/research_x")
-    bridge = load_project_bridge(project)
+def test_workflow_artifact_audit_does_not_dispatch_workflow(codex_project: Path) -> None:
+    generate_workflow_wrappers(codex_project)
+    bridge = load_project_bridge(codex_project)
 
-    state = build_workflow_artifact_audit(project, bridge)
+    state = build_workflow_artifact_audit(codex_project, bridge)
 
     assert state["workflow_dispatch_executed"] is False
     assert state["github_actions_minutes_consumed_by_this_smoke"] is False
@@ -79,10 +78,10 @@ def test_subagent_runtime_dry_run_does_not_spawn_or_start_model_runner() -> None
 
 def test_pages_readiness_can_use_gh_cli_for_local_settings_verification(
     monkeypatch,
+    codex_project: Path,
 ) -> None:
-    project = Path("C:/Users/maasa/research_x")
-    profile = load_project_profile(project)
-    bridge = load_project_bridge(project)
+    profile = load_project_profile(codex_project)
+    bridge = load_project_bridge(codex_project)
 
     def fake_get_json(url: str, *, timeout_seconds: float) -> dict:
         if url.endswith("/pages"):

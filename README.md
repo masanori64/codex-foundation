@@ -40,6 +40,18 @@ Run from this directory:
 .\scripts\verify-foundation.ps1
 ```
 
+GitHub CI uses the portable repo-owned suite:
+
+```powershell
+.\scripts\verify-foundation.ps1 -Portable
+```
+
+The default local command also runs desktop integration canaries that depend on
+local Codex control-plane state outside this repository, such as route memory,
+installed Skills, and the checked-out `research_x` project. The portable suite
+is the independent GitHub contract; the default suite is the broader local
+operator contract.
+
 The equivalent direct commands are:
 
 ```powershell

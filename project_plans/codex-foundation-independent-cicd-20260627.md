@@ -36,7 +36,8 @@ Non-negotiable boundaries:
 - [x] Confirmed foundation repo exists independently at
   `https://github.com/masanori64/codex-foundation.git`.
 - [x] Confirmed `main` is synced with `origin/main`.
-- [x] Confirmed latest remote `Codex Foundation CI` run for `d8d8554` succeeded.
+- [x] Confirmed remote `Codex Foundation CI` run for `cacf897` succeeded before
+  this independent CI/CD pass.
 - [x] Expand CI/CD workflow from pipeline-only checks to full foundation checks
   plus no-cost artifact packaging.
 - [x] Add local scripts for foundation verification, artifact packaging, and
@@ -46,18 +47,20 @@ Non-negotiable boundaries:
 - [x] Add or update tests for package/rollback/subagent boundaries where needed.
 - [x] Regenerate/validate `pipeline/FOUNDATION_MANIFEST.json`.
 - [x] Add/validate repo-level `FOUNDATION_REPO_MANIFEST.json`.
-- [x] Run local verification.
-- [ ] Commit, push, and confirm GitHub Actions success.
+- [x] Reproduced the `064fe17` CI failure locally: tests passed, but the repo
+  manifest was stale for this active plan file after the final plan update.
+- [x] Regenerated repo manifest after the plan repair and reran local
+  verification successfully.
+- [ ] Push the repair commit and confirm GitHub Actions success.
 
 ## Current Known State
 
 - Branch: `main`.
 - Remote: `origin https://github.com/masanori64/codex-foundation.git`.
-- Current HEAD before this work: `d8d8554 Stabilize foundation manifest line endings`.
+- Current HEAD before this repair: `064fe17 Complete independent foundation CI/CD`.
 - Existing workflow: `.github/workflows/foundation-ci.yml`.
-- Existing workflow gap: checks only `pipeline/engine` and `pipeline/tests`, and
-  has no package artifact, manifest freshness check, root governance tests, or
-  explicit foundation rollback/package boundary.
+- Existing repair gap: `FOUNDATION_REPO_MANIFEST.json` includes active
+  `project_plans`, but `064fe17` committed a stale record for this file.
 
 ## Implemented This Pass
 
@@ -78,11 +81,16 @@ Non-negotiable boundaries:
 - `tests/test_foundation_cicd_contract.py` guards the CI/CD, package, rollback,
   no-provider, no-secret, and plan-only boundaries.
 
-## Local Validation
+## Validation Notes
 
-- `.\scripts\verify-foundation.ps1` passed with 116 tests.
-- Package script generated `.foundation-dist/codex-foundation-cacf897.zip` and a
-  package manifest.
-- Rollback plan script generated `.foundation-dist/foundation-rollback-plan.json`.
-- Direct pipeline manifest import check passed after documenting the required
-  `PYTHONPATH` setup.
+- `064fe17` remote run failed:
+  `https://github.com/masanori64/codex-foundation/actions/runs/28264930656`.
+- Local reproduction for `064fe17`: ruff passed, 116 tests passed, pipeline
+  manifest passed, then repo manifest validation failed on
+  `project_plans/codex-foundation-independent-cicd-20260627.md`.
+- Repair action completed locally: this plan now records the failure,
+  `FOUNDATION_REPO_MANIFEST.json` was regenerated, and
+  `.\scripts\verify-foundation.ps1` passed with 116 tests plus both manifest
+  validations.
+- Remaining remote check: push the repair commit and confirm the new GitHub
+  Actions run.

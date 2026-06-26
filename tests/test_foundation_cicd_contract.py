@@ -16,12 +16,15 @@ def test_foundation_ci_runs_full_verification_and_artifact_cd() -> None:
     assert "push:" in workflow
     assert "pull_request:" in workflow
     assert ".\\scripts\\verify-foundation.ps1" in workflow
+    assert "-Portable" in workflow
     assert ".\\scripts\\package-foundation.ps1" in workflow
     assert "actions/upload-artifact@v4" in workflow
     assert "permissions:\n  contents: read" in workflow
 
     assert "uv run ruff check ." in verify
-    assert "uv run pytest tests pipeline\\tests" in verify
+    assert "test_foundation_cicd_contract.py" in verify
+    assert "pipeline\\tests" in verify
+    assert '@("tests", "pipeline\\tests")' in verify
     assert "validate_foundation_manifest" in verify
     assert "write-foundation-repo-manifest.py --check" in verify
     assert "pipeline/FOUNDATION_MANIFEST.json" in verify

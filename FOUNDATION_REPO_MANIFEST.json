@@ -10,9 +10,9 @@
       "sha256": "f487c48957c5ebb235357bc4daf6bfc7e97157f9204a06967348db4ff719b0c4"
     },
     {
-      "bytes": 1189,
+      "bytes": 1199,
       "path": ".github/workflows/foundation-ci.yml",
-      "sha256": "bbb3cd9d8971a206684937cd155f25bed1bcf5f069c6cfecd2ffa9cdc0a17b8a"
+      "sha256": "037e541d2e66f96450f186a834bb111723c8bd2d418702759d1ebf785bc58057"
     },
     {
       "bytes": 492,
@@ -20,9 +20,9 @@
       "sha256": "618a1ad1cedb6b9b72b234fb5892ed43379a8794652ad8857ee6a6de91a3bf31"
     },
     {
-      "bytes": 4451,
+      "bytes": 4892,
       "path": "README.md",
-      "sha256": "91b130a28de8473eef808f1b254dea1f70796e4765160c1682fa9fb9960e7dd3"
+      "sha256": "d40d5a9531ba19d8a1bf512163cafab5224acebb7e9a59fbcdd74949659fbc33"
     },
     {
       "bytes": 22009,
@@ -485,9 +485,9 @@
       "sha256": "4ad1f6fb7b54824113c2f5a226fb67d53b0a1ae249e1ceb3637112afcbfbd6c0"
     },
     {
-      "bytes": 4241,
+      "bytes": 5020,
       "path": "project_plans/codex-foundation-independent-cicd-20260627.md",
-      "sha256": "8d42eabcf4d369efe27095fdcde9118288063c769fdae6587c33be478b3f1437"
+      "sha256": "8d0ac44e222c6ca6b2ec454885cd0d2acc1f500a76c60f3f76db8e805165375e"
     },
     {
       "bytes": 3406,
@@ -590,9 +590,9 @@
       "sha256": "83d8b530a1d35b25605456d59335ce20c7a698b6ca57ef17512c058fd2ab2e3b"
     },
     {
-      "bytes": 1785,
+      "bytes": 2114,
       "path": "scripts/verify-foundation.ps1",
-      "sha256": "42d9b945f1dd564352d976470d959b96bebcfc561a9671f750a44fc094318f25"
+      "sha256": "e4a477cadfaca6d78174d6f31599574b42d6e30fec9fb653f32557f4107e8a63"
     },
     {
       "bytes": 6210,
@@ -640,9 +640,9 @@
       "sha256": "3b8893a0268c78a6c7faa7a1ed14572d9354245f15822b4bd305fc379748ce95"
     },
     {
-      "bytes": 2872,
+      "bytes": 2996,
       "path": "tests/test_foundation_cicd_contract.py",
-      "sha256": "47e111f4a7597d554aaf693ca8355f10a3e49c717e963288413c6f1bc150874f"
+      "sha256": "faa9e4c9b368d02761584eb40571077739fc1122724d819c389092f5470d5a92"
     },
     {
       "bytes": 5875,
@@ -696,7 +696,7 @@
     }
   ],
   "foundation_id": "codex-foundation-repo",
-  "generated_at": "2026-06-26T20:57:58.917188+00:00",
+  "generated_at": "2026-06-26T21:01:26.912411+00:00",
   "not_answer_support": true,
   "not_citation": true,
   "not_project_evidence": true,

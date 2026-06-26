@@ -26,7 +26,7 @@ jobs:
           python-version: "3.12"
       - name: Verify foundation
         shell: pwsh
-        run: .\scripts\verify-foundation.ps1
+        run: .\scripts\verify-foundation.ps1 -Portable
 
   package:
     name: Foundation artifact CD

@@ -65,9 +65,9 @@
       "sha256": "62e2071d972793e5d9de7134fc941225b540cd9d20eb10712abe26da6f463f44"
     },
     {
-      "bytes": 9251,
+      "bytes": 9071,
       "path": "context_offloads/research_x/pointer-map.json",
-      "sha256": "bc993dd48fee5d920520916466dbfb17055428c741bf1cb3f838fc7e1862f813"
+      "sha256": "bde268f52cb9b4fa4a58fc982b8f79478f5fedea85c465bc1899d6b1eaeac8cd"
     },
     {
       "bytes": 700,
@@ -82,7 +82,7 @@
     {
       "bytes": 3467,
       "path": "offline_canary_registry.json",
-      "sha256": "14d21bc7680719163a3abb5edab7c0cdf234d2046e59b260566a61a20c15542a"
+      "sha256": "40c067ecc103edfc43bb79557f454db71949b75af42afd90fe69c40a74863ab0"
     },
     {
       "bytes": 2242,
@@ -485,9 +485,9 @@
       "sha256": "4ad1f6fb7b54824113c2f5a226fb67d53b0a1ae249e1ceb3637112afcbfbd6c0"
     },
     {
-      "bytes": 5020,
+      "bytes": 6126,
       "path": "project_plans/codex-foundation-independent-cicd-20260627.md",
-      "sha256": "8d0ac44e222c6ca6b2ec454885cd0d2acc1f500a76c60f3f76db8e805165375e"
+      "sha256": "9ecda84a7e1338a86dc0bdd64c459d4f4d221831e299e20c7a348d1d70750f90"
     },
     {
       "bytes": 3406,
@@ -696,7 +696,7 @@
     }
   ],
   "foundation_id": "codex-foundation-repo",
-  "generated_at": "2026-06-26T21:01:26.912411+00:00",
+  "generated_at": "2026-06-26T21:04:50.095067+00:00",
   "not_answer_support": true,
   "not_citation": true,
   "not_project_evidence": true,

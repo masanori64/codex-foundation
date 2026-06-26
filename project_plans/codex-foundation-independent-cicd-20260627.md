@@ -20,6 +20,9 @@ Done means:
   dry-run validation are foundation-owned, while real worker spawning remains a
   Codex app/runtime capability outside this package unless a callable runtime is
   intentionally integrated;
+- GitHub CI uses a portable repo-owned verification set, while local operator
+  verification can additionally run desktop integration canaries that depend on
+  state outside this repository;
 - foundation rollback is documented and checkable as Git/artifact rollback, with
   destructive, provider, secrets, DB, and external-cloud rollback classes refused;
 - local validation and GitHub Actions readback are recorded before completion.
@@ -51,16 +54,22 @@ Non-negotiable boundaries:
   manifest was stale for this active plan file after the final plan update.
 - [x] Regenerated repo manifest after the plan repair and reran local
   verification successfully.
+- [x] Reproduced the `c9c12b2` CI failure: portable tests passed, then repo
+  manifest validation failed on LF-normalized `pointer-map.json`.
+- [x] Normalized `context_offloads/research_x/pointer-map.json` to LF, updated
+  the offline canary hash, regenerated repo manifest, and reran portable/local
+  verification successfully.
 - [ ] Push the repair commit and confirm GitHub Actions success.
 
 ## Current Known State
 
 - Branch: `main`.
 - Remote: `origin https://github.com/masanori64/codex-foundation.git`.
-- Current HEAD before this repair: `064fe17 Complete independent foundation CI/CD`.
+- Current HEAD before this repair: `c9c12b2 Fix foundation CI portability`.
 - Existing workflow: `.github/workflows/foundation-ci.yml`.
-- Existing repair gap: `FOUNDATION_REPO_MANIFEST.json` includes active
-  `project_plans`, but `064fe17` committed a stale record for this file.
+- Existing repair gap: GitHub checkout normalizes files to LF; local mixed
+  line endings in `context_offloads/research_x/pointer-map.json` caused the
+  repo manifest hash to differ remotely.
 
 ## Implemented This Pass
 
@@ -77,7 +86,8 @@ Non-negotiable boundaries:
   deploying, or executing rollback.
 - `FOUNDATION_REPO_MANIFEST.json` covers active root source, CI, scripts, tests,
   registry, and pipeline surfaces.
-- `.github/workflows/foundation-ci.yml` now has `verify` and `package` jobs.
+- `.github/workflows/foundation-ci.yml` now has `verify` and `package` jobs; the
+  verify job uses `.\scripts\verify-foundation.ps1 -Portable`.
 - `tests/test_foundation_cicd_contract.py` guards the CI/CD, package, rollback,
   no-provider, no-secret, and plan-only boundaries.
 
@@ -92,5 +102,13 @@ Non-negotiable boundaries:
   `FOUNDATION_REPO_MANIFEST.json` was regenerated, and
   `.\scripts\verify-foundation.ps1` passed with 116 tests plus both manifest
   validations.
+- CI-equivalent portable verification passed locally with 60 tests plus both
+  manifest validations.
+- `c9c12b2` remote run failed:
+  `https://github.com/masanori64/codex-foundation/actions/runs/28265102859`.
+- Repair action completed locally: `pointer-map.json` was normalized to LF,
+  `offline_canary_registry.json` now points to the LF hash, repo manifest was
+  regenerated, and both `.\scripts\verify-foundation.ps1 -Portable` and
+  `.\scripts\verify-foundation.ps1` passed.
 - Remaining remote check: push the repair commit and confirm the new GitHub
   Actions run.

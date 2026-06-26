@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "required": [
+    "schema_version",
+    "stages",
+    "lanes",
+    "gates",
+    "transitions"
+  ],
+  "not_evidence": true,
+  "control_artifact": true
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "required": [
+    "schema_version",
+    "control_artifact",
+    "not_evidence",
+    "not_citation",
+    "environment",
+    "dry_run",
+    "rollback_executed",
+    "target",
+    "side_effects"
+  ],
+  "rollback_execution_allowed_in_phase_1": false
+}

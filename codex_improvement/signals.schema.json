@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Codex ImprovementSignal",
+  "type": "object",
+  "required": [
+    "signal_id",
+    "created_at",
+    "source_type",
+    "source_ref",
+    "severity",
+    "project_scope",
+    "symptom",
+    "root_cause_hypothesis",
+    "affected_artifacts",
+    "proposed_change_type",
+    "evidence",
+    "privacy_level",
+    "status"
+  ],
+  "properties": {
+    "signal_id": {
+      "type": "string",
+      "pattern": "^sig_[A-Za-z0-9_.:-]+$"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "source_type": {
+      "enum": [
+        "user_feedback",
+        "workflow_trace",
+        "eval_failure",
+        "test_failure",
+        "codex_error",
+        "doc_drift",
+        "provider_gate_violation",
+        "skill_route_miss",
+        "security_review",
+        "manual"
+      ]
+    },
+    "source_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "severity": {
+      "enum": ["low", "medium", "high", "blocker"]
+    },
+    "project_scope": {
+      "enum": ["codex_foundation", "global", "research_x", "research_x_bridge", "stack_specific"]
+    },
+    "symptom": {
+      "type": "string",
+      "minLength": 1
+    },
+    "root_cause_hypothesis": {
+      "type": "string"
+    },
+    "affected_artifacts": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "proposed_change_type": {
+      "enum": [
+        "skill_update",
+        "agents_update",
+        "docs_update",
+        "eval_case",
+        "code_change",
+        "security_review",
+        "provider_policy_update",
+        "manifest_update",
+        "no_change"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "ref"],
+        "properties": {
+          "kind": {"type": "string"},
+          "ref": {"type": "string"},
+          "hash": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "privacy_level": {
+      "enum": ["public", "project_private", "sensitive_redacted"]
+    },
+    "status": {
+      "enum": [
+        "new",
+        "triaged",
+        "candidate_generated",
+        "rejected",
+        "accepted_for_pr",
+        "merged"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "fault_step": {
+      "type": "string"
+    },
+    "responsible_artifact": {
+      "type": "string"
+    },
+    "candidate_diff_ref": {
+      "type": "string"
+    },
+    "replay_result": {
+      "$ref": "#/$defs/resultObject"
+    },
+    "qualifier_result": {
+      "$ref": "#/$defs/resultObject"
+    },
+    "held_out_replay_result": {
+      "$ref": "#/$defs/resultObject"
+    },
+    "causal_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "ref"],
+        "properties": {
+          "kind": {"type": "string"},
+          "ref": {"type": "string"},
+          "hash": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "rejected_reason": {
+      "type": "string"
+    },
+    "conflict_set": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "multi_objective_score": {
+      "type": "object",
+      "additionalProperties": {"type": "number"}
+    },
+    "human_decision": {
+      "enum": ["pending", "accepted", "rejected", "deferred", "not_required"]
+    },
+    "human_verdict": {
+      "enum": ["pending", "accepted", "rejected", "deferred", "not_required"]
+    }
+  },
+  "$defs": {
+    "resultObject": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "enum": ["not_run", "passed", "failed", "blocked", "not_applicable"]
+        },
+        "ref": {"type": "string"},
+        "reason": {"type": "string"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,21 @@
+policy_id: github-readonly-collection
+schema_version: 1
+control_artifact: true
+not_evidence: true
+not_research_evidence: true
+not_citation: true
+not_answer_support: true
+default_mode: disabled
+api_calls_executed_by_default: false
+token_used_by_default: false
+write_operations_available: false
+read_only_gate_required: true
+forbidden_mutation_methods:
+  - create_issue
+  - create_pull_request
+  - update_repository_settings
+  - enable_pages
+  - create_deployment
+  - rerun_workflow
+  - cancel_workflow
+  - delete_artifact

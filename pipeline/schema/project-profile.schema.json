@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "required": [
+    "schema_version",
+    "project",
+    "commands",
+    "constraints",
+    "control_artifacts",
+    "subagents"
+  ],
+  "project_required": ["id", "name", "root", "domain"],
+  "constraints_required": [
+    "use_uv",
+    "no_quota_provider_freeze",
+    "evidence_boundary",
+    "forbid_control_artifacts_as_evidence"
+  ],
+  "control_artifacts_required": [
+    "output_root",
+    "generated_root",
+    "not_evidence",
+    "not_research_evidence",
+    "not_citation",
+    "not_answer_support"
+  ],
+  "not_evidence": true,
+  "not_research_evidence": true,
+  "not_citation": true,
+  "not_answer_support": true,
+  "control_artifact": true
+}

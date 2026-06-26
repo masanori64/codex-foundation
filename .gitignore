@@ -1,0 +1,31 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Local review/export bundles can contain copied project state, ChatGPT
+# artifacts, browser downloads, and other task-local context.
+project_reviews/
+**/attachments/
+**/downloads/
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+
+# Runtime logs and regenerated local audit streams.
+*.log
+pipeline/audit/*.jsonl
+
+# OS/editor noise.
+.DS_Store
+Thumbs.db
+desktop.ini

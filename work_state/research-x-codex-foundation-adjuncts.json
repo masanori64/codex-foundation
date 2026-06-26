@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "owner": "maasa/.codex",
+  "source_wbs": "tools/wbs_viewer/projects/research-x-work-state.json",
+  "moved_at": "2026-06-25",
+  "reason": "Codex self-improvement, Skill lifecycle, over-implementation guard, and route-memory operation state are Codex foundation work, not research_x work-state leaves.",
+  "not_evidence": true,
+  "moved_tasks": [
+    {
+      "id": "4.2",
+      "name": "ImprovementSignal local pipeline",
+      "qty": 1,
+      "hours": 1,
+      "assignee": "Codex",
+      "plan": {
+        "start": null,
+        "end": null
+      },
+      "actual": {
+        "start": "2026-06-22",
+        "end": "2026-06-22"
+      },
+      "note": "complete",
+      "_research_x": {
+        "owner_plane": "wbs",
+        "artifact_layer": "operational_state",
+        "decision_band": "project_state",
+        "gate": "local_only_no_provider",
+        "status": "complete",
+        "artifact_pointer": "docs/memory-pipeline-v2.md",
+        "owner_doc": "docs/memory-pipeline-v2.md",
+        "evidence_status": "not_evidence",
+        "answer_support_allowed": false,
+        "stop_condition": ""
+      },
+      "_source_parent": "Codex foundation adjuncts"
+    },
+    {
+      "id": "4.5.2",
+      "name": "Skill lifecycle input gate",
+      "qty": 1,
+      "hours": 1,
+      "assignee": "Codex",
+      "plan": {
+        "start": "2026-06-24",
+        "end": "2026-06-24"
+      },
+      "actual": {
+        "start": "2026-06-24",
+        "end": "2026-06-24"
+      },
+      "note": "complete",
+      "_research_x": {
+        "owner_plane": "wbs",
+        "artifact_layer": "codex_foundation",
+        "decision_band": "local_implementation",
+        "gate": "codex_foundation_design_only",
+        "status": "complete",
+        "artifact_pointer": "C:/Users/maasa/.codex/foundation/codex_improvement/skill_lifecycle.py",
+        "owner_doc": "C:/Users/maasa/.codex/foundation/codex_improvement/skill_lifecycle.py",
+        "evidence_status": "not_evidence",
+        "answer_support_allowed": false,
+        "source_items": [
+          24
+        ],
+        "stop_condition": "Stop if WBS, Pointer, HTML, SVG, or GPT output is used as evidence or answer support."
+      },
+      "_source_parent": "Codex foundation adjuncts > Next-wave local control artifact adjuncts"
+    },
+    {
+      "id": "4.5.3",
+      "name": "Over-implementation guard canary",
+      "qty": 1,
+      "hours": 1,
+      "assignee": "Codex",
+      "plan": {
+        "start": "2026-06-24",
+        "end": "2026-06-24"
+      },
+      "actual": {
+        "start": "2026-06-24",
+        "end": "2026-06-24"
+      },
+      "note": "complete",
+      "_research_x": {
+        "owner_plane": "wbs",
+        "artifact_layer": "guard_canary",
+        "decision_band": "local_eval_canary",
+        "gate": "no_plugin_no_hook",
+        "status": "complete",
+        "artifact_pointer": "C:/Users/maasa/.codex/foundation/codex_improvement/overimplementation_guard.py",
+        "owner_doc": "C:/Users/maasa/.codex/foundation/codex_improvement/overimplementation_guard.py",
+        "evidence_status": "not_evidence",
+        "answer_support_allowed": false,
+        "source_items": [
+          33
+        ],
+        "stop_condition": "Stop if WBS, Pointer, HTML, SVG, or GPT output is used as evidence or answer support."
+      },
+      "_source_parent": "Codex foundation adjuncts > Next-wave local control artifact adjuncts"
+    },
+    {
+      "id": "4.6",
+      "name": "Route Memory Registry and Preflight",
+      "qty": 1,
+      "hours": 1,
+      "assignee": "Codex",
+      "plan": {
+        "start": "2026-06-24",
+        "end": "2026-06-24"
+      },
+      "actual": {
+        "start": "2026-06-24",
+        "end": "2026-06-24"
+      },
+      "note": "Local registry, dispatcher, pointer, and tests added for recurring route choice.",
+      "_research_x": {
+        "owner_plane": "wbs",
+        "artifact_layer": "operation_route_memory",
+        "decision_band": "project_state",
+        "gate": "route_memory_preflight_no_provider_no_network_by_default",
+        "status": "complete",
+        "artifact_pointer": "C:/Users/maasa/.codex/route_memory/route-memory.json",
+        "owner_doc": "C:/Users/maasa/.codex/AGENTS.md",
+        "evidence_status": "not_evidence",
+        "answer_support_allowed": false,
+        "stop_condition": "Stop if route-memory entries are used as evidence, provider permission, browser approval, or external-action approval."
+      },
+      "_source_parent": "Codex foundation adjuncts"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+policy_id: mcp-plugin-hook
+schema_version: 1
+gate_id: mcp_plugin_hook_enablement
+blocked_without_explicit_user_gate: true
+includes:
+  - mcp_server
+  - plugin
+  - connector
+  - hook

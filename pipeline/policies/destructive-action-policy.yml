@@ -1,0 +1,10 @@
+policy_id: destructive-action
+schema_version: 1
+gate_id: destructive_action
+blocked_without_explicit_user_gate: true
+includes:
+  - delete
+  - purge
+  - force_push
+  - irreversible_overwrite
+  - data_loss

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "required": [
+    "schema_version",
+    "control_artifact",
+    "not_project_evidence",
+    "not_research_evidence",
+    "not_citation",
+    "not_answer_support",
+    "local_control_plane_complete",
+    "remote_artifact_workflow_executed",
+    "remote_artifact_created",
+    "remote_artifact_read_back",
+    "dashboard_refreshed_after_read_back",
+    "final_automatic_pipeline_status"
+  ]
+}

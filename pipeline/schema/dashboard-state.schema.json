@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "required": [
+    "schema_version",
+    "generated_at",
+    "control_artifact",
+    "not_evidence",
+    "not_citation",
+    "project",
+    "collection",
+    "gates",
+    "pipeline",
+    "dashboard",
+    "evidence_boundary"
+  ],
+  "control_artifact": true,
+  "not_evidence": true,
+  "not_citation": true
+}

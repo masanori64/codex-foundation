@@ -1,0 +1,20 @@
+policy_id: evidence-boundary
+schema_version: 1
+control_artifact: true
+not_evidence: true
+forbidden_evidence_claim_fields:
+  - evidence
+  - citation
+  - citations
+  - source_bundle
+  - context_chunk
+  - answer_support
+control_artifact_kinds:
+  - dashboard
+  - mermaid
+  - wbs
+  - chatgpt_output
+  - subagent_summary
+  - github_state
+  - deploy_manifest
+  - rollback_manifest

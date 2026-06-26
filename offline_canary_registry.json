@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-06-26",
+  "policy": {
+    "install": false,
+    "network": false,
+    "provider_call": false,
+    "hook": false,
+    "mcp": false,
+    "plugin_enable": false,
+    "connector_enable": false,
+    "auto_write": false,
+    "not_evidence": true
+  },
+  "canaries": [
+    {
+      "canary_id": "headroom_library_only_context_compression",
+      "source": "https://github.com/chopratejas/headroom",
+      "owner_plane": "codex_foundation",
+      "status": "deferred_needs_source_review",
+      "decision": "Use existing context-budget and pointer-map fixtures as the offline baseline. Do not install Headroom or enable proxy/MCP/shared-memory behavior until source and dependency review justify a library-only comparison.",
+      "not_evidence": true,
+      "actions": {
+        "install": false,
+        "network": false,
+        "provider_call": false,
+        "hook": false,
+        "mcp": false,
+        "plugin_enable": false,
+        "connector_enable": false,
+        "auto_write": false
+      },
+      "fixture_refs": [
+        {
+          "path": "C:/Users/maasa/.codex/foundation/context_offloads/research_x/pointer-map.json",
+          "sha256": "bc993dd48fee5d920520916466dbfb17055428c741bf1cb3f838fc7e1862f813"
+        }
+      ],
+      "blockers": [
+        "No reviewed local source copy or dependency audit for Headroom yet.",
+        "Headroom-like proxy, MCP, shared-memory, provider, and automatic injection surfaces stay disabled."
+      ]
+    },
+    {
+      "canary_id": "pallium_read_only_repo_intelligence",
+      "source": "https://github.com/tszaks/pallium",
+      "owner_plane": "codex_foundation",
+      "status": "blocked_reference_only",
+      "decision": "Treat as a read-only repo-intelligence canary candidate only. Do not install, index sessions, build embeddings, enable hooks, or write repo changes from Pallium until a local fixture and source review exist.",
+      "not_evidence": true,
+      "actions": {
+        "install": false,
+        "network": false,
+        "provider_call": false,
+        "hook": false,
+        "mcp": false,
+        "plugin_enable": false,
+        "connector_enable": false,
+        "auto_write": false
+      },
+      "fixture_refs": [],
+      "blockers": [
+        "Identity drift was repaired, but no local read-only repo-risk fixture has been created from the Pallium source.",
+        "Session indexing, embeddings, hooks, and write actions are out of scope for this run."
+      ]
+    },
+    {
+      "canary_id": "research_x_fake_ocr_fixture",
+      "source": "C:/Users/maasa/research_x/src/research_x/memory/ocr.py",
+      "owner_plane": "research_x",
+      "status": "local_fixture_passed",
+      "decision": "Use the existing fake OCR/local media fixture as the provider-free OCR canary. Hosted OCR, model downloads, PaddleOCR, and manga-ocr remain deferred until source review and explicit non-provider install decision.",
+      "not_evidence": true,
+      "actions": {
+        "install": false,
+        "network": false,
+        "provider_call": false,
+        "hook": false,
+        "mcp": false,
+        "plugin_enable": false,
+        "connector_enable": false,
+        "auto_write": false
+      },
+      "fixture_refs": [
+        {
+          "path": "C:/Users/maasa/research_x/examples/ocr_fixture_manifest.json",
+          "sha256": "11eb46305e861b4a4af379a393f7ea87df5a7ef70db4403f856bc4c6d38dce52"
+        }
+      ],
+      "blockers": []
+    }
+  ]
+}

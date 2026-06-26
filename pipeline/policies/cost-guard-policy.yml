@@ -1,0 +1,22 @@
+schema_version: 1
+policy_id: codex_no_cost_static_pages_cd_guard
+control_artifact: true
+not_project_evidence: true
+not_research_evidence: true
+not_citation: true
+not_answer_support: true
+allowed_no_cost_actions:
+  - local_static_validation
+  - github_rest_public_read_unauthenticated
+  - github_actions_artifact_static_audit
+  - github_actions_artifact_push_smoke_public_repo
+  - github_actions_workflow_dispatch_public_repo
+  - github_pages_public_repo_static_cd
+  - pages_static_preview_staging_production_lanes
+  - safe_static_pages_rollback
+  - subagent_runtime_dry_run
+blocked_or_gated:
+  - provider_api_cloud_model_runner
+  - secrets_pat_deploy_key_environment_secret
+  - mcp_plugin_hook_enablement
+  - db_migration

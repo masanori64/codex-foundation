@@ -1,0 +1,9 @@
+policy_id: install
+schema_version: 1
+gate_id: install_dependency_model_download
+blocked_without_explicit_user_gate: true
+includes:
+  - dependency_install
+  - native_tool_install
+  - browser_install
+  - model_download

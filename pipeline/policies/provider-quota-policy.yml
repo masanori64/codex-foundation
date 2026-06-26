@@ -1,0 +1,17 @@
+policy_id: provider-quota
+schema_version: 1
+control_artifact: true
+not_evidence: true
+gate_id: provider_api_quota
+blocked_without_explicit_user_gate: true
+includes:
+  - paid
+  - free_tier
+  - trial_credit
+  - zero_dollar_quota
+  - external_llm
+  - embeddings
+  - rerank
+  - ocr
+  - reader
+  - external_search

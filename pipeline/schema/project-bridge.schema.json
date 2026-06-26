@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "required": [
+    "schema_version",
+    "project_id",
+    "codex_foundation",
+    "github",
+    "outputs"
+  ],
+  "github_required": ["api_enabled", "mode"],
+  "outputs_required": ["dashboard_dir", "generated_dir", "mermaid_dir"],
+  "control_artifact": true,
+  "not_evidence": true,
+  "not_research_evidence": true,
+  "not_citation": true,
+  "not_answer_support": true
+}

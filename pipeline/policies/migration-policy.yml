@@ -1,0 +1,7 @@
+policy_id: migration
+schema_version: 1
+gate_id: irreversible_db_migration
+blocked_without_explicit_user_gate: true
+includes:
+  - irreversible_schema_migration
+  - irreversible_data_migration

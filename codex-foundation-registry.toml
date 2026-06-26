@@ -1,0 +1,477 @@
+registry_version = 1
+owner = "maasa/.codex"
+purpose = "Codex foundation candidate registry for Skills, self-improvement, memory, session operations, and external Skill/Plugin/MCP governance."
+
+[policy]
+auto_apply_allowed = false
+provider_api_only_hard_block = true
+manual_gate_for_install_hook_mcp_plugin_connector = true
+promotion_pipeline = "trace -> candidate_diff -> replay -> qualifier -> human_accept_reject"
+research_x_role = "external_ai_search_tool"
+
+[[candidates]]
+name = "codex-improvement-pipeline"
+group = "self_improvement"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/foundation/codex_improvement"
+source_state = "local_foundation_package"
+active_surface = "C:/Users/maasa/.codex/foundation/codex_improvement/pipeline.py"
+first_local_step = "Capture trace-derived improvement signals as proposal-only records."
+promotion_gate = "Replay, qualifier, and human accept/reject; never auto-apply Skill changes."
+enabled = true
+notes = "Moved out of research_x so Codex self-improvement is owned by the global foundation."
+
+[[candidates]]
+name = "skillopt"
+surface_alias = "skillopt-sleep"
+group = "self_improvement"
+adoption_shape = "reference_only"
+source = "C:/Users/maasa/.codex/vendor_imports/SkillOpt"
+source_state = "imported"
+active_surface = "deleted: C:/Users/maasa/.codex/skills/skillopt-sleep"
+first_local_step = "Treat the imported SkillOpt repository as source material only; evaluate code, fixtures, or plugin paths before any future promotion."
+promotion_gate = "No Skill surface without a concrete local integration, replay/qualifier evidence, source review, and human accept/reject."
+enabled = false
+notes = "Retired 2026-06-26 because the Codex-facing Skill was an early natural-language staging surface rather than an adopted implementation."
+
+[[candidates]]
+name = "skilladaptor"
+group = "self_improvement"
+adoption_shape = "staging"
+source = "https://github.com/zjunlp/SkillAdaptor"
+source_state = "source_locked_reference"
+active_surface = "staging"
+first_local_step = "Map fault localization and responsible Skill fields to candidate diff records."
+promotion_gate = "Replay, qualifier, source review, then human promotion."
+enabled = false
+notes = "Strong candidate for responsible-artifact localization."
+
+[[candidates]]
+name = "muse-autoskill"
+group = "self_improvement"
+adoption_shape = "staging"
+source = "https://arxiv.org/abs/2605.27366"
+source_state = "source_locked_reference"
+active_surface = "staging"
+first_local_step = "Use lifecycle vocabulary for create/store/reuse/evaluate/refine without auto-growth."
+promotion_gate = "Skill metadata cost and negative-trigger tests pass."
+enabled = false
+notes = "Lifecycle model only until source/code review."
+
+[[candidates]]
+name = "evoskill"
+group = "self_improvement"
+adoption_shape = "staging"
+source = "https://github.com/sentient-agi/EvoSkill"
+source_state = "source_locked_reference"
+active_surface = "staging"
+first_local_step = "Extract replay/held-out benchmark pattern."
+promotion_gate = "No automatic Skill edits; held-out gate passes."
+enabled = false
+notes = "Self-improvement challenger."
+
+[[candidates]]
+name = "gepa"
+group = "self_improvement"
+adoption_shape = "staging"
+source = "https://github.com/gepa-ai/gepa"
+source_state = "source_locked_reference"
+active_surface = "staging"
+first_local_step = "Review gradient/evolution pattern for prompt or Skill diff proposals."
+promotion_gate = "Offline replay and human promotion only."
+enabled = false
+notes = "Candidate optimizer pattern."
+
+[[candidates]]
+name = "textgrad"
+group = "self_improvement"
+adoption_shape = "staging"
+source = "https://github.com/zou-group/textgrad"
+source_state = "source_locked_reference"
+active_surface = "staging"
+first_local_step = "Review text-gradient update idea for candidate diff ranking."
+promotion_gate = "No provider calls and no auto-apply."
+enabled = false
+notes = "Gradient-like feedback candidate."
+
+[[candidates]]
+name = "trace2skill"
+group = "self_improvement"
+adoption_shape = "staging"
+source = "https://github.com/Qwen-Applications/Trace2Skill"
+source_state = "source_locked_reference"
+active_surface = "staging"
+first_local_step = "Turn repeated trace failures into proposal-only candidate reports."
+promotion_gate = "Replay/qualifier/human accept gates."
+enabled = false
+notes = "Trace mining candidate."
+
+[[candidates]]
+name = "skillgrad"
+group = "self_improvement"
+adoption_shape = "staging"
+source = "https://github.com/wwwhy725/SkillGrad"
+source_state = "source_locked_reference"
+active_surface = "staging"
+first_local_step = "Evaluate momentum-like update logic for recurring Skill failures."
+promotion_gate = "Held-out replay and negative-trigger tests."
+enabled = false
+notes = "Skill update ranking candidate."
+
+[[candidates]]
+name = "skillsmith"
+source_alias = "skillsmith-paper"
+group = "self_improvement"
+adoption_shape = "staging"
+source = "https://arxiv.org/abs/2605.15215"
+source_state = "source_locked_reference"
+active_surface = "staging"
+first_local_step = "Evaluate compiled/condensed Skill pattern for token-cost reduction."
+promotion_gate = "Distinct trigger and removal path are proven."
+enabled = false
+notes = "Token cost and compiled-skill candidate."
+
+[[candidates]]
+name = "basic-memory"
+surface_alias = "basic-memory-cli"
+group = "codex_memory"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/skills/basic-memory-cli/SKILL.md"
+source_state = "installed_local_skill"
+active_surface = "C:/Users/maasa/.codex/skills/basic-memory-cli/SKILL.md"
+first_local_step = "Use local CLI memory only when user explicitly asks to remember, recall, record, preserve, or search Codex memory."
+promotion_gate = "Never substitutes research_x evidence DB, source bundles, citations, active plans, or context exports."
+enabled = true
+notes = "Local-first Codex working memory through CLI only; cloud/MCP/provider paths remain gated."
+
+[[candidates]]
+name = "agentmemory"
+group = "codex_memory"
+adoption_shape = "staging"
+source = "https://github.com/rohitg00/agentmemory"
+source_state = "pinned_surface_checked"
+active_surface = "staging"
+first_local_step = "Compare hook/MCP/auto-capture/decay ideas without enabling hooks."
+promotion_gate = "Retention, deletion, redaction, trigger, hook, and source review pass."
+enabled = false
+notes = "Codex memory comparator only."
+
+[[candidates]]
+name = "supermemory"
+group = "codex_memory"
+adoption_shape = "provider_gated"
+source = "https://github.com/supermemoryai/supermemory"
+source_state = "source_locked_provider_gated"
+active_surface = "staging"
+first_local_step = "Keep as cloud-memory architecture reference."
+promotion_gate = "Explicit cloud/privacy/provider approval."
+enabled = false
+notes = "Hosted/cross-project memory is not default."
+
+[[candidates]]
+name = "mem0"
+group = "codex_memory"
+adoption_shape = "provider_gated"
+source = "https://github.com/mem0ai/mem0"
+source_state = "source_locked_provider_gated"
+active_surface = "staging"
+first_local_step = "Review MCP/plugin docs only."
+promotion_gate = "Explicit connector/provider/privacy approval."
+enabled = false
+notes = "Cloud/plugin memory candidate."
+
+[[candidates]]
+name = "core"
+group = "codex_memory"
+adoption_shape = "staging"
+source = "https://github.com/RedPlanetHQ/core"
+source_state = "source_locked_reference"
+active_surface = "staging"
+first_local_step = "Review local memory shape and community signal."
+promotion_gate = "Local-only privacy and trigger tests pass."
+enabled = false
+notes = "Local/graph memory candidate."
+
+[[candidates]]
+name = "automem"
+group = "codex_memory"
+adoption_shape = "staging"
+source = "https://github.com/verygoodplugins/automem"
+source_state = "source_locked_reference"
+active_surface = "staging"
+first_local_step = "Review auto-capture behavior as report-only."
+promotion_gate = "No silent capture; redaction and retention pass."
+enabled = false
+notes = "Auto memory candidate."
+
+[[candidates]]
+name = "memoryoss"
+group = "codex_memory"
+adoption_shape = "staging"
+source = "https://memoryoss.com/"
+source_state = "source_locked_reference"
+active_surface = "staging"
+first_local_step = "Review graph/vector/trust threshold ideas."
+promotion_gate = "Local-first and evidence separation pass."
+enabled = false
+notes = "Memory architecture candidate."
+
+[[candidates]]
+name = "memories-sh"
+group = "codex_memory"
+adoption_shape = "staging"
+source = "https://memories.sh/docs"
+source_state = "source_locked_reference"
+active_surface = "staging"
+first_local_step = "Review lifecycle-aware local tools."
+promotion_gate = "No hook activation without manual promotion."
+enabled = false
+notes = "Session lifecycle candidate."
+
+[[candidates]]
+name = "pallium"
+surface_alias = "codex-memory"
+group = "repo_intelligence"
+adoption_shape = "staging"
+source = "https://github.com/tszaks/pallium"
+source_state = "redirect_verified_reference"
+canonical_url = "https://github.com/tszaks/pallium"
+legacy_url = "https://github.com/tszaks/codex-memory"
+redirect_chain = ["https://github.com/tszaks/codex-memory", "https://github.com/tszaks/pallium"]
+source_kind = "repo_intelligence"
+review_status = "blocked_reference_only"
+license = "unverified"
+retrieved_at = "2026-06-26"
+active_surface = "staging"
+first_local_step = "Evaluate read-only repo risk, co-change, related-file, and test suggestion output on one known local change."
+promotion_gate = "No session indexing, embeddings, provider calls, hook activation, install, or write action until source review and explicit promotion pass."
+enabled = false
+notes = "Previously tracked as codex-memory. Canonical URL is https://github.com/tszaks/pallium; legacy URL https://github.com/tszaks/codex-memory is retained only as surface_alias. Review status: blocked_reference_only until source/dependency/license review and local synthetic repo fixture exist. Forbidden before promotion: install, session indexing, embeddings, hooks, write actions, repo mutation, and hidden memory injection."
+
+[[candidates]]
+name = "codex-retrospective"
+group = "codex_operations"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/skills/codex-retrospective/SKILL.md"
+source_state = "installed_local_skill"
+active_surface = "C:/Users/maasa/.codex/skills/codex-retrospective/SKILL.md"
+first_local_step = "Use for explicit self-review periods with concrete history and owner surfaces."
+promotion_gate = "Proposal-only; exact small diffs require human review before application."
+enabled = true
+notes = "Codex-wide retrospective Skill; replay/qualifier staging belongs to skillopt-sleep."
+
+[[candidates]]
+name = "codex-fluent"
+group = "codex_operations"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/skills/codex-fluent/SKILL.md"
+source_state = "installed_local_skill"
+active_surface = "C:/Users/maasa/.codex/skills/codex-fluent/SKILL.md"
+first_local_step = "Start report-only for session hygiene after heavy usage."
+promotion_gate = "Handoff, backup, explicit mutation approval, and archive-not-delete before maintenance."
+enabled = true
+notes = "Codex-wide session hygiene Skill; not memory editing, Skill refactoring, or project planning."
+
+[[candidates]]
+name = "codex-strict-engineering"
+group = "codex_operations"
+adoption_shape = "reference_only"
+source = "C:/Users/maasa/.codex/skills/codex-strict-engineering/SKILL.md"
+source_state = "retired_deleted_skill_surface"
+active_surface = "deleted: C:/Users/maasa/.codex/skills/codex-strict-engineering"
+first_local_step = "Use project instructions and existing engineering discipline directly; do not route through a source-inspired generic Skill."
+promotion_gate = "A future strict workflow needs concrete repeated failures, distinct trigger evidence, and no overlap with project AGENTS rules."
+enabled = false
+notes = "Retired 2026-06-26 because it represented method guidance in a Skill surface without a concrete imported implementation."
+
+[[candidates]]
+name = "chatgpt-control-router"
+group = "codex_operations"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/skills/chatgpt-control-router/SKILL.md"
+source_state = "installed_local_skill"
+active_surface = "C:/Users/maasa/.codex/skills/chatgpt-control-router/SKILL.md"
+first_local_step = "Route only explicit ChatGPT/GPT visible-web requests to the installed ChatGPT control plugin surface."
+promotion_gate = "Do not use for ordinary web search, OpenAI API calls, hidden endpoints, or unapproved browser/provider work."
+enabled = true
+notes = "Thin route bridge for explicit ChatGPT-control requests."
+
+[[candidates]]
+name = "planning-files"
+group = "codex_operations"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/skills/planning-files/SKILL.md"
+source_state = "installed_local_skill"
+active_surface = "C:/Users/maasa/.codex/skills/planning-files/SKILL.md"
+first_local_step = "Use persistent planning files for long work that needs state."
+promotion_gate = "Do not duplicate project source-of-truth docs."
+enabled = true
+notes = "Codex-wide planning surface."
+
+[[candidates]]
+name = "context-handoff-export"
+group = "codex_operations"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/skills/context-handoff-export/SKILL.md"
+source_state = "installed_local_skill"
+active_surface = "C:/Users/maasa/.codex/skills/context-handoff-export/SKILL.md"
+first_local_step = "Create factual context.md plus attachments ZIP for the user-approved scope when the user asks for handoff or context export."
+promotion_gate = "Do not include secrets, hidden instructions, or unnecessary PII; do not create new task instructions or replace active planning/evidence stores."
+enabled = true
+notes = "Codex-wide context export Skill."
+
+[[candidates]]
+name = "context-budget"
+group = "codex_operations"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/skills/context-budget/SKILL.md"
+source_state = "installed_local_skill"
+active_surface = "C:/Users/maasa/.codex/skills/context-budget/SKILL.md"
+first_local_step = "Use for cross-project context packs."
+promotion_gate = "Preserve source pointers and hashes."
+enabled = true
+notes = "Global context budget Skill."
+
+[[candidates]]
+name = "goal-setter"
+group = "codex_operations"
+adoption_shape = "adopt"
+source = "https://github.com/gotalab/goal-setter-skill"
+source_state = "source_locked_installed_personal_plugin"
+active_surface = "C:/Users/maasa/.codex/plugins/cache/personal/goal-setter/0.9.3"
+first_local_step = "Use as Codex-wide goal intake for explicit requests to draft, audit, or activate evidence-bounded /goal prompts."
+promotion_gate = "Manual plugin approval completed; do not also install the standalone Skill copy, and do not imply worker launch unless the user sends the emitted /goal line when required."
+enabled = true
+notes = "Installed from plugin bundle path plugins/goal-setter at commit 4f37792ca6ee0a3729c861d28485a52e05571b0b; owns goal creation/activation intake, not project execution continuation."
+
+[[candidates]]
+name = "headroom"
+group = "codex_operations"
+adoption_shape = "staging"
+source = "https://github.com/chopratejas/headroom"
+source_state = "source_locked_reference"
+active_surface = "staging"
+first_local_step = "Compare local context-compression/offload ideas against context-budget without installing dependencies."
+promotion_gate = "Source, dependency, local-only, secret-surface, and trigger-overlap review pass; no provider or install action without explicit approval."
+enabled = false
+notes = "Optional context-compression adapter candidate; not default Codex context handling."
+
+[[candidates]]
+name = "route-memory"
+group = "codex_operations"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/route_memory/route-memory.json"
+source_state = "local_foundation_registry"
+active_surface = "C:/Users/maasa/.codex/route_memory/route-memory.json"
+first_local_step = "Check exact route triggers and known failed routes before recurring operation-route selection."
+promotion_gate = "Does not grant provider, browser, ChatGPT, MCP, connector, install, hook, destructive-action, or evidence permission."
+enabled = true
+notes = "Codex-wide operation route memory moved out of research_x."
+
+[[candidates]]
+name = "codex-skill-audit"
+group = "external_tool_governance"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/foundation/skill_audit.py"
+source_state = "local_foundation_tool"
+active_surface = "C:/Users/maasa/.codex/foundation/skill_audit.py"
+first_local_step = "Audit project repo Skills, personal Skills, retired project Skills, registry, and source-lock boundaries from the Codex foundation side."
+promotion_gate = "Read-only audit by default; no Skill invocation, provider/API use, install, hook, MCP, plugin, connector, or auto-apply."
+enabled = true
+notes = "Owns cross-Skill audit outside research_x; projects remain audit targets, not audit owners."
+
+[[candidates]]
+name = "prompt-contract-testing"
+group = "codex_operations"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/skills/prompt-contract-testing/SKILL.md"
+source_state = "installed_local_skill"
+active_surface = "C:/Users/maasa/.codex/skills/prompt-contract-testing/SKILL.md"
+first_local_step = "Use for prompt/tool-boundary contract tests."
+promotion_gate = "Deterministic prompt regression coverage."
+enabled = true
+notes = "Global prompt contract Skill."
+
+[[candidates]]
+name = "skill-security-review"
+group = "external_tool_governance"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/skills/skill-security-review/SKILL.md"
+source_state = "installed_local_skill"
+active_surface = "C:/Users/maasa/.codex/skills/skill-security-review/SKILL.md"
+first_local_step = "Use before trusting third-party Skill/source candidates."
+promotion_gate = "Source lock, risk, and negative trigger checks pass."
+enabled = true
+notes = "Global source/tool governance Skill."
+
+[[candidates]]
+name = "research-x-publishing-illustration"
+group = "external_tool_governance"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/skills/research-x-publishing-illustration/SKILL.md"
+source_state = "installed_local_skill"
+active_surface = "C:/Users/maasa/.codex/skills/research-x-publishing-illustration/SKILL.md"
+first_local_step = "Convert source-aware claim maps into visual briefs, shot lists, storyboards, or prompt packs before any style adapter or image generation."
+promotion_gate = "Generated visuals remain outside evidence, citation, and answer-support workflows."
+enabled = true
+notes = "Source-aware visual planning parent; style adapters such as ian-xiaohei remain explicit optional lenses."
+
+[[candidates]]
+name = "ian-xiaohei-illustrations"
+group = "external_tool_governance"
+adoption_shape = "reference_only"
+source = "C:/Users/maasa/.codex/skills/ian-xiaohei-illustrations/SKILL.md"
+source_state = "retired_deleted_skill_surface"
+active_surface = "deleted: C:/Users/maasa/.codex/skills/ian-xiaohei-illustrations"
+first_local_step = "Keep the upstream repository as reference material only; use the parent publishing illustration boundary for any future visual plan."
+promotion_gate = "No style-adapter Skill unless there is repeated use, a distinct trigger, and reviewed source/asset handling."
+enabled = false
+notes = "Retired 2026-06-26 because the external style reference had been converted into an active Skill before any real asset/code integration."
+
+[[candidates]]
+name = "skill_catalogs"
+group = "external_tool_governance"
+adoption_shape = "staging"
+source = "superpowers, ponytail, superclaude, vercel, minimax, anthropic-skills, composio, antfu, matt-pocock"
+source_state = "mixed_source_locked_reference"
+active_surface = "staging"
+first_local_step = "Review each catalog/source individually; never bulk install."
+promotion_gate = "Source lock, script scan, overlap check, negative triggers."
+enabled = false
+notes = "Catalogs are sources, not active instructions."
+
+[[candidates]]
+name = "research_x_bridge"
+group = "external_tool_governance"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/research_x/src/research_x/tool_interface/memory_tool_contract.py"
+source_state = "local_project_bridge"
+active_surface = "C:/Users/maasa/research_x/src/research_x/tool_interface/memory_tool_contract.py"
+first_local_step = "Call research_x as AI search tool via stable JSON contract."
+promotion_gate = "Only query/objective/context budget/source candidate cross the bridge."
+enabled = true
+notes = "Thin bridge to external search tool."
+
+[[candidates]]
+name = "codex-skill-factory"
+group = "external_tool_governance"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/foundation/skill_factory.py"
+source_state = "local_foundation_tool"
+active_surface = "C:/Users/maasa/.codex/foundation/skill_factory.py"
+first_local_step = "Create new Skills through spec -> candidate -> quality gate -> promotion instead of ad hoc folder edits."
+promotion_gate = "Automatic local creation is allowed only when provider/quota is false, target layer is resolved, trigger overlap is rejected, negative triggers exist, and verification/removal path are present."
+enabled = true
+notes = "Owns Skill creation, target-layer routing, project manifest updates, doctor checks, and managed pre-commit hook entrypoints; project repos remain targets, not owners."
+
+[[candidates]]
+name = "codex-hotl-implementation-pipeline"
+group = "codex_operations"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/foundation/pipeline"
+source_state = "local_foundation_package"
+active_surface = "C:/Users/maasa/.codex/foundation/pipeline/engine/codex_pipeline"
+first_local_step = "Validate a project .codex-project profile/bridge, then generate local-only dashboard, Mermaid, deploy manifest, and rollback manifest control artifacts without external side effects."
+promotion_gate = "Phase 0/1 forbids provider/API/quota, secrets, installs, MCP/plugin/hook enablement, destructive actions, GitHub API/CD execution, production deploy, and rollback execution."
+enabled = true
+notes = "Owns the reusable HOTL programming implementation pipeline. Project repositories are targets that keep only profiles, bridges, thin wrappers, and generated control artifacts."

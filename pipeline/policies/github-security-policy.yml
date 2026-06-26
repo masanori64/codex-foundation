@@ -1,0 +1,26 @@
+policy_id: github-security
+schema_version: 1
+control_artifact: true
+not_evidence: true
+not_research_evidence: true
+not_citation: true
+not_answer_support: true
+github_security:
+  default_permissions: read_only
+  forbid_pull_request_target_checkout: true
+  forbid_privileged_untrusted_artifacts: true
+  require_job_level_permissions: true
+  require_concurrency_groups: true
+  allow_pages_source_setup_when_public_repo_free: true
+  require_manual_gate_for_non_pages_repository_settings: true
+  require_pages_deploy_least_privilege_permissions: true
+  require_manual_gate_for_environment_creation: true
+forbidden_in_phase_1:
+  - github_api_mutation
+  - branch_protection_change
+  - environment_protection_change
+  - pull_request_target_untrusted_checkout
+allowed_free_static_cd_permissions:
+  - contents:read
+  - pages:write
+  - id-token:write

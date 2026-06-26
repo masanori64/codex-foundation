@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "required": [
+    "agent",
+    "mode",
+    "status",
+    "summary",
+    "control_artifact",
+    "not_evidence",
+    "not_citation",
+    "raw_log_in_project"
+  ],
+  "allowed_mode": "read_only",
+  "raw_log_in_project": false
+}

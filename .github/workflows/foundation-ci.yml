@@ -1,5 +1,8 @@
 name: Codex Foundation CI
 
+permissions:
+  contents: read
+
 on:
   push:
     branches:
@@ -10,8 +13,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  pipeline:
-    name: Pipeline checks
+  verify:
+    name: Foundation verification
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,7 +24,27 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Lint pipeline
-        run: uv run ruff check pipeline\engine pipeline\tests
-      - name: Test pipeline
-        run: uv run pytest pipeline\tests
+      - name: Verify foundation
+        shell: pwsh
+        run: .\scripts\verify-foundation.ps1
+
+  package:
+    name: Foundation artifact CD
+    runs-on: windows-latest
+    needs: verify
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build foundation package
+        shell: pwsh
+        run: .\scripts\package-foundation.ps1
+      - name: Build rollback plan
+        shell: pwsh
+        run: .\scripts\foundation-rollback-plan.ps1 -TargetRef HEAD
+      - name: Upload foundation package
+        uses: actions/upload-artifact@v4
+        with:
+          name: codex-foundation-${{ github.sha }}
+          path: |
+            .foundation-dist/*.zip
+            .foundation-dist/*.json
+          if-no-files-found: error

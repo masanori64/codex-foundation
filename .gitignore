@@ -20,10 +20,12 @@ project_reviews/
 *.tar
 *.tar.gz
 *.tgz
+.foundation-dist/
 
 # Runtime logs and regenerated local audit streams.
 *.log
 pipeline/audit/*.jsonl
+.foundation-dist/
 
 # OS/editor noise.
 .DS_Store

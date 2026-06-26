@@ -12,7 +12,7 @@ The pipeline is foundation-owned and project-targeted:
 
 Target projects may contain a profile, bridge, thin wrappers, and generated artifacts. They must not own the generic dashboard engine, GitHub state collector, rollback planner, or subagent definitions.
 
-## Phase 0/1 Boundary
+## Implemented Foundation Pipeline
 
 Implemented:
 
@@ -48,7 +48,7 @@ Implemented:
 - Public-CI fixture coverage that runs against a temporary synthetic project
   instead of creating or mutating a host-local target project.
 
-Outside the completed free static Pages CD pipeline:
+Outside the completed free static Pages CD pipeline and foundation package CD:
 
 - provider/API/quota calls;
 - secrets or credentials handling;
@@ -57,6 +57,12 @@ Outside the completed free static Pages CD pipeline:
 - custom subagent runtime configuration;
 - authenticated host-setting inspection except explicit local verification
   commands such as `gh api` outside the generated pipeline.
+
+The foundation repository has its own CI/CD outside target projects. That path
+verifies the full foundation repo and publishes a no-cost source package as a
+GitHub Actions artifact. Target project Pages CD, such as the `research_x`
+dashboard/preview/staging/production lanes, remains a use of this foundation
+pipeline rather than the foundation package CD itself.
 
 ## Commands
 
@@ -76,6 +82,7 @@ $PROJECT = "C:\path\to\target-project"
 & $PIPELINE audit-workflow-artifacts --project $PROJECT
 & $PIPELINE audit-workflow-smoke --project $PROJECT
 & $PIPELINE subagent-dry-run --project $PROJECT
+& $PIPELINE validate-subagent-report --project $PROJECT --report C:\path\to\subagent-report.json
 & $PIPELINE generate-github-wrappers --project $PROJECT
 & $PIPELINE validate-github-wrappers --project $PROJECT
 & $PIPELINE generate-pages-workflows --project $PROJECT

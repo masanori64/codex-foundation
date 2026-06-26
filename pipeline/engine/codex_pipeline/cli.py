@@ -28,6 +28,7 @@ from .pages import (
 from .profile_loader import load_project_profile
 from .subagent_governance import build_subagent_policy
 from .subagent_runtime import (
+    build_subagent_report_validation,
     build_subagent_runtime_dry_run,
     write_subagent_runtime_dry_run,
 )
@@ -59,6 +60,7 @@ def build_parser() -> argparse.ArgumentParser:
         "audit-workflow-artifacts",
         "audit-workflow-smoke",
         "subagent-dry-run",
+        "validate-subagent-report",
         "generate-github-wrappers",
         "validate-github-wrappers",
         "generate-pages-workflows",
@@ -73,6 +75,8 @@ def build_parser() -> argparse.ArgumentParser:
         command.add_argument("--foundation-root", type=Path)
         if name == "record-pages-rollback":
             command.add_argument("--target-ref", default="")
+        if name == "validate-subagent-report":
+            command.add_argument("--report", type=Path, required=True)
     manifest = subparsers.add_parser("write-foundation-manifest")
     manifest.add_argument("--known-project", action="append", default=[])
     return parser
@@ -278,6 +282,15 @@ def main(argv: list[str] | None = None) -> int:
         write_subagent_runtime_dry_run(profile, bridge, state)
         print(json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True))
         return 0
+    if args.command == "validate-subagent-report":
+        profile = load_project_profile(project)
+        report = json.loads(args.report.read_text(encoding="utf-8"))
+        subagent_policy = build_subagent_policy(
+            allowed_roles=profile.data["subagents"].get("allowed_roles", []),
+        )
+        state = build_subagent_report_validation(report, subagent_policy)
+        print(json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True))
+        return 0 if state["status"] == "passed" else 1
     if args.command in {"render-dashboard", "render-mermaid", "explain"}:
         profile = load_project_profile(project)
         bridge = load_project_bridge(project)

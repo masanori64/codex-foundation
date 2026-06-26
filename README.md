@@ -10,6 +10,14 @@ source-of-truth documents.
 
 ## Current Surfaces
 
+- `.github/workflows/foundation-ci.yml`: independent GitHub CI/CD for the
+  foundation repository. Pushes and pull requests verify the full foundation
+  repo, validate the pipeline manifest, then publish a no-cost source package as
+  a GitHub Actions artifact.
+- `FOUNDATION_REPO_MANIFEST.json`: repo-level freshness manifest covering the
+  active source, CI, scripts, tests, registry, and pipeline package.
+- `scripts/`: local mirrors of the CI/CD path: full verification, foundation
+  artifact packaging, and plan-only rollback manifests.
 - `pipeline/`: reusable HOTL implementation pipeline engine, policies,
   schemas, GitHub workflow templates, dashboard rendering, Pages readback, and
   rollback manifests.
@@ -29,24 +37,61 @@ are not part of the foundation source repo.
 Run from this directory:
 
 ```powershell
-uv run ruff check .
-uv run pytest tests pipeline\tests
+.\scripts\verify-foundation.ps1
 ```
 
-The pipeline subset can also be checked directly:
+The equivalent direct commands are:
+
+```powershell
+$env:PYTHONPATH = "$PWD\pipeline\engine;$env:PYTHONPATH"
+uv run ruff check .
+uv run pytest tests pipeline\tests
+uv run python -c "from codex_pipeline.foundation import validate_foundation_manifest; errors = validate_foundation_manifest(); print(errors); raise SystemExit(1 if errors else 0)"
+uv run python scripts\write-foundation-repo-manifest.py --check
+```
+
+The pipeline subset can still be checked directly:
 
 ```powershell
 uv run ruff check pipeline\engine pipeline\tests
 uv run pytest pipeline\tests
 ```
 
-For the `research_x` bridge target:
+## Foundation CI/CD
+
+This repository is not deployed to a paid cloud service. Its CD output is a
+verified GitHub Actions artifact package of the foundation source at the checked
+commit:
 
 ```powershell
-.\pipeline\scripts\codex-pipeline.ps1 validate --project C:\Users\maasa\research_x
-.\pipeline\scripts\codex-pipeline.ps1 final-audit --project C:\Users\maasa\research_x
-.\pipeline\scripts\codex-pipeline.ps1 validate-github-wrappers --project C:\Users\maasa\research_x
-.\pipeline\scripts\codex-pipeline.ps1 validate-pages-workflows --project C:\Users\maasa\research_x
+.\scripts\package-foundation.ps1
+```
+
+The package manifest records the commit, archive hash, and no-cost boundary:
+no paid provider/API calls, no secrets, no DB migration, no destructive action,
+and no external cloud deployment.
+
+Rollback is Git/artifact based. The default rollback command only writes a
+plan-only manifest and refuses destructive rollback classes:
+
+```powershell
+.\scripts\foundation-rollback-plan.ps1 -TargetRef HEAD~1
+```
+
+Actual recovery should be a new revert or fix-forward commit followed by
+`.\scripts\verify-foundation.ps1` and a successful `Codex Foundation CI` run.
+Do not rewrite public history or restore secrets, databases, provider state, or
+external cloud resources through this foundation path.
+
+For any target project with `.codex-project/profile.yml` and
+`.codex-project/bridge.yml`, set `$PROJECT`:
+
+```powershell
+$PROJECT = "C:\path\to\target-project"
+.\pipeline\scripts\codex-pipeline.ps1 validate --project $PROJECT
+.\pipeline\scripts\codex-pipeline.ps1 final-audit --project $PROJECT
+.\pipeline\scripts\codex-pipeline.ps1 validate-github-wrappers --project $PROJECT
+.\pipeline\scripts\codex-pipeline.ps1 validate-pages-workflows --project $PROJECT
 ```
 
 ## Boundary
@@ -55,3 +100,9 @@ This repository must not contain secrets, PATs, deploy keys, provider keys,
 private browser exports, raw ChatGPT downloads, or project evidence bundles.
 Generated Codex control artifacts are not research evidence, citations, or
 answer support.
+
+Real Codex subagent spawning is a Codex app/runtime capability, not a Python
+package feature in this repository. The foundation owns the subagent policy,
+report schema, and no-cost dry-run validation boundary. A future runtime adapter
+must keep worker logs out of project evidence, keep commit/push/deploy decisions
+with the parent, and pass the same provider/secrets/destructive-action gates.

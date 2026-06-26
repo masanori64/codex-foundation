@@ -7,9 +7,9 @@
       "sha256": "8a2b11af2f2524bda28164fa1677572b65172cd3258f7a9daac91611a2d35247"
     },
     {
-      "bytes": 4107,
+      "bytes": 4608,
       "path": "README.md",
-      "sha256": "5b04525ba06dbccd6e5ad8c6e89afd29e37094cfc0898c0fc3e5d87da27fe50b"
+      "sha256": "195c7f77565ab2ef2d532c469450c8f10bffa7544ff413b2852cc9069a3be064"
     },
     {
       "bytes": 6,
@@ -32,9 +32,9 @@
       "sha256": "48b7b17b60f8d5c2b68c555b20429294fd57722ab95fd69ace650db71a5c6481"
     },
     {
-      "bytes": 12303,
+      "bytes": 13008,
       "path": "engine/codex_pipeline/cli.py",
-      "sha256": "0cafa68a1bb2e22964a3faa2cfc7e564176ab7a01e3af005be70f52ca6ed9b23"
+      "sha256": "af98aca6a0182f4d33c005ba76fbbc720d25e69ade6122b4362d9582391b8174"
     },
     {
       "bytes": 7644,
@@ -137,9 +137,9 @@
       "sha256": "fc244d8fcb910f3ec16e1b3c8e21cb24f98dbfb7ce47193e4c614fb90a1937c8"
     },
     {
-      "bytes": 3338,
+      "bytes": 5900,
       "path": "engine/codex_pipeline/subagent_runtime.py",
-      "sha256": "12d817afdf3dfc0e2bf37393032ba21b57ce564a35d6615356cb70f153e1f371"
+      "sha256": "48f09a082bbce76731fdec85712440d7fb6ebf7f8be9c75259542cefdc77f66e"
     },
     {
       "bytes": 12784,
@@ -267,9 +267,9 @@
       "sha256": "25d1faa03cfaab9fa7a02336dcafb9a54d706ec4e9d5c73205ded11558bd384f"
     },
     {
-      "bytes": 682,
+      "bytes": 696,
       "path": "scripts/write-foundation-manifest.py",
-      "sha256": "d6ee2ca97ee97e35de782cbd37adcfb7fd2c7a36559a0e9e46180b91b586fce9"
+      "sha256": "14f066c4d0b706ca25ad6cdca2766b976c8c3f8845c3564f76d3ecb8be3a9a3a"
     },
     {
       "bytes": 3353,
@@ -327,9 +327,9 @@
       "sha256": "36da423906aeff34b89f5d3cbfe4e12a6ecf1a963a9d421eae17ebdfa7ae6ae3"
     },
     {
-      "bytes": 1945,
+      "bytes": 2838,
       "path": "tests/test_cli.py",
-      "sha256": "059e65068e1aa4bc6e72fe81c0e9b177fbbe4df3396406f04563ce915de0843e"
+      "sha256": "e7aa0dee41a724a3876297a5822980e891c07c7a040fef4378363b10d1596b29"
     },
     {
       "bytes": 5631,
@@ -372,9 +372,9 @@
       "sha256": "b532cca14804bc30cec25ad32a91af9f180597e8f2b576413ab812bdae77991a"
     },
     {
-      "bytes": 4878,
+      "bytes": 5886,
       "path": "tests/test_no_cost_smoke.py",
-      "sha256": "41d2943c25f8a1de66429a03b594180e3d3f819179028dd0b804841e67199407"
+      "sha256": "a088bfb2027f5f6bd8fcf85a217b2e27f0cc06faf6ab61979eb49dded2ca7d33"
     },
     {
       "bytes": 1585,
@@ -398,10 +398,8 @@
     }
   ],
   "foundation_id": "codex-hotl-implementation-pipeline",
-  "generated_at": "2026-06-26T20:47:53.527796+00:00",
-  "known_projects": [
-    "C:/Users/maasa/research_x"
-  ],
+  "generated_at": "2026-06-26T20:56:44.549394+00:00",
+  "known_projects": [],
   "not_answer_support": true,
   "not_citation": true,
   "not_project_evidence": true,

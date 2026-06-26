@@ -1,0 +1,709 @@
+{
+  "artifact_kind": "foundation_repo_manifest",
+  "cd_mode": "github_actions_artifact",
+  "ci_workflow": ".github/workflows/foundation-ci.yml",
+  "control_artifact": true,
+  "files": [
+    {
+      "bytes": 78,
+      "path": ".gitattributes",
+      "sha256": "f487c48957c5ebb235357bc4daf6bfc7e97157f9204a06967348db4ff719b0c4"
+    },
+    {
+      "bytes": 1189,
+      "path": ".github/workflows/foundation-ci.yml",
+      "sha256": "bbb3cd9d8971a206684937cd155f25bed1bcf5f069c6cfecd2ffa9cdc0a17b8a"
+    },
+    {
+      "bytes": 492,
+      "path": ".gitignore",
+      "sha256": "618a1ad1cedb6b9b72b234fb5892ed43379a8794652ad8857ee6a6de91a3bf31"
+    },
+    {
+      "bytes": 4451,
+      "path": "README.md",
+      "sha256": "91b130a28de8473eef808f1b254dea1f70796e4765160c1682fa9fb9960e7dd3"
+    },
+    {
+      "bytes": 22009,
+      "path": "codex-foundation-registry.toml",
+      "sha256": "9f7561e2b01fb5dbbcf00a79dbf23d9ae636b45a716169a206666da8bef1900f"
+    },
+    {
+      "bytes": 998,
+      "path": "codex_improvement/__init__.py",
+      "sha256": "fb6c94ddc894ae45b8d1886c760dee4201afa6662373179ad51ac3be4df20dbe"
+    },
+    {
+      "bytes": 79,
+      "path": "codex_improvement/__main__.py",
+      "sha256": "307299fda7b77d22c64cb51430ec75e5f59d78e9c948786afb3b2544fe45e4b7"
+    },
+    {
+      "bytes": 9655,
+      "path": "codex_improvement/cli.py",
+      "sha256": "75e90cb4ff4630c825f6364b81976a5bf921f025b46ad9a220c726c11e89057e"
+    },
+    {
+      "bytes": 5842,
+      "path": "codex_improvement/overimplementation_guard.py",
+      "sha256": "e99214e647cce0b4f1186572bc78e5811a78ac173a7d948e4e250ba216650a53"
+    },
+    {
+      "bytes": 40840,
+      "path": "codex_improvement/pipeline.py",
+      "sha256": "79bd4b523cd6686b1d9bb28ecf9eb5ef433c762d11c01b6b3b1a4acc846d592c"
+    },
+    {
+      "bytes": 3876,
+      "path": "codex_improvement/signals.schema.json",
+      "sha256": "4da4f19728f37424676cdfc4cf1c03ce4b10b8e934822db1c8a6a7e6e0e89e9a"
+    },
+    {
+      "bytes": 6233,
+      "path": "codex_improvement/skill_lifecycle.py",
+      "sha256": "62e2071d972793e5d9de7134fc941225b540cd9d20eb10712abe26da6f463f44"
+    },
+    {
+      "bytes": 9251,
+      "path": "context_offloads/research_x/pointer-map.json",
+      "sha256": "bc993dd48fee5d920520916466dbfb17055428c741bf1cb3f838fc7e1862f813"
+    },
+    {
+      "bytes": 700,
+      "path": "context_offloads/research_x/visual-context-offload-map.md",
+      "sha256": "d3c6fecf12cf50b34a7f2d2ad4c746c628c4cad77862b32c67c378e4cb86584e"
+    },
+    {
+      "bytes": 5393,
+      "path": "offline_canaries.py",
+      "sha256": "d534cb433fbcf136103eb8de896a725c75f7076703448e680b96c9c72adccb79"
+    },
+    {
+      "bytes": 3467,
+      "path": "offline_canary_registry.json",
+      "sha256": "14d21bc7680719163a3abb5edab7c0cdf234d2046e59b260566a61a20c15542a"
+    },
+    {
+      "bytes": 2242,
+      "path": "pipeline/CHANGELOG.control.md",
+      "sha256": "8a2b11af2f2524bda28164fa1677572b65172cd3258f7a9daac91611a2d35247"
+    },
+    {
+      "bytes": 14000,
+      "path": "pipeline/FOUNDATION_MANIFEST.json",
+      "sha256": "9b6509cc5eee1886fe63820c204817c0dc330c2e6bf6daca110858af595c57c0"
+    },
+    {
+      "bytes": 4608,
+      "path": "pipeline/README.md",
+      "sha256": "195c7f77565ab2ef2d532c469450c8f10bffa7544ff413b2852cc9069a3be064"
+    },
+    {
+      "bytes": 6,
+      "path": "pipeline/VERSION",
+      "sha256": "e9dd8507f4bf0c6f42458e41aea833ad0bd3f6127272335eee9bf4d58541ed67"
+    },
+    {
+      "bytes": 58,
+      "path": "pipeline/engine/codex_pipeline/__init__.py",
+      "sha256": "0b9d892b828c8dff4c9cf64d27fc98043d1fe3d735aa0315e7cd7c7e20cd3bb6"
+    },
+    {
+      "bytes": 84,
+      "path": "pipeline/engine/codex_pipeline/__main__.py",
+      "sha256": "7ce97021d5d7afd92726ccccef44081596cec70e35669545a6f09d199d55b310"
+    },
+    {
+      "bytes": 2620,
+      "path": "pipeline/engine/codex_pipeline/bridge_loader.py",
+      "sha256": "48b7b17b60f8d5c2b68c555b20429294fd57722ab95fd69ace650db71a5c6481"
+    },
+    {
+      "bytes": 13008,
+      "path": "pipeline/engine/codex_pipeline/cli.py",
+      "sha256": "af98aca6a0182f4d33c005ba76fbbc720d25e69ade6122b4362d9582391b8174"
+    },
+    {
+      "bytes": 7644,
+      "path": "pipeline/engine/codex_pipeline/control_artifact_audit.py",
+      "sha256": "65b709ca1a51f64bc810bae4c9c7a350e0c2a4a28f5d76dea337e81fd8069fd4"
+    },
+    {
+      "bytes": 12063,
+      "path": "pipeline/engine/codex_pipeline/cost_guard.py",
+      "sha256": "0ec4cece9629362be4d2c2e549bbb8f7e12db3d89804f5f59f3b35849e9c6543"
+    },
+    {
+      "bytes": 7707,
+      "path": "pipeline/engine/codex_pipeline/dashboard_renderer.py",
+      "sha256": "d5060fa09c2674340cb4380ec23b9b8b002f619e9b980cf08a361bf46bae969a"
+    },
+    {
+      "bytes": 14010,
+      "path": "pipeline/engine/codex_pipeline/dashboard_state.py",
+      "sha256": "28afe1424dbb0950a5bf198a9666ade14db903c84fe62621c4cc9fe4fecf29fe"
+    },
+    {
+      "bytes": 1173,
+      "path": "pipeline/engine/codex_pipeline/deploy_manifest.py",
+      "sha256": "1e6877a8c0300c2caef17344aa65b1177512070716bde62567c268edb15078fe"
+    },
+    {
+      "bytes": 8646,
+      "path": "pipeline/engine/codex_pipeline/e2e_completion.py",
+      "sha256": "85551b43bfe645ac0c34e23a8bd77259b147ce3f98fdbe3172da9405b11bffb7"
+    },
+    {
+      "bytes": 2823,
+      "path": "pipeline/engine/codex_pipeline/evidence_boundary.py",
+      "sha256": "849c730beb368497796743a6049a229d5172b06ae49e917e0997b87250e941eb"
+    },
+    {
+      "bytes": 7966,
+      "path": "pipeline/engine/codex_pipeline/foundation.py",
+      "sha256": "db33e53786ec7395a01878fedd5eaa92ddac241b65d110b5523598e9482de3a8"
+    },
+    {
+      "bytes": 4738,
+      "path": "pipeline/engine/codex_pipeline/gate_policy.py",
+      "sha256": "d568219b9fb4e3c3686146dae52b7edaa27465ae8e522e0396bb772da11659cb"
+    },
+    {
+      "bytes": 3009,
+      "path": "pipeline/engine/codex_pipeline/github_collection.py",
+      "sha256": "a3d44f802e04d7d74fc2ef6cc988515ebc2518277f40709d4f170022f837a7b2"
+    },
+    {
+      "bytes": 11894,
+      "path": "pipeline/engine/codex_pipeline/github_read_collector.py",
+      "sha256": "c92e43d95c0bc16baa6414aa5dbdd33c5a2968b141766650285b7ffaed3b3f64"
+    },
+    {
+      "bytes": 3600,
+      "path": "pipeline/engine/codex_pipeline/mermaid_renderer.py",
+      "sha256": "adac751ecb1cd34558fef03471e84a4a414afb0de20cf1deff34e942875917cb"
+    },
+    {
+      "bytes": 17925,
+      "path": "pipeline/engine/codex_pipeline/pages.py",
+      "sha256": "a0072866963977957726a83de63772ed905246afca5a131469de8950bc497364"
+    },
+    {
+      "bytes": 2013,
+      "path": "pipeline/engine/codex_pipeline/preview_manifest.py",
+      "sha256": "86fc19f38e8c30792f2ad8270b49cfb357a667ce7e0e90737a0fb7742f4fc435"
+    },
+    {
+      "bytes": 2223,
+      "path": "pipeline/engine/codex_pipeline/production_manifest.py",
+      "sha256": "9831f1981c663322364c3eb532a5d11732a36e4b09586d205723331870efe35a"
+    },
+    {
+      "bytes": 4342,
+      "path": "pipeline/engine/codex_pipeline/profile_loader.py",
+      "sha256": "ccd3c32a961baef2920005748c65c9aaac91549d0bc640bab5539e0539e9f9a7"
+    },
+    {
+      "bytes": 2924,
+      "path": "pipeline/engine/codex_pipeline/rollback_planner.py",
+      "sha256": "9fd89153848f2cc7d4692cbb0f2e375f6f4b07972dcb53ee73acfe2927cb8234"
+    },
+    {
+      "bytes": 7523,
+      "path": "pipeline/engine/codex_pipeline/simple_yaml.py",
+      "sha256": "42e469445f1d11acbb5694cb0f2c448f7055699e6c5fb16e130fcbae33565357"
+    },
+    {
+      "bytes": 2214,
+      "path": "pipeline/engine/codex_pipeline/staging_manifest.py",
+      "sha256": "b741c55550ba4544d90ecd24b30a41d77b8f7235226e52fcf84b9d9da318b5ef"
+    },
+    {
+      "bytes": 1413,
+      "path": "pipeline/engine/codex_pipeline/subagent_governance.py",
+      "sha256": "fc244d8fcb910f3ec16e1b3c8e21cb24f98dbfb7ce47193e4c614fb90a1937c8"
+    },
+    {
+      "bytes": 5900,
+      "path": "pipeline/engine/codex_pipeline/subagent_runtime.py",
+      "sha256": "48f09a082bbce76731fdec85712440d7fb6ebf7f8be9c75259542cefdc77f66e"
+    },
+    {
+      "bytes": 12784,
+      "path": "pipeline/engine/codex_pipeline/validation.py",
+      "sha256": "766a2d17d8cf6f9e6cec8019c6f4eceda430e5531746abcf0e459b3433fa600a"
+    },
+    {
+      "bytes": 4625,
+      "path": "pipeline/engine/codex_pipeline/workflow_artifact_audit.py",
+      "sha256": "c23f10bf163dc848ee4d03c896ce60434ba1c5d7a75a5060f90f6d1fe36c47e2"
+    },
+    {
+      "bytes": 6152,
+      "path": "pipeline/engine/codex_pipeline/workflow_smoke.py",
+      "sha256": "397ec6ef4e7750a84ff3e3984080482508c91f25b87e24fa3a552584969a167a"
+    },
+    {
+      "bytes": 10233,
+      "path": "pipeline/engine/codex_pipeline/workflow_wrappers.py",
+      "sha256": "8be2560e4823e69d0d29665ddad7475571e5df3c50de4f1214261d0372fc2312"
+    },
+    {
+      "bytes": 722,
+      "path": "pipeline/policies/cost-guard-policy.yml",
+      "sha256": "a341f80ff2d98f747733edffaf664282cfa5aece1124350677b2407b49b0f0da"
+    },
+    {
+      "bytes": 204,
+      "path": "pipeline/policies/destructive-action-policy.yml",
+      "sha256": "54cb75b6daacc28e440039018710b8db9f6bb16990054c1a8d56c6510cea5b76"
+    },
+    {
+      "bytes": 374,
+      "path": "pipeline/policies/evidence-boundary-policy.yml",
+      "sha256": "6f420494930c0d469f009400b5997277827211344d4bb12ce3191dc6a529426d"
+    },
+    {
+      "bytes": 521,
+      "path": "pipeline/policies/github-readonly-policy.yml",
+      "sha256": "19a0b1a6d855ab199778ddc21cb2276fa7fb810825f86709442d7fa91b0d1937"
+    },
+    {
+      "bytes": 840,
+      "path": "pipeline/policies/github-security-policy.yml",
+      "sha256": "558f8cd305d5917a0714376a2f0042e02fd2ae81d7a629468733d38b990eec97"
+    },
+    {
+      "bytes": 809,
+      "path": "pipeline/policies/hotl-gates.yml",
+      "sha256": "e92f7d7aaf4e92a43d6fab382d395c9db14bb9bba31994a52805b02720948832"
+    },
+    {
+      "bytes": 217,
+      "path": "pipeline/policies/install-policy.yml",
+      "sha256": "5dadcbdcb2b97bab7e0aeabbd527747a87a6862174eed0ee127903926d992e3e"
+    },
+    {
+      "bytes": 181,
+      "path": "pipeline/policies/mcp-plugin-hook-policy.yml",
+      "sha256": "8433255a22da92f36decb9e26df6b6580376c8f2b7bfb59901f8522b92dff786"
+    },
+    {
+      "bytes": 191,
+      "path": "pipeline/policies/migration-policy.yml",
+      "sha256": "cf1bbd6703e9aceabd9d6e6381f2a078fe046251d73008558dc3560dc7d5104c"
+    },
+    {
+      "bytes": 309,
+      "path": "pipeline/policies/provider-quota-policy.yml",
+      "sha256": "d4db8343d7fd8d3e04309a96cfee97ecb64cd378f6a0141d4ad36f2c91c28c63"
+    },
+    {
+      "bytes": 212,
+      "path": "pipeline/policies/secrets-policy.yml",
+      "sha256": "13664f54ac42c375bf1ad1fdf203e4ea4f989d829be575025525cd9c348fbefa"
+    },
+    {
+      "bytes": 332,
+      "path": "pipeline/schema/dashboard-state.schema.json",
+      "sha256": "8ec8d2830b801f7f14e2a7a19696269de7c63be599f4802b9ddc9ae0b216739c"
+    },
+    {
+      "bytes": 418,
+      "path": "pipeline/schema/e2e-completion-manifest.schema.json",
+      "sha256": "8afd5bdf191a4b3d4074f8bf8e3c920c94800923b897c3ed30f8d05882a285c4"
+    },
+    {
+      "bytes": 179,
+      "path": "pipeline/schema/pipeline.schema.json",
+      "sha256": "e7e3c369994b74e80b923d7b131088130af48a4849e13e0a3c59a13fdf8d1ed0"
+    },
+    {
+      "bytes": 397,
+      "path": "pipeline/schema/project-bridge.schema.json",
+      "sha256": "8305dbaa1d3f317f51c6ddbd0d221c832f120f81999f6e541d1b3c6bf96b7445"
+    },
+    {
+      "bytes": 676,
+      "path": "pipeline/schema/project-profile.schema.json",
+      "sha256": "62868e8d90f3b342a11e27e2523657e2a738ae04bf96f29b146bd13bb64c5e80"
+    },
+    {
+      "bytes": 275,
+      "path": "pipeline/schema/rollback-manifest.schema.json",
+      "sha256": "4e75afe769250719f2c2717c7ea16c3c3db1c23354bfa6fc431ed1c8256692ce"
+    },
+    {
+      "bytes": 252,
+      "path": "pipeline/schema/subagent-report.schema.json",
+      "sha256": "6a3a6ff7a3c8907d6a06af425c49d5d4cced6a5c30c105770e668f9a3f86749a"
+    },
+    {
+      "bytes": 1213,
+      "path": "pipeline/scripts/codex-pipeline",
+      "sha256": "80e6d14f583bee148a0fade1e128aff08d61fb4dcda1d2bde3e4e9db966f03ac"
+    },
+    {
+      "bytes": 1637,
+      "path": "pipeline/scripts/codex-pipeline.ps1",
+      "sha256": "77b8124dcbad4a488a97b22c5a84c68e2ac66c16df2d727005015d7f14e8cbaa"
+    },
+    {
+      "bytes": 551,
+      "path": "pipeline/scripts/write-foundation-manifest.ps1",
+      "sha256": "25d1faa03cfaab9fa7a02336dcafb9a54d706ec4e9d5c73205ded11558bd384f"
+    },
+    {
+      "bytes": 696,
+      "path": "pipeline/scripts/write-foundation-manifest.py",
+      "sha256": "14f066c4d0b706ca25ad6cdca2766b976c8c3f8845c3564f76d3ecb8be3a9a3a"
+    },
+    {
+      "bytes": 3353,
+      "path": "pipeline/templates/github-workflows/codex-artifact-smoke.template.yml",
+      "sha256": "d46cec421f3064c6281fe88641f1299fc61143d694dfc59d83fb38e81a0bcfcb"
+    },
+    {
+      "bytes": 17441,
+      "path": "pipeline/templates/github-workflows/codex-ci.template.yml",
+      "sha256": "7fa36609506c53669874609ad073bd6670da3794e842a7708f9c27829bbe82f8"
+    },
+    {
+      "bytes": 2927,
+      "path": "pipeline/templates/github-workflows/codex-dashboard.template.yml",
+      "sha256": "d34d7abd9d83a59d20eed272d9f8590f9d7da3955471d84866f32422e7ff1696"
+    },
+    {
+      "bytes": 2715,
+      "path": "pipeline/templates/github-workflows/codex-pages-dashboard.template.yml",
+      "sha256": "d3ab5ecd3e84a0f1d3426ea5b6d5d058bc54af31922852a7b552b7501829c3c4"
+    },
+    {
+      "bytes": 2703,
+      "path": "pipeline/templates/github-workflows/codex-pages-preview.template.yml",
+      "sha256": "9167510db91d2c7352c588edb5b0b37e6e1f5e5a2e280b2856a7d100e9373ba6"
+    },
+    {
+      "bytes": 2903,
+      "path": "pipeline/templates/github-workflows/codex-pages-production.template.yml",
+      "sha256": "0c118c4315e7c68362285648acaf8848e2cb551998e7a639eccf397e23293e07"
+    },
+    {
+      "bytes": 3193,
+      "path": "pipeline/templates/github-workflows/codex-pages-rollback.template.yml",
+      "sha256": "a54e9c5e17568361f58dd731a90fe7e74a9e8c5c86496f17870b028f959b729b"
+    },
+    {
+      "bytes": 2852,
+      "path": "pipeline/templates/github-workflows/codex-pages-staging.template.yml",
+      "sha256": "93851a39782a2a8b4e26927fabf2ac0b2308a5fe830c6aae4182767515e1d062"
+    },
+    {
+      "bytes": 4058,
+      "path": "pipeline/templates/github-workflows/codex-preview.template.yml",
+      "sha256": "ea266f1c593adf26a8f94264f7298cb8de7c36e955e0b1a2d3faff1f767f4e83"
+    },
+    {
+      "bytes": 3413,
+      "path": "pipeline/tests/conftest.py",
+      "sha256": "e9286be4344e85ce228e67f801623dd3558cf0d5b21a33f3f8cc349f12130f05"
+    },
+    {
+      "bytes": 1153,
+      "path": "pipeline/tests/test_bridge_loader.py",
+      "sha256": "36da423906aeff34b89f5d3cbfe4e12a6ecf1a963a9d421eae17ebdfa7ae6ae3"
+    },
+    {
+      "bytes": 2838,
+      "path": "pipeline/tests/test_cli.py",
+      "sha256": "e7aa0dee41a724a3876297a5822980e891c07c7a040fef4378363b10d1596b29"
+    },
+    {
+      "bytes": 5631,
+      "path": "pipeline/tests/test_cross_project_generalization.py",
+      "sha256": "979df265263a59f073c1ea8c5b879046c190ff3c77f269afe21ba599f508a5e2"
+    },
+    {
+      "bytes": 3366,
+      "path": "pipeline/tests/test_dashboard_renderer.py",
+      "sha256": "5fd31fa28a64a387633ca5cd44422c5edeba055fe152a4fcd90e5ee798563335"
+    },
+    {
+      "bytes": 4328,
+      "path": "pipeline/tests/test_e2e_completion.py",
+      "sha256": "c8eaff7ad52acdce8500726b9c6f6a66cc803f262979ef464786288165ab3688"
+    },
+    {
+      "bytes": 1413,
+      "path": "pipeline/tests/test_evidence_boundary.py",
+      "sha256": "27c9650c594eba141a984b177274c2b7c56e16f214e5ec6438864065199e1a6a"
+    },
+    {
+      "bytes": 457,
+      "path": "pipeline/tests/test_foundation_manifest.py",
+      "sha256": "fd892cd71b2ac5091949a6fb59a64de9c0fa938e1d3252206507d5242793ad55"
+    },
+    {
+      "bytes": 1631,
+      "path": "pipeline/tests/test_gate_policy.py",
+      "sha256": "26b2f718854b18b1717c5af812e2cd843b972bd2ffdf2255266aa5bde5e19d41"
+    },
+    {
+      "bytes": 879,
+      "path": "pipeline/tests/test_github_collection.py",
+      "sha256": "8743e9dbf3230a67aada10ecc9a9cc2f30519cfc1cd913b87f83c7c0d9d51d8f"
+    },
+    {
+      "bytes": 413,
+      "path": "pipeline/tests/test_mermaid_renderer.py",
+      "sha256": "b532cca14804bc30cec25ad32a91af9f180597e8f2b576413ab812bdae77991a"
+    },
+    {
+      "bytes": 5886,
+      "path": "pipeline/tests/test_no_cost_smoke.py",
+      "sha256": "a088bfb2027f5f6bd8fcf85a217b2e27f0cc06faf6ab61979eb49dded2ca7d33"
+    },
+    {
+      "bytes": 1585,
+      "path": "pipeline/tests/test_profile_loader.py",
+      "sha256": "9491729ee9a545e073bd84270d444d4842baa3039c48eebffe8210d868ffbb15"
+    },
+    {
+      "bytes": 568,
+      "path": "pipeline/tests/test_project_boundary.py",
+      "sha256": "09193ef6b5e5358606847dbeb146ed43a81409f0e430b4ffe97242cda45bdaf4"
+    },
+    {
+      "bytes": 1561,
+      "path": "pipeline/tests/test_workflow_smoke.py",
+      "sha256": "f58e3e4d9ca7dc9f701292926278a36c974f83d1d54e538294031fabd9de0e01"
+    },
+    {
+      "bytes": 2772,
+      "path": "pipeline/tests/test_workflow_wrappers.py",
+      "sha256": "4ad1f6fb7b54824113c2f5a226fb67d53b0a1ae249e1ceb3637112afcbfbd6c0"
+    },
+    {
+      "bytes": 4241,
+      "path": "project_plans/codex-foundation-independent-cicd-20260627.md",
+      "sha256": "8d42eabcf4d369efe27095fdcde9118288063c769fdae6587c33be478b3f1437"
+    },
+    {
+      "bytes": 3406,
+      "path": "project_plans/codex-pipeline-hotl-20260626.md",
+      "sha256": "173e8d07ad4a06f48495341e88d0614d31546ab4a0d0d2a112b3214445441aa4"
+    },
+    {
+      "bytes": 1616,
+      "path": "project_plans/codex-pipeline-phase10-subagent-governance-20260626.md",
+      "sha256": "65bec2cbd035fa4c523e8f8cf30251a44d54041518e40e6606b17fb6b297e93f"
+    },
+    {
+      "bytes": 2215,
+      "path": "project_plans/codex-pipeline-phase2-hardening-20260626.md",
+      "sha256": "b3edeb554c448c0cd6861735c398b12291452400f9b93ed70c0f59eb4344a3bc"
+    },
+    {
+      "bytes": 1452,
+      "path": "project_plans/codex-pipeline-phase3-bridge-contract-20260626.md",
+      "sha256": "b96847a49feaaa13928e7d211043f85d85c9171cba018d14a268ac19c50bbac9"
+    },
+    {
+      "bytes": 2397,
+      "path": "project_plans/codex-pipeline-phase4-github-collection-20260626.md",
+      "sha256": "c3557a6f29c40250695920cd39d3d72917a0324cc604f4eee936287bef80337f"
+    },
+    {
+      "bytes": 2201,
+      "path": "project_plans/codex-pipeline-phase5-github-actions-wrappers-20260626.md",
+      "sha256": "c74b18bea44b0e9fd3c94ecc4c972feeb0e5f788030f716b68c9c28e72da5a2d"
+    },
+    {
+      "bytes": 1794,
+      "path": "project_plans/codex-pipeline-phase6-preview-artifact-20260626.md",
+      "sha256": "f1a979460e2d5be43c859c5881049440ea46bed708fc3b32b30168949273d14a"
+    },
+    {
+      "bytes": 1921,
+      "path": "project_plans/codex-pipeline-phase7-staging-dry-run-20260626.md",
+      "sha256": "6627101903010d605e2b88422a5ad15916e578d4b0f0eff6cf0a2f30be4a464b"
+    },
+    {
+      "bytes": 1802,
+      "path": "project_plans/codex-pipeline-phase8-production-plan-20260626.md",
+      "sha256": "abe920e244700a9d8117471f16126794a3b9fb31a8372d76f4be7cd818dfa849"
+    },
+    {
+      "bytes": 1863,
+      "path": "project_plans/codex-pipeline-phase9-rollback-dry-run-20260626.md",
+      "sha256": "74ac55f1e8dff0323c165292ac3948df704f524097cad5f34d2e20df39ab87f3"
+    },
+    {
+      "bytes": 7649,
+      "path": "project_plans/codex-static-pages-cd-execution-20260626.md",
+      "sha256": "5f34837d04e9b7c159a7331110ee1595bff1a2fd40605a10b2d3ff59a9d12d32"
+    },
+    {
+      "bytes": 9379,
+      "path": "project_plans/codex-static-pages-cd-long-run-loop-20260627.md",
+      "sha256": "cfbd4bfd160695357a47b9819301096bb6b392f5a80415b2fccac781428dcf17"
+    },
+    {
+      "bytes": 18833,
+      "path": "project_plans/research_x/2026-06-24-next-wave-33-5-24-10.md",
+      "sha256": "8ab34e5b048c5794cbff5f8704bbc2c5365916b6c1425ad3a7e2738dd77d9b9a"
+    },
+    {
+      "bytes": 16086,
+      "path": "project_plans/research_x/2026-06-24-presentation-generation-flow.md",
+      "sha256": "34d2e019f45615e1cf80e33dae4f7a9afc9a86655a0e19c0cfb0ae1dbd19ee59"
+    },
+    {
+      "bytes": 1162,
+      "path": "prompt_contracts/codex_improvement_triage_v1.yaml",
+      "sha256": "1d7eb200341304cd5de4ec6bd06e3c1f714ab5497b387e39fce397cf398b4280"
+    },
+    {
+      "bytes": 1192,
+      "path": "prompt_contracts/research_x_publishing_illustration_v1.yaml",
+      "sha256": "a5cb2fbc8afbfffcb216f90a86f9736bbffbaf79dfb1030b80ca294e183eab3a"
+    },
+    {
+      "bytes": 488,
+      "path": "pyproject.toml",
+      "sha256": "7e8fd2146746320c1d8b829e088320850230537b370fff6fd270223932d45e95"
+    },
+    {
+      "bytes": 490,
+      "path": "research_intake/codex_ai_tools.profile.toml",
+      "sha256": "675b46787447d098c4e476ff413eaa027732f03485777db08b2dfa8ba66b38db"
+    },
+    {
+      "bytes": 2252,
+      "path": "scripts/foundation-rollback-plan.ps1",
+      "sha256": "521baf5a11dad16bddc0cf79438828b5afc1f637c99a329352c215d961d6c3ff"
+    },
+    {
+      "bytes": 1745,
+      "path": "scripts/package-foundation.ps1",
+      "sha256": "83d8b530a1d35b25605456d59335ce20c7a698b6ca57ef17512c058fd2ab2e3b"
+    },
+    {
+      "bytes": 1785,
+      "path": "scripts/verify-foundation.ps1",
+      "sha256": "42d9b945f1dd564352d976470d959b96bebcfc561a9671f750a44fc094318f25"
+    },
+    {
+      "bytes": 6210,
+      "path": "scripts/write-foundation-repo-manifest.py",
+      "sha256": "8d22b0b16ea1ed45a0a077688bd6bdc0aa8b203617db83a671ce3a0d0e76937e"
+    },
+    {
+      "bytes": 26462,
+      "path": "skill_audit.py",
+      "sha256": "6798656939666fde0997c3f31a9dba3e1eb04c284e64237206909c2993be1961"
+    },
+    {
+      "bytes": 42161,
+      "path": "skill_factory.py",
+      "sha256": "c20b7159a79cb11adb502233f434d0eba2fe4e4d2f59b3ece227190544feba53"
+    },
+    {
+      "bytes": 5808,
+      "path": "skill_quality_audit.toml",
+      "sha256": "72877e6c883f17b1d59ac625f30154f35632dd508ffbfc07ae18980ee2f6537d"
+    },
+    {
+      "bytes": 35758,
+      "path": "source-origin-inventory.md",
+      "sha256": "02d4f87716dd813de6868f2b34cfe6967b06dcb2ad644d0c42fc0cc24a2bbe05"
+    },
+    {
+      "bytes": 1707,
+      "path": "tests/test_chatgpt_zip_upload_route_memory.py",
+      "sha256": "016a148da177916c8c4c95bbf7d7b89dce8e78b0cce2d7f89da18575c4d1d861"
+    },
+    {
+      "bytes": 18138,
+      "path": "tests/test_codex_improvement.py",
+      "sha256": "e9144adc487f83be45de67f7eb5d2d6ef09c5969e95689e50d3140941d08966e"
+    },
+    {
+      "bytes": 5187,
+      "path": "tests/test_codex_vendor_sources_lock.py",
+      "sha256": "1f5e55ca755e443801f0d440a06f490799be2b55d7dd012359fa69f0f9b9887f"
+    },
+    {
+      "bytes": 3585,
+      "path": "tests/test_context_offload_pointer_map.py",
+      "sha256": "3b8893a0268c78a6c7faa7a1ed14572d9354245f15822b4bd305fc379748ce95"
+    },
+    {
+      "bytes": 2872,
+      "path": "tests/test_foundation_cicd_contract.py",
+      "sha256": "47e111f4a7597d554aaf693ca8355f10a3e49c717e963288413c6f1bc150874f"
+    },
+    {
+      "bytes": 5875,
+      "path": "tests/test_offline_canaries.py",
+      "sha256": "be451b771187546cb0c88de12e5d87d59b931f8c536e0463993fecc21b09cfb2"
+    },
+    {
+      "bytes": 2821,
+      "path": "tests/test_overimplementation_guard.py",
+      "sha256": "7d43855085bcb9a3d51b99c4ae409f084bf22c3e470ab090cd0c1ae351e6c08c"
+    },
+    {
+      "bytes": 1631,
+      "path": "tests/test_project_review_capture_index.py",
+      "sha256": "2df3fe6ff55415a7babd6529b19ce2f9a37a0049acd6a06c92e20ff712e6ad24"
+    },
+    {
+      "bytes": 1416,
+      "path": "tests/test_publishing_illustration_contract.py",
+      "sha256": "7d1987a8e07cf1d86fae8e1c43ca4d986fc135517a031c55abd9d9cabde058c5"
+    },
+    {
+      "bytes": 3151,
+      "path": "tests/test_route_memory_registry.py",
+      "sha256": "a90fb42b9bbb7e7ee0649469a99bb78feb4dabc465b37ed75be0a70d87a7b22d"
+    },
+    {
+      "bytes": 9640,
+      "path": "tests/test_skill_audit.py",
+      "sha256": "de3042f4111d0268c8149b0d163bbabb4a430575f6b3a80d8a5ae884e10cccb1"
+    },
+    {
+      "bytes": 13462,
+      "path": "tests/test_skill_factory.py",
+      "sha256": "5ae539209a436855cd5330702700802476cb850673557d8d9a6f07749f15a940"
+    },
+    {
+      "bytes": 2510,
+      "path": "tests/test_skill_lifecycle_input.py",
+      "sha256": "a5cb6d8d32c1d8b0bf3d7f0efbbd74e23005d3974d5d5c266dcf2dc95ceac65f"
+    },
+    {
+      "bytes": 10509,
+      "path": "uv.lock",
+      "sha256": "91b5b653860748962333a6260729e3d54093e7e5e3962776494428d34fb3d838"
+    },
+    {
+      "bytes": 6373,
+      "path": "vendor_sources.lock.md",
+      "sha256": "f0e23294644410c0b141134624937e4ffe9e8888008f0f5fce2b73b3a9cdef7b"
+    }
+  ],
+  "foundation_id": "codex-foundation-repo",
+  "generated_at": "2026-06-26T20:57:58.917188+00:00",
+  "not_answer_support": true,
+  "not_citation": true,
+  "not_project_evidence": true,
+  "not_research_evidence": true,
+  "paid_usage_detected": false,
+  "provider_api_calls": false,
+  "root": "C:\\Users\\maasa\\.codex\\foundation",
+  "schema_version": 1,
+  "secrets_used": false
+}

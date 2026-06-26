@@ -9,7 +9,7 @@ PIPELINE_ROOT = Path(__file__).resolve().parents[1]
 ENGINE_ROOT = PIPELINE_ROOT / "engine"
 sys.path.insert(0, str(ENGINE_ROOT))
 
-from codex_pipeline.foundation import write_foundation_manifest
+from codex_pipeline.foundation import write_foundation_manifest  # noqa: E402
 
 
 def main() -> int:

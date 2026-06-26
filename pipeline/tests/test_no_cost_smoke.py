@@ -9,7 +9,10 @@ from codex_pipeline.github_read_collector import build_github_read_state
 from codex_pipeline.pages import build_pages_readiness_state
 from codex_pipeline.profile_loader import load_project_profile
 from codex_pipeline.subagent_governance import build_subagent_policy
-from codex_pipeline.subagent_runtime import build_subagent_runtime_dry_run
+from codex_pipeline.subagent_runtime import (
+    build_subagent_report_validation,
+    build_subagent_runtime_dry_run,
+)
 from codex_pipeline.workflow_artifact_audit import build_workflow_artifact_audit
 from codex_pipeline.workflow_wrappers import generate_workflow_wrappers
 
@@ -74,6 +77,32 @@ def test_subagent_runtime_dry_run_does_not_spawn_or_start_model_runner() -> None
     assert state["model_runner_started"] is False
     assert state["provider_api_calls"] is False
     assert state["paid_usage_detected"] is False
+
+
+def test_subagent_report_validation_rejects_mutating_or_raw_log_reports() -> None:
+    policy = build_subagent_policy(allowed_roles=["ci_log_auditor"])
+    report = {
+        "agent": "ci_log_auditor",
+        "mode": "read_only",
+        "status": "passed",
+        "summary": "reviewed logs",
+        "control_artifact": True,
+        "not_evidence": True,
+        "not_citation": True,
+        "raw_log_in_project": True,
+        "forbidden_actions_executed": ["push"],
+        "provider_api_calls": False,
+        "paid_usage_detected": False,
+        "secrets_used": False,
+    }
+
+    state = build_subagent_report_validation(report, policy)
+
+    assert state["status"] == "failed"
+    assert state["subagents_spawned_by_validator"] is False
+    assert state["provider_api_calls"] is False
+    assert "subagent report raw_log_in_project must be false" in state["errors"]
+    assert "subagent report must not execute forbidden actions" in state["errors"]
 
 
 def test_pages_readiness_can_use_gh_cli_for_local_settings_verification(

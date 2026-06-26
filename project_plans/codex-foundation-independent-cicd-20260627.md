@@ -62,13 +62,18 @@ Non-negotiable boundaries:
 - [x] Reproduced the `0be8724` CI failure: verification passed and package/rollback
   files were generated, but upload-artifact ignored hidden `.foundation-dist`.
 - [x] Switched the CI artifact directory to non-hidden `foundation-dist`.
-- [ ] Push the repair commit and confirm GitHub Actions success.
+- [x] Pushed repair commit `22b4092` and confirmed GitHub Actions success:
+  `https://github.com/masanori64/codex-foundation/actions/runs/28265396448`.
+- [x] Plan-close boundary recorded: this file participates in
+  `FOUNDATION_REPO_MANIFEST.json`, so the final plan-close commit must be
+  verified by CI and recorded in the Codex thread result rather than causing an
+  infinite plan-update/manifest-update loop.
 
 ## Current Known State
 
 - Branch: `main`.
 - Remote: `origin https://github.com/masanori64/codex-foundation.git`.
-- Current HEAD before this repair: `c9c12b2 Fix foundation CI portability`.
+- Current verified repair commit: `22b4092 Use visible foundation artifact directory`.
 - Existing workflow: `.github/workflows/foundation-ci.yml`.
 - Existing repair gap: GitHub checkout normalizes files to LF; local mixed
   line endings in `context_offloads/research_x/pointer-map.json` caused the
@@ -118,5 +123,8 @@ Non-negotiable boundaries:
 - Repair action completed locally: workflow package/CD output now uses
   non-hidden `foundation-dist` so `actions/upload-artifact` can read it with
   default settings.
-- Remaining remote check: push the repair commit and confirm the new GitHub
-  Actions run.
+- `22b4092` remote run succeeded:
+  `https://github.com/masanori64/codex-foundation/actions/runs/28265396448`.
+- Terminal readback required after this plan-close commit: GitHub Actions must
+  pass for the final commit, but the result is recorded in the Codex final
+  response instead of mutating this plan again.

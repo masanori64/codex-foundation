@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import json
 import sys
+from datetime import UTC, datetime
 from pathlib import Path
 
 ENGINE = Path(__file__).resolve().parents[1] / "engine"
@@ -8,6 +10,7 @@ sys.path.insert(0, str(ENGINE))
 
 from codex_pipeline.cli import main  # noqa: E402
 from codex_pipeline.foundation import (  # noqa: E402
+    control_marker,
     validate_foundation_manifest,
     write_foundation_manifest,
 )
@@ -55,6 +58,53 @@ def _ensure_ci_research_x_fixture() -> None:
         )
         == 0
     )
+    _write_ci_pages_health(project)
+
+
+def _write_ci_pages_health(project: Path) -> None:
+    payload = {
+        "schema_version": 1,
+        **control_marker(artifact_kind="pages_health"),
+        "generated_at": datetime.now(UTC).isoformat(),
+        "project_id": "research_x",
+        "status": "passed",
+        "overall_status": "passed",
+        "authentication": "none",
+        "token_used": False,
+        "request_methods_used": ["GET"],
+        "execute": False,
+        "pages_enabled": True,
+        "pages_url_observed": True,
+        "pages_health_check_passed": True,
+        "dashboard_pages_cd_passed": True,
+        "preview_static_cd_passed": True,
+        "staging_static_cd_passed": True,
+        "production_static_cd_passed": True,
+        "safe_static_rollback_execution_passed": True,
+        "paid_usage_detected": False,
+        "provider_api_calls": False,
+        "url_map": {
+            "base": "https://masanori64.github.io/research_x/",
+            "dashboard": "https://masanori64.github.io/research_x/dashboard/",
+            "preview": (
+                "https://masanori64.github.io/research_x/previews/"
+                "codex-context-and-design-import-20260609/latest/"
+            ),
+            "staging": "https://masanori64.github.io/research_x/staging/latest/",
+            "production": "https://masanori64.github.io/research_x/production/latest/",
+            "rollback": "https://masanori64.github.io/research_x/rollback/latest/",
+        },
+    }
+    for path in (
+        project / "docs/control/codex/dashboard/data/pages-health.json",
+        project / ".codex-project/generated/effective-pages-health.json",
+    ):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
 
 
 def _write_profile(project: Path) -> None:

@@ -87,9 +87,9 @@
       "sha256": "a3d44f802e04d7d74fc2ef6cc988515ebc2518277f40709d4f170022f837a7b2"
     },
     {
-      "bytes": 11894,
+      "bytes": 11897,
       "path": "engine/codex_pipeline/github_read_collector.py",
-      "sha256": "c92e43d95c0bc16baa6414aa5dbdd33c5a2968b141766650285b7ffaed3b3f64"
+      "sha256": "4a4e9b02f0786fafa0cf26bdf66bc6db56778a0c40a260ea974698e682ece53f"
     },
     {
       "bytes": 3600,
@@ -97,9 +97,9 @@
       "sha256": "adac751ecb1cd34558fef03471e84a4a414afb0de20cf1deff34e942875917cb"
     },
     {
-      "bytes": 17925,
+      "bytes": 17903,
       "path": "engine/codex_pipeline/pages.py",
-      "sha256": "a0072866963977957726a83de63772ed905246afca5a131469de8950bc497364"
+      "sha256": "00c48455d26770982087223b4ffe7669bd6df09eb4e12a3834f9877cf265aecb"
     },
     {
       "bytes": 1683,
@@ -142,9 +142,9 @@
       "sha256": "48f09a082bbce76731fdec85712440d7fb6ebf7f8be9c75259542cefdc77f66e"
     },
     {
-      "bytes": 12784,
+      "bytes": 12809,
       "path": "engine/codex_pipeline/validation.py",
-      "sha256": "766a2d17d8cf6f9e6cec8019c6f4eceda430e5531746abcf0e459b3433fa600a"
+      "sha256": "ff20991db56adead00ca53c43b3b50d113f884443944c702ee664b1d9e6125ee"
     },
     {
       "bytes": 4625,
@@ -398,7 +398,7 @@
     }
   ],
   "foundation_id": "codex-hotl-implementation-pipeline",
-  "generated_at": "2026-06-29T06:13:40.080377+00:00",
+  "generated_at": "2026-06-29T06:26:38.499084+00:00",
   "known_projects": [],
   "not_answer_support": true,
   "not_citation": true,

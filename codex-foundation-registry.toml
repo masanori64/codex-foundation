@@ -345,6 +345,18 @@ enabled = true
 notes = "Installed from plugin bundle path plugins/goal-setter at commit 4f37792ca6ee0a3729c861d28485a52e05571b0b; owns goal creation/activation intake, not project execution continuation."
 
 [[candidates]]
+name = "long-loop-executor"
+group = "codex_operations"
+adoption_shape = "adopt"
+source = "C:/Users/maasa/.codex/skills/long-loop-executor/SKILL.md"
+source_state = "installed_local_skill"
+active_surface = "C:/Users/maasa/.codex/skills/long-loop-executor/SKILL.md"
+first_local_step = "Create a phase ledger and residual ledger, then execute one bounded phase at a time with evidence and stop conditions."
+promotion_gate = "Use only for recurring long autonomous loops with explicit user launch, verifiable residuals, and normal provider/browser/connector/destructive-action gates intact."
+enabled = true
+notes = "Codex-wide long-run execution Skill created from observed eight-hour loop behavior; prevents plan-only drift and duplicate residual loops."
+
+[[candidates]]
 name = "headroom"
 group = "codex_operations"
 adoption_shape = "staging"

@@ -187,16 +187,15 @@ def _get_json(url: str, *, timeout_seconds: float) -> dict[str, Any]:
             }
     except urllib.error.HTTPError as exc:
         body = exc.read().decode("utf-8", errors="replace")
-        payload: Any
         try:
-            payload = json.loads(body) if body.strip() else {}
+            error_payload = json.loads(body) if body.strip() else {}
         except json.JSONDecodeError:
-            payload = {"message": body[:500]}
+            error_payload = {"message": body[:500]}
         return {
             "ok": False,
             "status_code": exc.code,
-            "payload": payload,
-            "error": _payload_message(payload) or exc.reason,
+            "payload": error_payload,
+            "error": _payload_message(error_payload) or exc.reason,
             "rate_limit": _rate_headers(exc.headers),
         }
     except (OSError, TimeoutError) as exc:

@@ -91,6 +91,22 @@ def test_foundation_github_native_security_surfaces_exist() -> None:
         assert f"package-ecosystem: {ecosystem}" in dependabot
 
 
+def test_foundation_trusted_pr_auto_merge_is_limited_to_same_repo_trusted_branches() -> None:
+    workflow = (ROOT / ".github/workflows/trusted-pr-auto-merge.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "name: Trusted PR Auto Merge" in workflow
+    assert "pull_request_target:" in workflow
+    assert "contents: write" in workflow
+    assert "pull-requests: write" in workflow
+    assert "github.event.pull_request.head.repo.full_name == github.repository" in workflow
+    assert "startsWith(github.event.pull_request.head.ref, 'codex/')" in workflow
+    assert "startsWith(github.event.pull_request.head.ref, 'dependabot/')" in workflow
+    assert 'gh pr merge "$PR_URL" --auto --squash --delete-branch' in workflow
+    assert "actions/checkout" not in workflow
+
+
 def test_foundation_repo_manifest_root_is_portable() -> None:
     manifest = json.loads((ROOT / "FOUNDATION_REPO_MANIFEST.json").read_text(encoding="utf-8"))
 

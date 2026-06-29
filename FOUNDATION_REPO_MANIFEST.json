@@ -30,6 +30,11 @@
       "sha256": "d6291fe2c638fddc6bde02dd6d268d304184e8777fd31da85c6105e668fb1d27"
     },
     {
+      "bytes": 900,
+      "path": ".github/workflows/trusted-pr-auto-merge.yml",
+      "sha256": "9e8794fc61085d73d127f27ddf0be5222e5f665237255751abb2c8878e0896e0"
+    },
+    {
       "bytes": 533,
       "path": ".gitignore",
       "sha256": "c1061807332efd441de49a98bfca3226801ba1f3c3c2f2b47f1e296f9274e235"
@@ -107,7 +112,7 @@
     {
       "bytes": 14044,
       "path": "pipeline/FOUNDATION_MANIFEST.json",
-      "sha256": "931b38b3396f7777a0c47b341d0d42022a41c8a689ad75069e6a5867038b580f"
+      "sha256": "9898c0df6d101e1f1aff0a4d759cbbe555095c76a5042c6dfef5ef759c6a2877"
     },
     {
       "bytes": 4608,
@@ -605,9 +610,9 @@
       "sha256": "83d8b530a1d35b25605456d59335ce20c7a698b6ca57ef17512c058fd2ab2e3b"
     },
     {
-      "bytes": 2846,
+      "bytes": 2893,
       "path": "scripts/verify-foundation.ps1",
-      "sha256": "ecafc897a5cee0dacfb61a779a3c975acaa4f400ed8530c6438893e7aad3f637"
+      "sha256": "e14bc38680a248b8468a9f623b6c675863ebe79ecd49df51fd7bb44cb5820085"
     },
     {
       "bytes": 6367,
@@ -655,9 +660,9 @@
       "sha256": "3b8893a0268c78a6c7faa7a1ed14572d9354245f15822b4bd305fc379748ce95"
     },
     {
-      "bytes": 5262,
+      "bytes": 6043,
       "path": "tests/test_foundation_cicd_contract.py",
-      "sha256": "a0c7192e675c0e07f234dd9449d86649fcfd20c5e807f50158dc7c9ef28286bd"
+      "sha256": "74669f172f9dc1003e687e73e3822afc6bd552d6240ecd6e99e49efbd702e4f1"
     },
     {
       "bytes": 5875,
@@ -711,7 +716,7 @@
     }
   ],
   "foundation_id": "codex-foundation-repo",
-  "generated_at": "2026-06-29T04:20:50.184935+00:00",
+  "generated_at": "2026-06-29T05:29:27.683552+00:00",
   "not_answer_support": true,
   "not_citation": true,
   "not_project_evidence": true,

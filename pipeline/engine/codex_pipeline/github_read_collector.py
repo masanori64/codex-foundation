@@ -137,12 +137,14 @@ def _repository_from_remote(project_root: Path) -> str:
 
 
 def _parse_github_repo(remote: str) -> str:
+    remote = remote.strip()
     if remote.startswith("git@github.com:"):
         value = remote.removeprefix("git@github.com:")
-    elif "github.com/" in remote:
-        value = remote.split("github.com/", 1)[1]
     else:
-        return ""
+        parsed = urllib.parse.urlparse(remote)
+        if parsed.hostname != "github.com":
+            return ""
+        value = parsed.path.lstrip("/")
     value = value.removesuffix(".git").strip("/")
     parts = value.split("/")
     if len(parts) < 2:

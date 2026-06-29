@@ -9,6 +9,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "FOUNDATION_REPO_MANIFEST.json"
+MANIFEST_ROOT = "."
 INCLUDE_DIRS = (
     ".github",
     "codex_improvement",
@@ -86,7 +87,7 @@ def build_manifest(*, generated_at: str | None = None) -> dict[str, Any]:
         "foundation_id": "codex-foundation-repo",
         "artifact_kind": "foundation_repo_manifest",
         "generated_at": generated_at or datetime.now(UTC).isoformat(),
-        "root": str(ROOT),
+        "root": MANIFEST_ROOT,
         "control_artifact": True,
         "not_project_evidence": True,
         "not_research_evidence": True,
@@ -112,6 +113,8 @@ def validate_manifest() -> list[str]:
     errors: list[str] = []
     if manifest.get("foundation_id") != "codex-foundation-repo":
         errors.append("foundation repo manifest id mismatch")
+    if manifest.get("root") != MANIFEST_ROOT:
+        errors.append("foundation repo manifest root must be repository-relative '.'")
     if manifest.get("control_artifact") is not True:
         errors.append("foundation repo manifest must be control_artifact")
     if manifest.get("cd_mode") != "github_actions_artifact":

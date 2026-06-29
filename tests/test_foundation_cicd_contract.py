@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,6 +15,7 @@ def test_foundation_ci_runs_full_verification_and_artifact_cd() -> None:
     )
 
     assert "push:" in workflow
+    assert '"codex/**"' in workflow
     assert "pull_request:" in workflow
     assert ".\\scripts\\verify-foundation.ps1" in workflow
     assert "-Portable" in workflow
@@ -23,10 +25,30 @@ def test_foundation_ci_runs_full_verification_and_artifact_cd() -> None:
         "foundation-dist/foundation-rollback-plan.json"
     ) in workflow
     assert "foundation-dist/*.zip" in workflow
-    assert "actions/upload-artifact@v4" in workflow
+    assert "actions/upload-artifact@v7" in workflow
     assert "permissions:\n  contents: read" in workflow
+    assert "concurrency:" in workflow
+    assert "timeout-minutes: 20" in workflow
+    assert "timeout-minutes: 15" in workflow
+    assert "persist-credentials: false" in workflow
+    assert "retention-days: 14" in workflow
+    assert "foundation-coverage.xml" in workflow
 
-    assert "uv run ruff check ." in verify
+    assert "uv run ruff check @RuffTargets" in verify
+    assert "uv run python -m mypy @TypeTargets" in verify
+    assert "--cov=codex_improvement" in verify
+    assert "--cov=codex_pipeline" in verify
+    assert "foundation-coverage.xml" in verify
+    for target in (
+        "codex_improvement",
+        "pipeline",
+        "scripts",
+        "tests",
+        "offline_canaries.py",
+        "skill_audit.py",
+        "skill_factory.py",
+    ):
+        assert f'"{target}"' in verify
     assert "test_foundation_cicd_contract.py" in verify
     assert "pipeline\\tests" in verify
     assert '@("tests", "pipeline\\tests")' in verify
@@ -42,10 +64,53 @@ def test_foundation_ci_runs_full_verification_and_artifact_cd() -> None:
     assert "secrets_used = $false" in package
 
     assert "foundation_repo_manifest" in repo_manifest
+    assert 'MANIFEST_ROOT = "."' in repo_manifest
+    assert '"root": MANIFEST_ROOT' in repo_manifest
+    assert "foundation repo manifest root must be repository-relative '.'" in repo_manifest
     assert "github_actions_artifact" in repo_manifest
     assert '"project_plans"' in repo_manifest
     assert '"scripts"' in repo_manifest
     assert '"tests"' in repo_manifest
+
+
+def test_foundation_github_native_security_surfaces_exist() -> None:
+    codeql = (ROOT / ".github/workflows/foundation-codeql.yml").read_text(encoding="utf-8")
+    dependency_review = (
+        ROOT / ".github/workflows/foundation-dependency-review.yml"
+    ).read_text(encoding="utf-8")
+    dependabot = (ROOT / ".github/dependabot.yml").read_text(encoding="utf-8")
+
+    assert "github/codeql-action/init@v4" in codeql
+    assert "github/codeql-action/analyze@v4" in codeql
+    assert "security-events: write" in codeql
+    assert "actions/dependency-review-action@v4" in dependency_review
+    assert "fail-on-severity: high" in dependency_review
+    assert "comment-summary-in-pr: never" in dependency_review
+    assert "pull-requests: write" not in dependency_review
+    for ecosystem in ("github-actions", "uv"):
+        assert f"package-ecosystem: {ecosystem}" in dependabot
+
+
+def test_foundation_trusted_pr_auto_merge_is_limited_to_same_repo_trusted_branches() -> None:
+    workflow = (ROOT / ".github/workflows/trusted-pr-auto-merge.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "name: Trusted PR Auto Merge" in workflow
+    assert "pull_request_target:" in workflow
+    assert "contents: write" in workflow
+    assert "pull-requests: write" in workflow
+    assert "github.event.pull_request.head.repo.full_name == github.repository" in workflow
+    assert "startsWith(github.event.pull_request.head.ref, 'codex/')" in workflow
+    assert "startsWith(github.event.pull_request.head.ref, 'dependabot/')" in workflow
+    assert 'gh pr merge "$PR_URL" --auto --squash --delete-branch' in workflow
+    assert "actions/checkout" not in workflow
+
+
+def test_foundation_repo_manifest_root_is_portable() -> None:
+    manifest = json.loads((ROOT / "FOUNDATION_REPO_MANIFEST.json").read_text(encoding="utf-8"))
+
+    assert manifest["root"] == "."
 
 
 def test_root_readme_describes_generic_target_project_and_no_cost_cd() -> None:

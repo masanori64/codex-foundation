@@ -7,33 +7,57 @@ on:
   push:
     branches:
       - main
+      - "codex/**"
   pull_request:
     branches:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: codex-foundation-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   verify:
     name: Foundation verification
     runs-on: windows-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v8.2.0
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Verify foundation
         shell: pwsh
         run: .\scripts\verify-foundation.ps1 -Portable
+      - name: Upload foundation coverage
+        uses: actions/upload-artifact@v7
+        with:
+          name: codex-foundation-coverage-${{ github.sha }}
+          path: foundation-coverage.xml
+          if-no-files-found: error
+          retention-days: 14
 
   package:
     name: Foundation artifact CD
     runs-on: windows-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
     needs: verify
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - name: Build foundation package
         shell: pwsh
         run: .\scripts\package-foundation.ps1 -OutputDir foundation-dist
@@ -41,10 +65,11 @@ jobs:
         shell: pwsh
         run: .\scripts\foundation-rollback-plan.ps1 -TargetRef HEAD -OutputPath foundation-dist/foundation-rollback-plan.json
       - name: Upload foundation package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: codex-foundation-${{ github.sha }}
           path: |
             foundation-dist/*.zip
             foundation-dist/*.json
           if-no-files-found: error
+          retention-days: 14

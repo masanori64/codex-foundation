@@ -62,9 +62,9 @@
       "sha256": "1e6877a8c0300c2caef17344aa65b1177512070716bde62567c268edb15078fe"
     },
     {
-      "bytes": 8646,
+      "bytes": 8511,
       "path": "engine/codex_pipeline/e2e_completion.py",
-      "sha256": "85551b43bfe645ac0c34e23a8bd77259b147ce3f98fdbe3172da9405b11bffb7"
+      "sha256": "82f308e066156f3e86974789b7b4bdbbc000e26c2a8c4302ee051c9c5d757304"
     },
     {
       "bytes": 2823,
@@ -102,14 +102,14 @@
       "sha256": "a0072866963977957726a83de63772ed905246afca5a131469de8950bc497364"
     },
     {
-      "bytes": 2013,
+      "bytes": 1683,
       "path": "engine/codex_pipeline/preview_manifest.py",
-      "sha256": "86fc19f38e8c30792f2ad8270b49cfb357a667ce7e0e90737a0fb7742f4fc435"
+      "sha256": "4d3d90794c0822d50dc3a55098479aa89971110327fbfdfa779f14f6bfbd72c6"
     },
     {
-      "bytes": 2223,
+      "bytes": 1801,
       "path": "engine/codex_pipeline/production_manifest.py",
-      "sha256": "9831f1981c663322364c3eb532a5d11732a36e4b09586d205723331870efe35a"
+      "sha256": "0c20b569ef45ae9782ea9d25b7a74cc52e3cb6a7aa9679b05b4b17c23d8f7a52"
     },
     {
       "bytes": 4342,
@@ -117,9 +117,9 @@
       "sha256": "ccd3c32a961baef2920005748c65c9aaac91549d0bc640bab5539e0539e9f9a7"
     },
     {
-      "bytes": 2924,
+      "bytes": 2551,
       "path": "engine/codex_pipeline/rollback_planner.py",
-      "sha256": "9fd89153848f2cc7d4692cbb0f2e375f6f4b07972dcb53ee73acfe2927cb8234"
+      "sha256": "148c033673a0d0a740e3eff2e711dc8ab0690e968bfb5949d7344976cf102f52"
     },
     {
       "bytes": 7523,
@@ -127,9 +127,9 @@
       "sha256": "42e469445f1d11acbb5694cb0f2c448f7055699e6c5fb16e130fcbae33565357"
     },
     {
-      "bytes": 2214,
+      "bytes": 1817,
       "path": "engine/codex_pipeline/staging_manifest.py",
-      "sha256": "b741c55550ba4544d90ecd24b30a41d77b8f7235226e52fcf84b9d9da318b5ef"
+      "sha256": "92cf72cf8f0ad37a3cdd2f9e19a028d199272dee57a1db8317bc4ce5959d5c78"
     },
     {
       "bytes": 1413,
@@ -337,9 +337,9 @@
       "sha256": "979df265263a59f073c1ea8c5b879046c190ff3c77f269afe21ba599f508a5e2"
     },
     {
-      "bytes": 3366,
+      "bytes": 3432,
       "path": "tests/test_dashboard_renderer.py",
-      "sha256": "5fd31fa28a64a387633ca5cd44422c5edeba055fe152a4fcd90e5ee798563335"
+      "sha256": "7e3a41d0bdd92095f7884fbb4fa9df0b84adb483582095b340b1db38f51ab061"
     },
     {
       "bytes": 4328,
@@ -398,14 +398,14 @@
     }
   ],
   "foundation_id": "codex-hotl-implementation-pipeline",
-  "generated_at": "2026-06-26T20:56:44.549394+00:00",
+  "generated_at": "2026-06-29T06:13:40.080377+00:00",
   "known_projects": [],
   "not_answer_support": true,
   "not_citation": true,
   "not_project_evidence": true,
   "not_research_evidence": true,
-  "registered_in": "C:\\Users\\maasa\\.codex\\foundation\\codex-foundation-registry.toml",
-  "root": "C:\\Users\\maasa\\.codex\\foundation\\pipeline",
+  "registered_in": "C:\\Users\\maasa\\.codex\\foundation-hotl-artifact-contract-20260629\\codex-foundation-registry.toml",
+  "root": "C:\\Users\\maasa\\.codex\\foundation-hotl-artifact-contract-20260629\\pipeline",
   "schema_version": 1,
   "version": "0.1.0"
 }

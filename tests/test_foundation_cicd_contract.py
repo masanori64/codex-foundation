@@ -31,8 +31,13 @@ def test_foundation_ci_runs_full_verification_and_artifact_cd() -> None:
     assert "timeout-minutes: 15" in workflow
     assert "persist-credentials: false" in workflow
     assert "retention-days: 14" in workflow
+    assert "foundation-coverage.xml" in workflow
 
     assert "uv run ruff check @RuffTargets" in verify
+    assert "uv run python -m mypy @TypeTargets" in verify
+    assert "--cov=codex_improvement" in verify
+    assert "--cov=codex_pipeline" in verify
+    assert "foundation-coverage.xml" in verify
     for target in (
         "codex_improvement",
         "pipeline",
@@ -65,6 +70,24 @@ def test_foundation_ci_runs_full_verification_and_artifact_cd() -> None:
     assert '"project_plans"' in repo_manifest
     assert '"scripts"' in repo_manifest
     assert '"tests"' in repo_manifest
+
+
+def test_foundation_github_native_security_surfaces_exist() -> None:
+    codeql = (ROOT / ".github/workflows/foundation-codeql.yml").read_text(encoding="utf-8")
+    dependency_review = (
+        ROOT / ".github/workflows/foundation-dependency-review.yml"
+    ).read_text(encoding="utf-8")
+    dependabot = (ROOT / ".github/dependabot.yml").read_text(encoding="utf-8")
+
+    assert "github/codeql-action/init@v3" in codeql
+    assert "github/codeql-action/analyze@v3" in codeql
+    assert "security-events: write" in codeql
+    assert "actions/dependency-review-action@v4" in dependency_review
+    assert "fail-on-severity: high" in dependency_review
+    assert "comment-summary-in-pr: never" in dependency_review
+    assert "pull-requests: write" not in dependency_review
+    for ecosystem in ("github-actions", "uv"):
+        assert f"package-ecosystem: {ecosystem}" in dependabot
 
 
 def test_foundation_repo_manifest_root_is_portable() -> None:

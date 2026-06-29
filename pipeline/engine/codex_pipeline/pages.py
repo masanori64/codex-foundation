@@ -64,16 +64,8 @@ def build_pages_readiness_state(
         if gh_pages_result.get("ok") is True:
             pages_result = gh_pages_result
             gh_pages_fallback_used = True
-    repo_payload = (
-        repo_result.get("payload")
-        if isinstance(repo_result.get("payload"), dict)
-        else {}
-    )
-    pages_payload = (
-        pages_result.get("payload")
-        if isinstance(pages_result.get("payload"), dict)
-        else {}
-    )
+    repo_payload = _payload_dict(repo_result)
+    pages_payload = _payload_dict(pages_result)
     private = repo_payload.get("private")
     visibility = repo_payload.get("visibility") or (
         "private" if private is True else "public" if private is False else "unknown"
@@ -458,6 +450,11 @@ def _http_get(url: str, *, timeout_seconds: float) -> dict[str, Any]:
 
 def _empty_result(*, error: str = "") -> dict[str, Any]:
     return {"ok": False, "status_code": 0, "payload": {}, "error": error}
+
+
+def _payload_dict(result: dict[str, Any]) -> dict[str, Any]:
+    payload = result.get("payload")
+    return payload if isinstance(payload, dict) else {}
 
 
 def _message(payload: Any) -> str:

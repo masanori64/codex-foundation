@@ -37,6 +37,13 @@ jobs:
       - name: Verify foundation
         shell: pwsh
         run: .\scripts\verify-foundation.ps1 -Portable
+      - name: Upload foundation coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: codex-foundation-coverage-${{ github.sha }}
+          path: foundation-coverage.xml
+          if-no-files-found: error
+          retention-days: 14
 
   package:
     name: Foundation artifact CD

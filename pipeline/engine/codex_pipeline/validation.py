@@ -255,7 +255,7 @@ def _validate_no_cost_artifact(path: Path) -> list[str]:
 def _validate_project_boundary(project_root: Path, *, project_id: str) -> list[str]:
     errors: list[str] = []
     dynamic_paths = [Path("src") / project_id / "project_dashboard.py"]
-    for rel in [*FORBIDDEN_PROJECT_ENGINE_PATHS, *dynamic_paths]:
+    for rel in [*(Path(item) for item in FORBIDDEN_PROJECT_ENGINE_PATHS), *dynamic_paths]:
         path = project_root / rel
         if path.exists():
             errors.append(f"generic Codex pipeline implementation must not live in project: {path}")

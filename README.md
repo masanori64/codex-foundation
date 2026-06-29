@@ -12,8 +12,12 @@ source-of-truth documents.
 
 - `.github/workflows/foundation-ci.yml`: independent GitHub CI/CD for the
   foundation repository. Pushes and pull requests verify the full foundation
-  repo, validate the pipeline manifest, then publish a no-cost source package as
-  a GitHub Actions artifact.
+  repo with lint, type, test, and coverage checks, validate the pipeline
+  manifest, then publish a no-cost source package as a GitHub Actions artifact.
+- `.github/workflows/foundation-codeql.yml`,
+  `.github/workflows/foundation-dependency-review.yml`, and
+  `.github/dependabot.yml`: GitHub-native code scanning, dependency review, and
+  dependency update surfaces.
 - `FOUNDATION_REPO_MANIFEST.json`: repo-level freshness manifest covering the
   active source, CI, scripts, tests, registry, and pipeline package.
 - `scripts/`: local mirrors of the CI/CD path: full verification, foundation
@@ -57,7 +61,8 @@ The main direct commands are:
 ```powershell
 $env:PYTHONPATH = "$PWD\pipeline\engine;$env:PYTHONPATH"
 uv run ruff check codex_improvement pipeline scripts tests offline_canaries.py skill_audit.py skill_factory.py
-uv run pytest tests pipeline\tests
+uv run python -m mypy codex_improvement pipeline\engine scripts\write-foundation-repo-manifest.py offline_canaries.py skill_audit.py skill_factory.py --ignore-missing-imports --follow-imports=silent
+uv run pytest --cov=codex_improvement --cov=codex_pipeline --cov-report=term-missing --cov-report=xml:foundation-coverage.xml tests pipeline\tests
 uv run python -c "from codex_pipeline.foundation import validate_foundation_manifest; errors = validate_foundation_manifest(); print(errors); raise SystemExit(1 if errors else 0)"
 uv run python scripts\write-foundation-repo-manifest.py --check
 ```

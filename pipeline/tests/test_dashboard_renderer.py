@@ -24,11 +24,12 @@ def test_dashboard_state_and_html_are_control_artifacts(codex_project: Path) -> 
     assert state["not_answer_support"] is True
     assert state["foundation"]["sha256"]
     assert any(item["capability_id"] == "production_cd" for item in state["capabilities"])
-    assert state["preview_manifest"]["target_type"] == "static_pages_lane"
-    assert state["staging_manifest"]["target_type"] == "static_pages_lane"
-    assert state["staging_manifest"]["dry_run"] is False
-    assert state["production_manifest"]["target_type"] == "static_pages_production"
-    assert state["production_manifest"]["execution_enabled"] is True
+    assert state["preview_manifest"]["target_type"] == "artifact_only"
+    assert state["preview_manifest"]["side_effects"]["pages_enabled"] is False
+    assert state["staging_manifest"]["target_type"] == "safe_static_plan"
+    assert state["staging_manifest"]["dry_run"] is True
+    assert state["production_manifest"]["target_type"] == "production_plan"
+    assert state["production_manifest"]["execution_enabled"] is False
     assert state["rollback_manifest"]["scope"] == "safe_static_artifacts_only"
     assert state["rollback_manifest"]["drill"]["restore_executed"] is False
     assert state["subagent_policy"]["raw_log_in_project"] is False

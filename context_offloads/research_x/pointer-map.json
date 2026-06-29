@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-24",
+  "generated_at": "2026-06-29",
   "purpose": "Restore index for Codex control-plane context offloads. Entries are not evidence or answer support.",
   "entries": [
     {
@@ -20,9 +20,9 @@
       "artifact_kind": "wbs_json",
       "owner_plane": "work_state",
       "restore_hint": "Open with tools/wbs_viewer/vendor/single-file-wbs-v1.2.0/wbs_viewer.html or parse as JSON for current Source/Evidence/Retrieval-Eval/Tool Interface work state only.",
-      "sha256": "486b3f7ba63833284e54ffcfceb7bc6eb72192abf9b1257f8810f258bbbb85a8",
-      "char_count": 20698,
-      "byte_count": 21188,
+      "sha256": "3b908f9ff07560f738da96faac7797ad995b7e86fc5a1b478681a4e55483e262",
+      "char_count": 23263,
+      "byte_count": 23866,
       "not_evidence": true
     },
     {
@@ -86,9 +86,9 @@
       "artifact_kind": "source_code",
       "owner_plane": "control_artifact",
       "restore_hint": "Review-only control artifact schema; not evidence or answer support.",
-      "sha256": "cb7171f48fdf4d3ed733bc62d2c2e11b68d884889a2848da960ed70874ee0773",
-      "char_count": 9290,
-      "byte_count": 9290,
+      "sha256": "3d7e9c777289fd21d4cb9d3b5f125a77a357fb40957a01b1d9aacc61b1bb5712",
+      "char_count": 10120,
+      "byte_count": 10120,
       "not_evidence": true
     },
     {
@@ -152,9 +152,9 @@
       "artifact_kind": "route_memory_registry",
       "owner_plane": "operation_route_memory",
       "restore_hint": "Local registry for recurring operation-route success/failure selection. Read during Route Memory Preflight; not evidence or permission.",
-      "sha256": "1d50e07580d22bc38f09325954edcf58cfb5c1a2fbcdf7442da35d7341cdd03a",
-      "char_count": 14443,
-      "byte_count": 14706,
+      "sha256": "dedf75b7fdb031cdc8b0f6ba4dd8b8d4573f28f3dd84f5c5a826b44e85a37427",
+      "char_count": 14943,
+      "byte_count": 15192,
       "not_evidence": true
     },
     {

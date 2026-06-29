@@ -12,42 +12,36 @@ def build_rollback_manifest(
     environment: str = "production",
     pages_rollback_manifest: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    pages_rollback_manifest = pages_rollback_manifest or {}
-    executed = pages_rollback_manifest.get("rollback_executed") is True
     return {
         "schema_version": 1,
         **control_marker(artifact_kind="rollback_manifest"),
         "project_id": project_id,
         "environment": environment,
         "scope": "safe_static_artifacts_only",
-        "dry_run": False,
-        "rollback_executed": executed,
+        "dry_run": True,
+        "rollback_executed": False,
         "generated_at": datetime.now(UTC).isoformat(),
         "target": {
             "strategy": "previous_known_good_static_pages_snapshot",
-            "resolved": executed,
+            "resolved": False,
             "selection_mode": "safe_static_pages",
-            "artifact_pointer": pages_rollback_manifest.get("target", {}).get("url")
-            or "docs/control/codex/dashboard/index.html",
+            "artifact_pointer": "docs/control/codex/dashboard/index.html",
             "reason": (
                 "Rollback is restricted to static Pages control artifacts and refuses "
                 "provider, secret, DB, destructive, and evidence paths."
             ),
         },
         "drill": {
-            "status": "passed" if executed else "pending_execution",
-            "restore_executed": executed,
+            "status": "dry_run_plan",
+            "restore_executed": False,
             "would_restore_paths": [
                 "docs/control/codex/dashboard/",
                 ".codex-project/generated/",
             ],
             "health": {
-                "status": "passed" if executed else "pending",
+                "status": "planned",
                 "checks": [
-                    {
-                        "name": "static_artifact_exists",
-                        "status": "passed" if executed else "planned",
-                    },
+                    {"name": "static_artifact_exists", "status": "planned"},
                     {"name": "not_evidence_notice", "status": "passed"},
                     {"name": "no_database_restore", "status": "passed"},
                 ],
@@ -59,9 +53,9 @@ def build_rollback_manifest(
             "db_migration": False,
             "db_restore": False,
             "destructive_action": False,
-            "files_mutated": executed,
-            "production_deploy": executed,
-            "rollback_execution": executed,
+            "files_mutated": False,
+            "production_deploy": False,
+            "rollback_execution": False,
         },
         "refused_rollback_classes": [
             "destructive_action",

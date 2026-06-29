@@ -83,7 +83,7 @@ def test_foundation_github_native_security_surfaces_exist() -> None:
     assert "github/codeql-action/init@v4" in codeql
     assert "github/codeql-action/analyze@v4" in codeql
     assert "security-events: write" in codeql
-    assert "actions/dependency-review-action@v4" in dependency_review
+    assert "actions/dependency-review-action@v5" in dependency_review
     assert "fail-on-severity: high" in dependency_review
     assert "comment-summary-in-pr: never" in dependency_review
     assert "pull-requests: write" not in dependency_review

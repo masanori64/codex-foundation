@@ -27,7 +27,7 @@
     {
       "bytes": 784,
       "path": ".github/workflows/foundation-dependency-review.yml",
-      "sha256": "d6291fe2c638fddc6bde02dd6d268d304184e8777fd31da85c6105e668fb1d27"
+      "sha256": "6dbcf85ac0805137c9ff21fe7b51d9536cc10759dda5d517692836f4f1355ebb"
     },
     {
       "bytes": 900,
@@ -662,7 +662,7 @@
     {
       "bytes": 6043,
       "path": "tests/test_foundation_cicd_contract.py",
-      "sha256": "74669f172f9dc1003e687e73e3822afc6bd552d6240ecd6e99e49efbd702e4f1"
+      "sha256": "fe65a0f6fca6717bcbea9ff15b66acb288bd64d66de7393e6dfdd6c6d72beb4c"
     },
     {
       "bytes": 5875,
@@ -716,7 +716,7 @@
     }
   ],
   "foundation_id": "codex-foundation-repo",
-  "generated_at": "2026-06-29T07:41:08.965954+00:00",
+  "generated_at": "2026-06-29T09:06:46.814907+00:00",
   "not_answer_support": true,
   "not_citation": true,
   "not_project_evidence": true,

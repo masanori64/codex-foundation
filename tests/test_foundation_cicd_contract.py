@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,8 +26,23 @@ def test_foundation_ci_runs_full_verification_and_artifact_cd() -> None:
     assert "foundation-dist/*.zip" in workflow
     assert "actions/upload-artifact@v4" in workflow
     assert "permissions:\n  contents: read" in workflow
+    assert "concurrency:" in workflow
+    assert "timeout-minutes: 20" in workflow
+    assert "timeout-minutes: 15" in workflow
+    assert "persist-credentials: false" in workflow
+    assert "retention-days: 14" in workflow
 
-    assert "uv run ruff check ." in verify
+    assert "uv run ruff check @RuffTargets" in verify
+    for target in (
+        "codex_improvement",
+        "pipeline",
+        "scripts",
+        "tests",
+        "offline_canaries.py",
+        "skill_audit.py",
+        "skill_factory.py",
+    ):
+        assert f'"{target}"' in verify
     assert "test_foundation_cicd_contract.py" in verify
     assert "pipeline\\tests" in verify
     assert '@("tests", "pipeline\\tests")' in verify
@@ -42,10 +58,19 @@ def test_foundation_ci_runs_full_verification_and_artifact_cd() -> None:
     assert "secrets_used = $false" in package
 
     assert "foundation_repo_manifest" in repo_manifest
+    assert 'MANIFEST_ROOT = "."' in repo_manifest
+    assert '"root": MANIFEST_ROOT' in repo_manifest
+    assert "foundation repo manifest root must be repository-relative '.'" in repo_manifest
     assert "github_actions_artifact" in repo_manifest
     assert '"project_plans"' in repo_manifest
     assert '"scripts"' in repo_manifest
     assert '"tests"' in repo_manifest
+
+
+def test_foundation_repo_manifest_root_is_portable() -> None:
+    manifest = json.loads((ROOT / "FOUNDATION_REPO_MANIFEST.json").read_text(encoding="utf-8"))
+
+    assert manifest["root"] == "."
 
 
 def test_root_readme_describes_generic_target_project_and_no_cost_cd() -> None:

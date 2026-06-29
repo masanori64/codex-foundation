@@ -43,7 +43,17 @@ try {
     @("tests", "pipeline\tests")
   }
 
-  Invoke-Checked -Name "ruff" -Command { uv run ruff check . }
+  $RuffTargets = @(
+    "codex_improvement",
+    "pipeline",
+    "scripts",
+    "tests",
+    "offline_canaries.py",
+    "skill_audit.py",
+    "skill_factory.py"
+  )
+
+  Invoke-Checked -Name "ruff" -Command { uv run ruff check @RuffTargets }
   Invoke-Checked -Name "pytest" -Command { uv run pytest @PytestTargets }
   Invoke-Checked -Name "pipeline manifest validation" -Command { uv run python -c "from codex_pipeline.foundation import validate_foundation_manifest; errors = validate_foundation_manifest(); print('foundation manifest ok' if not errors else '\n'.join(errors)); raise SystemExit(1 if errors else 0)" }
   Invoke-Checked -Name "repo manifest validation" -Command { uv run python scripts\write-foundation-repo-manifest.py --check }

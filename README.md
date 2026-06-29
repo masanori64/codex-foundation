@@ -52,11 +52,11 @@ installed Skills, and the checked-out `research_x` project. The portable suite
 is the independent GitHub contract; the default suite is the broader local
 operator contract.
 
-The equivalent direct commands are:
+The main direct commands are:
 
 ```powershell
 $env:PYTHONPATH = "$PWD\pipeline\engine;$env:PYTHONPATH"
-uv run ruff check .
+uv run ruff check codex_improvement pipeline scripts tests offline_canaries.py skill_audit.py skill_factory.py
 uv run pytest tests pipeline\tests
 uv run python -c "from codex_pipeline.foundation import validate_foundation_manifest; errors = validate_foundation_manifest(); print(errors); raise SystemExit(1 if errors else 0)"
 uv run python scripts\write-foundation-repo-manifest.py --check

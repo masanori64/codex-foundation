@@ -5,7 +5,7 @@ from pathlib import Path
 from codex_pipeline import pages
 from codex_pipeline.bridge_loader import load_project_bridge
 from codex_pipeline.cost_guard import build_cost_guard_state
-from codex_pipeline.github_read_collector import build_github_read_state
+from codex_pipeline.github_read_collector import _parse_github_repo, build_github_read_state
 from codex_pipeline.pages import build_pages_readiness_state
 from codex_pipeline.profile_loader import load_project_profile
 from codex_pipeline.subagent_governance import build_subagent_policy
@@ -52,6 +52,30 @@ def test_github_read_placeholder_is_read_only_and_no_secret(codex_project: Path)
     assert state["write_operations_available"] is False
     assert state["mutation_methods_available"] == []
     assert state["paid_usage_detected"] is False
+
+
+def test_github_read_repo_parser_accepts_github_remote_formats() -> None:
+    assert _parse_github_repo("git@github.com:masanori64/codex-foundation.git") == (
+        "masanori64/codex-foundation"
+    )
+    assert _parse_github_repo("https://github.com/masanori64/codex-foundation.git") == (
+        "masanori64/codex-foundation"
+    )
+    assert _parse_github_repo("ssh://git@github.com/masanori64/codex-foundation.git") == (
+        "masanori64/codex-foundation"
+    )
+
+
+def test_github_read_repo_parser_rejects_spoofed_github_substrings() -> None:
+    remotes = [
+        "https://example.test/next=https://github.com/masanori64/codex-foundation.git",
+        "https://github.com.example.test/masanori64/codex-foundation.git",
+        "ssh://git@github.com.example.test/masanori64/codex-foundation.git",
+        "git@example.test:masanori64/codex-foundation.git",
+    ]
+
+    for remote in remotes:
+        assert _parse_github_repo(remote) == ""
 
 
 def test_workflow_artifact_audit_does_not_dispatch_workflow(codex_project: Path) -> None:

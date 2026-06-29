@@ -11,34 +11,31 @@ def build_preview_manifest(
     project_id: str,
     pages_health: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    pages_health = pages_health or {}
-    live_url = pages_health.get("url_map", {}).get("preview")
-    passed = pages_health.get("preview_static_cd_passed") is True
     return {
         "schema_version": 1,
         **control_marker(artifact_kind="preview_manifest"),
         "project_id": project_id,
         "generated_at": datetime.now(UTC).isoformat(),
-        "target_type": "static_pages_lane",
-        "preview_executed": passed,
-        "live_url": live_url,
+        "target_type": "artifact_only",
+        "preview_executed": False,
+        "live_url": None,
         "artifact_name": "codex-preview-artifact",
         "smoke": {
-            "status": "passed" if passed else "pending_pages_deploy",
+            "status": "artifact_only_plan",
             "checks": [
-                {"name": "dashboard_html_exists", "status": "passed" if passed else "planned"},
-                {"name": "dashboard_state_exists", "status": "passed" if passed else "planned"},
-                {"name": "not_evidence_notice", "status": "passed" if passed else "planned"},
-                {"name": "preview_url_http_200", "status": "passed" if passed else "pending"},
+                {"name": "dashboard_html_exists", "status": "planned"},
+                {"name": "dashboard_state_exists", "status": "planned"},
+                {"name": "not_evidence_notice", "status": "passed"},
+                {"name": "preview_url_http_200", "status": "not_executed"},
             ],
         },
         "side_effects": {
             "provider_api_calls": False,
             "secrets_used": False,
             "github_api_calls": False,
-            "pages_enabled": pages_health.get("pages_enabled") is True,
+            "pages_enabled": False,
             "repository_settings_changed": False,
-            "preview_live_deploy": passed,
+            "preview_live_deploy": False,
             "staging_deploy": False,
             "production_deploy": False,
             "rollback_executed": False,

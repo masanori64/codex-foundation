@@ -85,9 +85,9 @@
       "sha256": "62e2071d972793e5d9de7134fc941225b540cd9d20eb10712abe26da6f463f44"
     },
     {
-      "bytes": 9071,
+      "bytes": 9073,
       "path": "context_offloads/research_x/pointer-map.json",
-      "sha256": "bde268f52cb9b4fa4a58fc982b8f79478f5fedea85c465bc1899d6b1eaeac8cd"
+      "sha256": "f6a2bae94f9470cb41d37ff48eaaa7f652f3335ac1ff396b7d6aa4aaf591ba20"
     },
     {
       "bytes": 700,
@@ -102,7 +102,7 @@
     {
       "bytes": 3467,
       "path": "offline_canary_registry.json",
-      "sha256": "40c067ecc103edfc43bb79557f454db71949b75af42afd90fe69c40a74863ab0"
+      "sha256": "c55f025e2e94747ccb61faff43021edcb2d8c3ac4927dea6a992ba86381440c9"
     },
     {
       "bytes": 2242,
@@ -110,9 +110,9 @@
       "sha256": "8a2b11af2f2524bda28164fa1677572b65172cd3258f7a9daac91611a2d35247"
     },
     {
-      "bytes": 14044,
+      "bytes": 14040,
       "path": "pipeline/FOUNDATION_MANIFEST.json",
-      "sha256": "9898c0df6d101e1f1aff0a4d759cbbe555095c76a5042c6dfef5ef759c6a2877"
+      "sha256": "2d40beba3de5cf3345b39b85b581cce282c8f80ad3fd46917420e5f99d1e506d"
     },
     {
       "bytes": 4608,
@@ -170,9 +170,9 @@
       "sha256": "1e6877a8c0300c2caef17344aa65b1177512070716bde62567c268edb15078fe"
     },
     {
-      "bytes": 8646,
+      "bytes": 8511,
       "path": "pipeline/engine/codex_pipeline/e2e_completion.py",
-      "sha256": "85551b43bfe645ac0c34e23a8bd77259b147ce3f98fdbe3172da9405b11bffb7"
+      "sha256": "82f308e066156f3e86974789b7b4bdbbc000e26c2a8c4302ee051c9c5d757304"
     },
     {
       "bytes": 2823,
@@ -195,9 +195,9 @@
       "sha256": "a3d44f802e04d7d74fc2ef6cc988515ebc2518277f40709d4f170022f837a7b2"
     },
     {
-      "bytes": 11897,
+      "bytes": 11976,
       "path": "pipeline/engine/codex_pipeline/github_read_collector.py",
-      "sha256": "4a4e9b02f0786fafa0cf26bdf66bc6db56778a0c40a260ea974698e682ece53f"
+      "sha256": "b339abdbc57f2c3c6f373b8642cd31f689c17e494f532ddcfc077524b0af2d4a"
     },
     {
       "bytes": 3600,
@@ -210,14 +210,14 @@
       "sha256": "00c48455d26770982087223b4ffe7669bd6df09eb4e12a3834f9877cf265aecb"
     },
     {
-      "bytes": 2013,
+      "bytes": 1683,
       "path": "pipeline/engine/codex_pipeline/preview_manifest.py",
-      "sha256": "86fc19f38e8c30792f2ad8270b49cfb357a667ce7e0e90737a0fb7742f4fc435"
+      "sha256": "4d3d90794c0822d50dc3a55098479aa89971110327fbfdfa779f14f6bfbd72c6"
     },
     {
-      "bytes": 2223,
+      "bytes": 1801,
       "path": "pipeline/engine/codex_pipeline/production_manifest.py",
-      "sha256": "9831f1981c663322364c3eb532a5d11732a36e4b09586d205723331870efe35a"
+      "sha256": "0c20b569ef45ae9782ea9d25b7a74cc52e3cb6a7aa9679b05b4b17c23d8f7a52"
     },
     {
       "bytes": 4342,
@@ -225,9 +225,9 @@
       "sha256": "ccd3c32a961baef2920005748c65c9aaac91549d0bc640bab5539e0539e9f9a7"
     },
     {
-      "bytes": 2924,
+      "bytes": 2551,
       "path": "pipeline/engine/codex_pipeline/rollback_planner.py",
-      "sha256": "9fd89153848f2cc7d4692cbb0f2e375f6f4b07972dcb53ee73acfe2927cb8234"
+      "sha256": "148c033673a0d0a740e3eff2e711dc8ab0690e968bfb5949d7344976cf102f52"
     },
     {
       "bytes": 7523,
@@ -235,9 +235,9 @@
       "sha256": "42e469445f1d11acbb5694cb0f2c448f7055699e6c5fb16e130fcbae33565357"
     },
     {
-      "bytes": 2214,
+      "bytes": 1817,
       "path": "pipeline/engine/codex_pipeline/staging_manifest.py",
-      "sha256": "b741c55550ba4544d90ecd24b30a41d77b8f7235226e52fcf84b9d9da318b5ef"
+      "sha256": "92cf72cf8f0ad37a3cdd2f9e19a028d199272dee57a1db8317bc4ce5959d5c78"
     },
     {
       "bytes": 1413,
@@ -445,9 +445,9 @@
       "sha256": "979df265263a59f073c1ea8c5b879046c190ff3c77f269afe21ba599f508a5e2"
     },
     {
-      "bytes": 3366,
+      "bytes": 3432,
       "path": "pipeline/tests/test_dashboard_renderer.py",
-      "sha256": "5fd31fa28a64a387633ca5cd44422c5edeba055fe152a4fcd90e5ee798563335"
+      "sha256": "7e3a41d0bdd92095f7884fbb4fa9df0b84adb483582095b340b1db38f51ab061"
     },
     {
       "bytes": 4328,
@@ -480,9 +480,9 @@
       "sha256": "b532cca14804bc30cec25ad32a91af9f180597e8f2b576413ab812bdae77991a"
     },
     {
-      "bytes": 5886,
+      "bytes": 6857,
       "path": "pipeline/tests/test_no_cost_smoke.py",
-      "sha256": "a088bfb2027f5f6bd8fcf85a217b2e27f0cc06faf6ab61979eb49dded2ca7d33"
+      "sha256": "af64f878ecebf70ad4bdf88f469ab525e2cfb2a971c421214cc8cc2d851d3ca7"
     },
     {
       "bytes": 1585,
@@ -716,7 +716,7 @@
     }
   ],
   "foundation_id": "codex-foundation-repo",
-  "generated_at": "2026-06-29T09:05:02.025222+00:00",
+  "generated_at": "2026-06-29T09:06:46.814907+00:00",
   "not_answer_support": true,
   "not_citation": true,
   "not_project_evidence": true,

@@ -25,20 +25,20 @@ jobs:
       contents: read
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v8.2.0
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Verify foundation
         shell: pwsh
         run: .\scripts\verify-foundation.ps1 -Portable
       - name: Upload foundation coverage
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: codex-foundation-coverage-${{ github.sha }}
           path: foundation-coverage.xml
@@ -54,7 +54,7 @@ jobs:
     needs: verify
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
       - name: Build foundation package
@@ -64,7 +64,7 @@ jobs:
         shell: pwsh
         run: .\scripts\foundation-rollback-plan.ps1 -TargetRef HEAD -OutputPath foundation-dist/foundation-rollback-plan.json
       - name: Upload foundation package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: codex-foundation-${{ github.sha }}
           path: |

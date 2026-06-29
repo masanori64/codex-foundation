@@ -24,7 +24,7 @@ def test_foundation_ci_runs_full_verification_and_artifact_cd() -> None:
         "foundation-dist/foundation-rollback-plan.json"
     ) in workflow
     assert "foundation-dist/*.zip" in workflow
-    assert "actions/upload-artifact@v4" in workflow
+    assert "actions/upload-artifact@v7" in workflow
     assert "permissions:\n  contents: read" in workflow
     assert "concurrency:" in workflow
     assert "timeout-minutes: 20" in workflow
@@ -79,8 +79,8 @@ def test_foundation_github_native_security_surfaces_exist() -> None:
     ).read_text(encoding="utf-8")
     dependabot = (ROOT / ".github/dependabot.yml").read_text(encoding="utf-8")
 
-    assert "github/codeql-action/init@v3" in codeql
-    assert "github/codeql-action/analyze@v3" in codeql
+    assert "github/codeql-action/init@v4" in codeql
+    assert "github/codeql-action/analyze@v4" in codeql
     assert "security-events: write" in codeql
     assert "actions/dependency-review-action@v4" in dependency_review
     assert "fail-on-severity: high" in dependency_review

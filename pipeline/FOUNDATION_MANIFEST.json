@@ -87,9 +87,9 @@
       "sha256": "a3d44f802e04d7d74fc2ef6cc988515ebc2518277f40709d4f170022f837a7b2"
     },
     {
-      "bytes": 11897,
+      "bytes": 11976,
       "path": "engine/codex_pipeline/github_read_collector.py",
-      "sha256": "4a4e9b02f0786fafa0cf26bdf66bc6db56778a0c40a260ea974698e682ece53f"
+      "sha256": "b339abdbc57f2c3c6f373b8642cd31f689c17e494f532ddcfc077524b0af2d4a"
     },
     {
       "bytes": 3600,
@@ -372,9 +372,9 @@
       "sha256": "b532cca14804bc30cec25ad32a91af9f180597e8f2b576413ab812bdae77991a"
     },
     {
-      "bytes": 5886,
+      "bytes": 6857,
       "path": "tests/test_no_cost_smoke.py",
-      "sha256": "a088bfb2027f5f6bd8fcf85a217b2e27f0cc06faf6ab61979eb49dded2ca7d33"
+      "sha256": "af64f878ecebf70ad4bdf88f469ab525e2cfb2a971c421214cc8cc2d851d3ca7"
     },
     {
       "bytes": 1585,
@@ -398,14 +398,14 @@
     }
   ],
   "foundation_id": "codex-hotl-implementation-pipeline",
-  "generated_at": "2026-06-29T06:26:38.499084+00:00",
+  "generated_at": "2026-06-29T07:40:41.919119+00:00",
   "known_projects": [],
   "not_answer_support": true,
   "not_citation": true,
   "not_project_evidence": true,
   "not_research_evidence": true,
-  "registered_in": "C:\\Users\\maasa\\.codex\\foundation-hotl-artifact-contract-20260629\\codex-foundation-registry.toml",
-  "root": "C:\\Users\\maasa\\.codex\\foundation-hotl-artifact-contract-20260629\\pipeline",
+  "registered_in": "C:\\Users\\maasa\\.codex\\foundation-codeql-url-20260629\\codex-foundation-registry.toml",
+  "root": "C:\\Users\\maasa\\.codex\\foundation-codeql-url-20260629\\pipeline",
   "schema_version": 1,
   "version": "0.1.0"
 }

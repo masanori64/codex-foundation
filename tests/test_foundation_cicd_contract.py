@@ -15,6 +15,7 @@ def test_foundation_ci_runs_full_verification_and_artifact_cd() -> None:
     )
 
     assert "push:" in workflow
+    assert '"codex/**"' in workflow
     assert "pull_request:" in workflow
     assert ".\\scripts\\verify-foundation.ps1" in workflow
     assert "-Portable" in workflow

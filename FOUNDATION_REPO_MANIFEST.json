@@ -15,9 +15,9 @@
       "sha256": "e6c2293b4bc08ccb6893292adff8b0a3303cd94cf6fe7244e398aea29c75086d"
     },
     {
-      "bytes": 1976,
+      "bytes": 1999,
       "path": ".github/workflows/foundation-ci.yml",
-      "sha256": "e0aba65077d8c2fb02fc42276f66e39889f490b025fdd94e925da8291cf86df8"
+      "sha256": "17493c5784871a552332e03b0affb57239e9b6786fe2cd2bc6318af778f39f43"
     },
     {
       "bytes": 947,
@@ -107,7 +107,7 @@
     {
       "bytes": 14044,
       "path": "pipeline/FOUNDATION_MANIFEST.json",
-      "sha256": "e56da81e7eaf21651ee4f4d56d1ad1d692c2fc5c48aafa12635341ae4643e00d"
+      "sha256": "931b38b3396f7777a0c47b341d0d42022a41c8a689ad75069e6a5867038b580f"
     },
     {
       "bytes": 4608,
@@ -655,9 +655,9 @@
       "sha256": "3b8893a0268c78a6c7faa7a1ed14572d9354245f15822b4bd305fc379748ce95"
     },
     {
-      "bytes": 5226,
+      "bytes": 5262,
       "path": "tests/test_foundation_cicd_contract.py",
-      "sha256": "f2ad2f7164d48ba7301be874338f79eb78ab378df1ac0daa6720f52dfabf87d5"
+      "sha256": "a0c7192e675c0e07f234dd9449d86649fcfd20c5e807f50158dc7c9ef28286bd"
     },
     {
       "bytes": 5875,
@@ -711,7 +711,7 @@
     }
   ],
   "foundation_id": "codex-foundation-repo",
-  "generated_at": "2026-06-29T04:13:47.777462+00:00",
+  "generated_at": "2026-06-29T04:20:50.184935+00:00",
   "not_answer_support": true,
   "not_citation": true,
   "not_project_evidence": true,

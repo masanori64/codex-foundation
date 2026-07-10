@@ -4,10 +4,8 @@ import hashlib
 import json
 from pathlib import Path
 
-CODEX_CONTEXT_OFFLOADS = Path(
-    "C:/Users/maasa/.codex/foundation/context_offloads/research_x"
-)
-RESEARCH_X = Path("C:/Users/maasa/research_x")
+FOUNDATION_ROOT = Path(__file__).resolve().parents[1]
+CODEX_CONTEXT_OFFLOADS = FOUNDATION_ROOT / "context_offloads" / "research_x"
 POINTER_MAP = CODEX_CONTEXT_OFFLOADS / "pointer-map.json"
 HUMAN_INDEX = CODEX_CONTEXT_OFFLOADS / "visual-context-offload-map.md"
 
@@ -22,8 +20,7 @@ def test_pointer_map_entries_match_current_artifacts() -> None:
 
     for entry in entries:
         path = Path(entry["artifact_path"])
-        if not path.is_absolute():
-            path = RESEARCH_X / path
+        assert path.is_absolute(), entry["pointer_id"]
         assert path.exists(), entry["pointer_id"]
         assert entry["not_evidence"] is True
         assert entry["restore_hint"]
@@ -34,7 +31,7 @@ def test_pointer_map_entries_match_current_artifacts() -> None:
         assert entry["byte_count"] == path.stat().st_size
 
 
-def test_pointer_map_covers_canonical_wbs_presentation_plan_and_gpt_pro_input() -> None:
+def test_pointer_map_covers_archived_wbs_presentation_plan_and_gpt_pro_input() -> None:
     data = json.loads(POINTER_MAP.read_text(encoding="utf-8"))
     paths = {entry["artifact_path"] for entry in data["entries"]}
     artifact_kinds = {entry["artifact_kind"] for entry in data["entries"]}
@@ -43,7 +40,11 @@ def test_pointer_map_covers_canonical_wbs_presentation_plan_and_gpt_pro_input() 
     retired_source_kind = "pdg" + "_source"
     retired_svg_kind = "pdg" + "_svg"
 
-    assert "tools/wbs_viewer/projects/research-x-work-state.json" in paths
+    assert (
+        "C:/Users/maasa/.codex/foundation/work_state/"
+        "research-x-pre-layer-wbs-archive-20260625.json"
+        in paths
+    )
     assert "C:/Users/maasa/.codex/route_memory/route-memory.json" in paths
     assert "C:/Users/maasa/.codex/route_memory/route-memory.schema.json" in paths
     assert (
@@ -70,7 +71,8 @@ def test_pointer_map_marks_codex_foundation_artifacts_not_evidence() -> None:
 
     for path in (
         "C:/Users/maasa/.codex/foundation/project_plans/research_x/2026-06-24-next-wave-33-5-24-10.md",
-        "src/research_x/control_artifacts/renderer.py",
+        "C:/Users/maasa/.codex/foundation/work_state/"
+        "research-x-pre-layer-wbs-archive-20260625.json",
         "C:/Users/maasa/.codex/foundation/codex_improvement/skill_lifecycle.py",
         "C:/Users/maasa/.codex/foundation/codex_improvement/overimplementation_guard.py",
     ):
@@ -84,3 +86,5 @@ def test_human_pointer_index_is_thin_and_defers_to_json() -> None:
     assert "authoritative pointer map" in text
     assert "| pointer_id |" not in text
     assert "not citations or answer support" in text
+    assert "does not point at mutable files" in text
+    assert "canonical WBS work state" not in text

@@ -4,18 +4,24 @@ from pathlib import Path
 
 from codex_pipeline.bridge_loader import load_project_bridge
 from codex_pipeline.dashboard_renderer import render_dashboard_html
-from codex_pipeline.dashboard_state import build_dashboard_state
+from codex_pipeline.dashboard_state import build_dashboard_state, write_dashboard_artifacts
 from codex_pipeline.profile_loader import load_project_profile
 from codex_pipeline.workflow_wrappers import generate_workflow_wrappers
 
 
-def test_dashboard_state_and_html_are_control_artifacts(codex_project: Path) -> None:
+def test_dashboard_state_and_html_are_control_artifacts(
+    codex_project: Path,
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    monkeypatch.setenv("CODEX_CONTROL_HOME", str(tmp_path / "control"))
     generate_workflow_wrappers(codex_project)
     profile = load_project_profile(codex_project)
     bridge = load_project_bridge(codex_project)
 
     state = build_dashboard_state(profile, bridge)
     html = render_dashboard_html(state)
+    write_dashboard_artifacts(profile, bridge, state)
 
     assert state["control_artifact"] is True
     assert state["not_evidence"] is True
@@ -35,6 +41,8 @@ def test_dashboard_state_and_html_are_control_artifacts(codex_project: Path) -> 
     assert state["subagent_policy"]["raw_log_in_project"] is False
     assert "commit" in state["subagent_policy"]["forbidden_actions"]
     assert state["subagent_runtime_dry_run"]["subagents_spawned"] is False
+    assert state["permission_control"]["artifact_kind"] == "permission_control"
+    assert state["permission_control"]["summary"]["gate_count"] == 17
     assert state["cost_guard"]["answer"]["has_paid_execution_in_current_pipeline"] is False
     assert state["cost_guard"]["active_completion_blockers"] == []
     assert (
@@ -64,3 +72,14 @@ def test_dashboard_state_and_html_are_control_artifacts(codex_project: Path) -> 
     assert "Pages Readiness" in html
     assert "Pages Health" in html
     assert "Subagent Dry Run" in html
+    assert "Permission Control (read-only snapshot)" in html
+    assert "codex-pipeline control serve" in html
+    assert "Apply Codex recommendations" not in html
+    assert "<button" not in html
+    assert "/api/set" not in html
+    assert (
+        codex_project / bridge.dashboard_dir / "data" / "permission-control.json"
+    ).is_file()
+    assert (
+        codex_project / bridge.generated_dir / "effective-permission-control.json"
+    ).is_file()

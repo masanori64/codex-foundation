@@ -24,6 +24,7 @@ CONTROL_ARTIFACT_KINDS = {
     "deploy_manifest",
     "preview_manifest",
     "production_manifest",
+    "permission_control",
     "rollback_manifest",
     "staging_manifest",
     "effective_gates",

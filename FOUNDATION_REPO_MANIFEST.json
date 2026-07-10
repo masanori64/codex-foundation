@@ -110,14 +110,14 @@
       "sha256": "8a2b11af2f2524bda28164fa1677572b65172cd3258f7a9daac91611a2d35247"
     },
     {
-      "bytes": 14040,
+      "bytes": 14967,
       "path": "pipeline/FOUNDATION_MANIFEST.json",
-      "sha256": "2d40beba3de5cf3345b39b85b581cce282c8f80ad3fd46917420e5f99d1e506d"
+      "sha256": "8c7dcb2480b77d16311fc6a29a4d03a641d141ee1dabbf5c4470e8b55e85034d"
     },
     {
-      "bytes": 4608,
+      "bytes": 6459,
       "path": "pipeline/README.md",
-      "sha256": "195c7f77565ab2ef2d532c469450c8f10bffa7544ff413b2852cc9069a3be064"
+      "sha256": "43eb02e191e0db316d43f3ec4af289cb8bdf2246d07b59e5e2589ae5d6f0e919"
     },
     {
       "bytes": 6,
@@ -140,14 +140,14 @@
       "sha256": "48b7b17b60f8d5c2b68c555b20429294fd57722ab95fd69ace650db71a5c6481"
     },
     {
-      "bytes": 13008,
+      "bytes": 16995,
       "path": "pipeline/engine/codex_pipeline/cli.py",
-      "sha256": "af98aca6a0182f4d33c005ba76fbbc720d25e69ade6122b4362d9582391b8174"
+      "sha256": "363ab90635609dc46e3e8a5a0e4e11f6574c3b078bc9d8b1e57b6ee05f1a7b19"
     },
     {
-      "bytes": 7644,
+      "bytes": 7743,
       "path": "pipeline/engine/codex_pipeline/control_artifact_audit.py",
-      "sha256": "65b709ca1a51f64bc810bae4c9c7a350e0c2a4a28f5d76dea337e81fd8069fd4"
+      "sha256": "c100219d1cb2b2e8e5812cc84fce8b42e3bab7e2ba0caa606b212ec37ad56fa5"
     },
     {
       "bytes": 12063,
@@ -155,14 +155,14 @@
       "sha256": "0ec4cece9629362be4d2c2e549bbb8f7e12db3d89804f5f59f3b35849e9c6543"
     },
     {
-      "bytes": 7707,
+      "bytes": 8675,
       "path": "pipeline/engine/codex_pipeline/dashboard_renderer.py",
-      "sha256": "d5060fa09c2674340cb4380ec23b9b8b002f619e9b980cf08a361bf46bae969a"
+      "sha256": "85644809f44b3839f03e4c34094a5ff7d924546a2ebd5071a93dc309196865bb"
     },
     {
-      "bytes": 14010,
+      "bytes": 14456,
       "path": "pipeline/engine/codex_pipeline/dashboard_state.py",
-      "sha256": "28afe1424dbb0950a5bf198a9666ade14db903c84fe62621c4cc9fe4fecf29fe"
+      "sha256": "53912f9f9823b2dde119c66888ade9e211d38f05c5dd41ad81f3c9fd06022f45"
     },
     {
       "bytes": 1173,
@@ -175,19 +175,19 @@
       "sha256": "82f308e066156f3e86974789b7b4bdbbc000e26c2a8c4302ee051c9c5d757304"
     },
     {
-      "bytes": 2823,
+      "bytes": 2849,
       "path": "pipeline/engine/codex_pipeline/evidence_boundary.py",
-      "sha256": "849c730beb368497796743a6049a229d5172b06ae49e917e0997b87250e941eb"
+      "sha256": "4491ba070d52b91c82a5dd6b2bc0a64e43f842b17b844a36ed23f1f4b577d77e"
     },
     {
-      "bytes": 7966,
+      "bytes": 8311,
       "path": "pipeline/engine/codex_pipeline/foundation.py",
-      "sha256": "db33e53786ec7395a01878fedd5eaa92ddac241b65d110b5523598e9482de3a8"
+      "sha256": "d4edb467def4918fbc1cb5daa68d777a48876d87c8e448a815d5b4d597602c36"
     },
     {
-      "bytes": 4738,
+      "bytes": 5314,
       "path": "pipeline/engine/codex_pipeline/gate_policy.py",
-      "sha256": "d568219b9fb4e3c3686146dae52b7edaa27465ae8e522e0396bb772da11659cb"
+      "sha256": "b1c0c0b7ba309305c6f57cf00cec80b6975662f3d4801d0e2f55992f9f796510"
     },
     {
       "bytes": 3009,
@@ -208,6 +208,16 @@
       "bytes": 17903,
       "path": "pipeline/engine/codex_pipeline/pages.py",
       "sha256": "00c48455d26770982087223b4ffe7669bd6df09eb4e12a3834f9877cf265aecb"
+    },
+    {
+      "bytes": 30946,
+      "path": "pipeline/engine/codex_pipeline/permission_control.py",
+      "sha256": "d79e49b22418b18ce6c05f69aff0e6637ab5a1a2c6dd956b90134fc07c966bf6"
+    },
+    {
+      "bytes": 14963,
+      "path": "pipeline/engine/codex_pipeline/permission_server.py",
+      "sha256": "25d6276844b9a51b0205c6050c1ee355a4e4699bdff32b52d300c2c5ecbdbec5"
     },
     {
       "bytes": 1683,
@@ -250,9 +260,9 @@
       "sha256": "48f09a082bbce76731fdec85712440d7fb6ebf7f8be9c75259542cefdc77f66e"
     },
     {
-      "bytes": 12809,
+      "bytes": 12930,
       "path": "pipeline/engine/codex_pipeline/validation.py",
-      "sha256": "ff20991db56adead00ca53c43b3b50d113f884443944c702ee664b1d9e6125ee"
+      "sha256": "9ac80878aa57c333f598027aea344338955ea21507b15e11433cc0344d2fb567"
     },
     {
       "bytes": 4625,
@@ -315,6 +325,11 @@
       "sha256": "cf1bbd6703e9aceabd9d6e6381f2a078fe046251d73008558dc3560dc7d5104c"
     },
     {
+      "bytes": 4796,
+      "path": "pipeline/policies/permission-control-registry.json",
+      "sha256": "e98a8564f8fe6b9c5707caadb4640fcac4d185406cb5f78694bff719b58d680f"
+    },
+    {
       "bytes": 309,
       "path": "pipeline/policies/provider-quota-policy.yml",
       "sha256": "d4db8343d7fd8d3e04309a96cfee97ecb64cd378f6a0141d4ad36f2c91c28c63"
@@ -333,6 +348,11 @@
       "bytes": 418,
       "path": "pipeline/schema/e2e-completion-manifest.schema.json",
       "sha256": "8afd5bdf191a4b3d4074f8bf8e3c920c94800923b897c3ed30f8d05882a285c4"
+    },
+    {
+      "bytes": 1148,
+      "path": "pipeline/schema/permission-control-profile.schema.json",
+      "sha256": "4425853c2f073ee90bb0db5db0a4e36eb44aaa4b6ee53bc278fa2e60786e92f5"
     },
     {
       "bytes": 179,
@@ -445,9 +465,9 @@
       "sha256": "979df265263a59f073c1ea8c5b879046c190ff3c77f269afe21ba599f508a5e2"
     },
     {
-      "bytes": 3432,
+      "bytes": 4233,
       "path": "pipeline/tests/test_dashboard_renderer.py",
-      "sha256": "7e3a41d0bdd92095f7884fbb4fa9df0b84adb483582095b340b1db38f51ab061"
+      "sha256": "3e111ccdce10a3fec00cd3786543eb8cfa5ac61b4d79363b795cd67484b44ff3"
     },
     {
       "bytes": 4328,
@@ -460,9 +480,9 @@
       "sha256": "27c9650c594eba141a984b177274c2b7c56e16f214e5ec6438864065199e1a6a"
     },
     {
-      "bytes": 457,
+      "bytes": 657,
       "path": "pipeline/tests/test_foundation_manifest.py",
-      "sha256": "fd892cd71b2ac5091949a6fb59a64de9c0fa938e1d3252206507d5242793ad55"
+      "sha256": "120561aa574d96b59e4e11331354ef4f138238b3f1c9c448af8dc3f8549d6d7e"
     },
     {
       "bytes": 1631,
@@ -483,6 +503,16 @@
       "bytes": 6857,
       "path": "pipeline/tests/test_no_cost_smoke.py",
       "sha256": "af64f878ecebf70ad4bdf88f469ab525e2cfb2a971c421214cc8cc2d851d3ca7"
+    },
+    {
+      "bytes": 14733,
+      "path": "pipeline/tests/test_permission_control.py",
+      "sha256": "b301680937b9e524cc54b91040502bd48ae8657c9e54a16085a649367e9d3239"
+    },
+    {
+      "bytes": 4443,
+      "path": "pipeline/tests/test_permission_server.py",
+      "sha256": "ff72a0c5abe5183b786a4c62584cef2234f6ce2440c8accd3f8f6c7d6ad7eeb6"
     },
     {
       "bytes": 1585,
@@ -716,7 +746,7 @@
     }
   ],
   "foundation_id": "codex-foundation-repo",
-  "generated_at": "2026-07-10T19:04:01.246449+00:00",
+  "generated_at": "2026-07-10T23:07:17.062305+00:00",
   "not_answer_support": true,
   "not_citation": true,
   "not_project_evidence": true,

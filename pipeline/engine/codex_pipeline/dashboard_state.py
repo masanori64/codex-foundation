@@ -31,6 +31,7 @@ from .pages import (
     load_pages_readiness,
     load_pages_rollback_manifest,
 )
+from .permission_control import build_control_snapshot
 from .preview_manifest import build_preview_manifest
 from .production_manifest import build_production_manifest
 from .profile_loader import ProjectProfile
@@ -97,6 +98,7 @@ def build_dashboard_state(profile: ProjectProfile, bridge: ProjectBridge) -> dic
         profile.project_root,
         github_read_state=github_read_state,
     )
+    permission_control = build_control_snapshot(profile.project_root)
     subagent_runtime_dry_run = build_subagent_runtime_dry_run(subagent_policy)
     e2e_completion_manifest = build_e2e_completion_manifest(
         profile,
@@ -179,6 +181,7 @@ def build_dashboard_state(profile: ProjectProfile, bridge: ProjectBridge) -> dic
         "cost_guard": cost_guard,
         "workflow_artifact_audit": workflow_artifact_audit,
         "workflow_smoke": workflow_smoke,
+        "permission_control": permission_control,
         "subagent_runtime_dry_run": subagent_runtime_dry_run,
         "e2e_completion_manifest": e2e_completion_manifest,
         "evidence_boundary": evidence_boundary_summary(),
@@ -211,6 +214,7 @@ def write_dashboard_artifacts(
     _write_json(data_dir / "subagent-policy.json", state["subagent_policy"])
     _write_json(data_dir / "subagent-runtime-dry-run.json", state["subagent_runtime_dry_run"])
     _write_json(data_dir / "control-artifact-audit.json", state["control_artifact_audit"])
+    _write_json(data_dir / "permission-control.json", state["permission_control"])
     _write_json(data_dir / "github-collection.json", state["github_collection"])
     _write_json(data_dir / "github-read-state.json", state["github_read_state"])
     _write_json(data_dir / "cost-guard.json", state["cost_guard"])
@@ -228,6 +232,10 @@ def write_dashboard_artifacts(
     _write_json(
         generated_dir / "effective-control-artifact-audit.json",
         state["control_artifact_audit"],
+    )
+    _write_json(
+        generated_dir / "effective-permission-control.json",
+        state["permission_control"],
     )
     _write_json(generated_dir / "effective-github-collection.json", state["github_collection"])
     _write_json(generated_dir / "effective-github-read-state.json", state["github_read_state"])
@@ -295,6 +303,7 @@ def write_dashboard_artifacts(
                 **control_marker(artifact_kind="effective_gates"),
                 "gates": state["gates"],
                 "capabilities": state["capabilities"],
+                "permission_control": state["permission_control"],
             }
         ),
         encoding="utf-8",

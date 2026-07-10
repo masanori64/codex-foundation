@@ -11,6 +11,8 @@ FOUNDATION_ID = "codex-hotl-implementation-pipeline"
 FOUNDATION_MANIFEST = PIPELINE_ROOT / "FOUNDATION_MANIFEST.json"
 FOUNDATION_AUDIT_LOG = PIPELINE_ROOT / "audit" / "foundation-events.jsonl"
 FOUNDATION_REGISTRY = PIPELINE_ROOT.parent / "codex-foundation-registry.toml"
+MANIFEST_ROOT = "."
+FOUNDATION_REGISTRY_REF = "../codex-foundation-registry.toml"
 
 _MANIFEST_DIRS = ("engine", "policies", "schema", "scripts", "templates", "tests")
 _MANIFEST_TOP_LEVEL = ("CHANGELOG.control.md", "README.md", "VERSION")
@@ -36,13 +38,13 @@ def build_foundation_manifest(
         "foundation_id": FOUNDATION_ID,
         "version": foundation_version(),
         "generated_at": generated_at or datetime.now(UTC).isoformat(),
-        "root": str(PIPELINE_ROOT),
+        "root": MANIFEST_ROOT,
         "control_artifact": True,
         "not_project_evidence": True,
         "not_research_evidence": True,
         "not_citation": True,
         "not_answer_support": True,
-        "registered_in": str(FOUNDATION_REGISTRY),
+        "registered_in": FOUNDATION_REGISTRY_REF,
         "known_projects": sorted(known_projects or []),
         "files": files,
     }
@@ -121,6 +123,10 @@ def validate_foundation_manifest() -> list[str]:
         errors.append("foundation manifest must be not_research_evidence")
     if manifest.get("not_citation") is not True:
         errors.append("foundation manifest must be not_citation")
+    if manifest.get("root") != MANIFEST_ROOT:
+        errors.append("foundation manifest root must be portable '.'")
+    if manifest.get("registered_in") != FOUNDATION_REGISTRY_REF:
+        errors.append("foundation manifest registry path must be repository-relative")
     files = manifest.get("files")
     if not isinstance(files, list) or not files:
         errors.append("foundation manifest must include file records")

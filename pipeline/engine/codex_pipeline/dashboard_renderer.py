@@ -31,6 +31,16 @@ def render_dashboard_html(state: dict[str, Any]) -> str:
         "</tr>"
         for capability in state["capabilities"]
     )
+    permission_rows = "\n".join(
+        "<tr>"
+        f"<td>{_esc(gate['gate_id'])}</td>"
+        f"<td>{_esc(gate['mode'])}</td>"
+        f"<td>{_esc(gate['current'])}</td>"
+        f"<td>{_recommendation_text(gate)}</td>"
+        f"<td>{_esc(gate['reason'])}</td>"
+        "</tr>"
+        for gate in state.get("permission_control", {}).get("gates", [])
+    )
     mermaid_blocks = "\n".join(
         f"<section><h3>{_esc(name)}</h3><pre>{_esc(source)}</pre></section>"
         for name, source in state["dashboard"]["mermaid"].items()
@@ -148,6 +158,11 @@ def render_dashboard_html(state: dict[str, Any]) -> str:
       <table><thead><tr><th>Gate</th><th>Status</th><th>Reason</th></tr></thead><tbody>{gate_rows}</tbody></table>
     </section>
     <section>
+      <h2>Permission Control (read-only snapshot)</h2>
+      <p>This static dashboard cannot change permissions. Use <code>codex-pipeline control serve</code> for interactive controls.</p>
+      <table><thead><tr><th>Gate</th><th>Mode</th><th>Current</th><th>Recommendation</th><th>Reason</th></tr></thead><tbody>{permission_rows}</tbody></table>
+    </section>
+    <section>
       <h2>CI/CD Lanes</h2>
       <table><thead><tr><th>Lane</th><th>Name</th><th>Automatic</th></tr></thead><tbody>{lane_rows}</tbody></table>
     </section>
@@ -173,3 +188,10 @@ def render_dashboard_html(state: dict[str, Any]) -> str:
 
 def _esc(value: Any) -> str:
     return html.escape(str(value), quote=True)
+
+
+def _recommendation_text(gate: dict[str, Any]) -> str:
+    recommendation = gate.get("recommendation")
+    if not recommendation:
+        return "none"
+    return _esc(f"{recommendation['value']}: {recommendation['reason']}")

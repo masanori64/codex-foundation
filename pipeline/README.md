@@ -18,6 +18,9 @@ Implemented:
 
 - profile and bridge validation;
 - local-only gate checks;
+- persistent per-project permission controls outside Git, with atomic state writes
+  and JSONL audit events;
+- a loopback-only interactive permission GUI and read-only dashboard snapshot;
 - local dashboard and Mermaid generation;
 - deploy and rollback manifest planning without execution;
 - evidence-boundary checks for generated control artifacts.
@@ -88,4 +91,43 @@ $PROJECT = "C:\path\to\target-project"
 & $PIPELINE generate-pages-workflows --project $PROJECT
 & $PIPELINE validate-pages-workflows --project $PROJECT
 & $PIPELINE final-audit --project $PROJECT
+
+# Persistent human-on-the-loop permission controls
+& $PIPELINE control list --project $PROJECT
+& $PIPELINE control check --project $PROJECT --gate github_write
+& $PIPELINE control set --project $PROJECT --gate github_write --value allow --reason "scoped publish"
+& $PIPELINE control recommend --project $PROJECT --gate github_write --value allow --reason "scoped reversible publish"
+& $PIPELINE control bulk --project $PROJECT --action apply-recommendations
+& $PIPELINE control bulk --project $PROJECT --action block
+& $PIPELINE control serve --project $PROJECT
 ```
+
+Permission state defaults to `$HOME/.codex/control` and can be relocated with
+`CODEX_CONTROL_HOME` or `--control-home`. It is keyed by project identity and
+resolved project root, so it is not stored in or shared through the target Git
+repository. `toggle` gates can be allowed or denied persistently. `confirm_each`
+gates require an operation-specific confirmation and are never changed by bulk
+actions. `fixed` gates cannot be unlocked from the project control surface.
+
+A target project may add gates, but cannot override foundation gates, through
+`.codex-project/control-profile.json`:
+
+```json
+{
+  "schema_version": 1,
+  "project_id": "example-project",
+  "gates": [
+    {
+      "gate_id": "release_train_window",
+      "label": "Release train window",
+      "mode": "toggle",
+      "default": "deny",
+      "reason": "Release only during a project-approved window."
+    }
+  ]
+}
+```
+
+The interactive server accepts only loopback IP bindings and protects every
+mutation with a per-process CSRF token. Generated dashboard HTML is a read-only
+snapshot; it contains no permission mutation controls.

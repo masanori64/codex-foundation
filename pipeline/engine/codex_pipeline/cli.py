@@ -79,6 +79,45 @@ def build_parser() -> argparse.ArgumentParser:
             command.add_argument("--report", type=Path, required=True)
     manifest = subparsers.add_parser("write-foundation-manifest")
     manifest.add_argument("--known-project", action="append", default=[])
+
+    control = subparsers.add_parser("control")
+    control_subparsers = control.add_subparsers(dest="control_command", required=True)
+    for name in ("list", "check", "set", "recommend", "bulk", "serve"):
+        command = control_subparsers.add_parser(name)
+        command.add_argument("--project", type=Path, required=True)
+        command.add_argument("--control-home", type=Path)
+        if name in {"check", "set", "recommend"}:
+            command.add_argument("--gate", required=True)
+        if name in {"set", "recommend"}:
+            command.add_argument("--value", choices=("allow", "deny"), required=True)
+        if name == "check":
+            command.add_argument("--confirmed", action="store_true")
+        if name in {"check", "set", "recommend", "bulk"}:
+            command.add_argument(
+                "--actor",
+                default="codex" if name == "recommend" else "human",
+            )
+            command.add_argument("--reason", required=name == "recommend", default="")
+        if name == "bulk":
+            command.add_argument(
+                "--action",
+                choices=(
+                    "allow",
+                    "deny",
+                    "unlock",
+                    "block",
+                    "apply-recommendations",
+                ),
+                required=True,
+            )
+        if name == "serve":
+            command.add_argument("--host", default="127.0.0.1")
+            command.add_argument("--port", type=int, default=8768)
+            command.add_argument(
+                "--open-browser",
+                action=argparse.BooleanOptionalAction,
+                default=True,
+            )
     return parser
 
 
@@ -90,6 +129,71 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True))
         return 0
     project = args.project.resolve()
+    if args.command == "control":
+        from .permission_control import (
+            build_control_snapshot,
+            bulk_update_toggles,
+            check_gate,
+            set_recommendation,
+            set_toggle,
+        )
+
+        control_home = args.control_home.resolve() if args.control_home is not None else None
+        if args.control_command == "list":
+            result = build_control_snapshot(project, control_home=control_home)
+        elif args.control_command == "check":
+            result = check_gate(
+                project,
+                args.gate,
+                explicit_confirmation=args.confirmed,
+                actor=args.actor,
+                reason=args.reason,
+                control_home=control_home,
+            )
+            print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
+            return 0 if result["allowed"] else 3
+        elif args.control_command == "set":
+            result = set_toggle(
+                project,
+                args.gate,
+                args.value,
+                actor=args.actor,
+                reason=args.reason,
+                control_home=control_home,
+            )
+        elif args.control_command == "recommend":
+            result = set_recommendation(
+                project,
+                args.gate,
+                args.value,
+                actor=args.actor,
+                reason=args.reason,
+                control_home=control_home,
+            )
+        elif args.control_command == "bulk":
+            result = bulk_update_toggles(
+                project,
+                args.action,
+                actor=args.actor,
+                reason=args.reason,
+                control_home=control_home,
+            )
+        elif args.control_command == "serve":
+            from .permission_server import serve_control_gui
+
+            serve_control_gui(
+                project,
+                control_home=control_home,
+                host=args.host,
+                port=args.port,
+                open_browser=args.open_browser,
+            )
+            return 0
+        else:
+            parser.error(f"unhandled control command: {args.control_command}")
+            return 2
+        print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
+        return 0
     requested_foundation_root = getattr(args, "foundation_root", None)
     if (
         requested_foundation_root is not None

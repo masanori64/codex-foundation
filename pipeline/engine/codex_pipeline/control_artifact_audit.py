@@ -128,6 +128,7 @@ def planned_control_artifact_paths(bridge: ProjectBridge) -> list[str]:
     paths = [
         generated / "effective-control-artifact-audit.json",
         generated / "effective-dashboard-state.json",
+        generated / "effective-permission-control.json",
         generated / "effective-gates.yml",
         generated / "effective-github-collection.json",
         generated / "effective-pipeline.yml",
@@ -139,6 +140,7 @@ def planned_control_artifact_paths(bridge: ProjectBridge) -> list[str]:
         data / "control-artifact-audit.json",
         data / "dashboard-state.json",
         data / "deploy-manifest.json",
+        data / "permission-control.json",
         data / "github-collection.json",
         data / "preview-manifest.json",
         data / "production-manifest.json",

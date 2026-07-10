@@ -152,3 +152,25 @@ def check_requested_actions(actions: list[str]) -> list[GateStatus]:
                 )
             )
     return hits
+
+
+def check_permission_gate(
+    project_root: str | Path,
+    gate_id: str,
+    *,
+    explicit_confirmation: bool = False,
+    actor: str = "human",
+    reason: str = "",
+    control_home: str | Path | None = None,
+) -> dict[str, Any]:
+    """Evaluate the persistent permission layer without changing legacy gate behavior."""
+    from .permission_control import check_gate
+
+    return check_gate(
+        project_root,
+        gate_id,
+        explicit_confirmation=explicit_confirmation,
+        actor=actor,
+        reason=reason,
+        control_home=control_home,
+    )
